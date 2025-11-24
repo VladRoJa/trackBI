@@ -3,7 +3,7 @@ name: track-bi
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 15 * * *"
+    - cron: "0 15 * * *"   # 7am Tijuana aprox (ajustas después)
 
 jobs:
   run-track-bi:
@@ -30,13 +30,18 @@ jobs:
           DIRECCION_USER=${{ secrets.DIRECCION_USER }}
           DIRECCION_PASS=${{ secrets.DIRECCION_PASS }}
           DIRECCION_LOGIN_URL=${{ secrets.DIRECCION_LOGIN_URL }}
+
           DIRECCION_REPORTE_URL=${{ secrets.DIRECCION_REPORTE_URL }}
           KPI_DESEMPENO_URL=${{ secrets.KPI_DESEMPENO_URL }}
+          KPI_VENTAS_NUEVAS_SOCIOS_URL=${{ secrets.KPI_VENTAS_NUEVAS_SOCIOS_URL }}
+
           REPORTES_URL=${{ secrets.REPORTES_URL }}
+
           DIRECCION_OUTPUT_DIR=data/direccion_ingresos
           KPI_DESEMPENO_OUTPUT_DIR=data/kpi_desempeno
           KPI_VENTAS_NUEVOS_SOCIOS_OUTPUT_DIR=data/kpi_ventas_nuevos_socios
           DESCARGAS_OUTPUT_DIR=data/descargas
+
           SHOW_BROWSER=0
           EOF
 
