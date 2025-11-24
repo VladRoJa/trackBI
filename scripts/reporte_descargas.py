@@ -28,12 +28,7 @@ load_dotenv(ENV_PATH)
 USER = os.getenv("DIRECCION_USER")
 PASS = os.getenv("DIRECCION_PASS")
 LOGIN_URL = os.getenv("DIRECCION_LOGIN_URL")
-
-# URL del módulo de reportes
-REPORTES_URL = os.getenv(
-    "REPORTES_URL",
-    "https://ultragimnasios.com/Modulo/Reporte/Index"
-)
+REPORTES_URL = os.getenv("REPORTES_URL")
 
 # Carpeta destino para los archivos descargados (SIN fecha)
 OUTPUT_DIR = Path(
