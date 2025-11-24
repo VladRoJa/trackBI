@@ -1,9 +1,9 @@
-name: Track BI - Reportes Gasca
+name: track-bi
 
 on:
-  schedule:
-    - cron: '0 15 * * *'   
-  workflow_dispatch:
+  workflow_dispatch:      # para correrlo a mano
+  schedule:               # luego aquí pones tu horario real
+    - cron: "0 15 * * *"  # ej. 7 AM de Tijuana (~UTC-6/7 según horario)
 
 jobs:
   run-track-bi:
@@ -13,23 +13,49 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Crear .env desde secret
-        run: |
-          echo "${{ secrets.TRACK_BI_ENV }}" > .env
-
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-      - name: Instalar dependencias
+      - name: Install Python dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install -r scripts/requirements.txt
+          python -m playwright install --with-deps
 
-      - name: Ejecutar reporte Dirección
+      - name: Create .env file for scripts
         run: |
-          python scripts/reporte_direccion_ingresos.py
+          cat << 'EOF' > .env
+          DIRECCION_USER=${{ secrets.DIRECCION_USER }}
+          DIRECCION_PASS=${{ secrets.DIRECCION_PASS }}
+          DIRECCION_LOGIN_URL=${{ secrets.DIRECCION_LOGIN_URL }}
 
-      - name: Ejecutar descargas (corte caja, venta total, cargos recurrentes)
+          DIRECCION_REPORTE_URL=${{ secrets.DIRECCION_REPORTE_URL }}
+          KPI_DESEMPENO_URL=${{ secrets.KPI_DESEMPENO_URL }}
+
+          # URLs de módulo de reportes (corte caja / venta total / cargos)
+          REPORTES_URL=${{ secrets.REPORTES_URL }}
+
+          # Carpetas donde guardan los archivos (dentro del repo)
+          DIRECCION_OUTPUT_DIR=data/direccion_ingresos
+          KPI_DESEMPENO_OUTPUT_DIR=data/kpi_desempeno
+          KPI_VENTAS_NUEVOS_SOCIOS_OUTPUT_DIR=data/kpi_ventas_nuevos_socios
+          DESCARGAS_OUTPUT_DIR=data/descargas
+
+          # Playwright siempre en headless en Actions
+          SHOW_BROWSER=0
+          EOF
+
+      - name: Create output folders
         run: |
-          python scripts/reporte_descargas.py
+          mkdir -p data/direccion_ingresos
+          mkdir -p data/kpi_desempeno
+          mkdir -p data/kpi_ventas_nuevos_socios
+          mkdir -p data/descargas
+
+      - name: Run Python scripts
+        working-directory: scripts
+        run: |
+          python reporte_direccion_ingresos.py
+          python reporte_descargas.py
