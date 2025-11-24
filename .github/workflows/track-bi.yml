@@ -1,9 +1,9 @@
 name: track-bi
 
 on:
-  workflow_dispatch:      # para correrlo a mano
-  schedule:               # luego aquí pones tu horario real
-    - cron: "0 15 * * *"  # ej. 7 AM de Tijuana (~UTC-6/7 según horario)
+  workflow_dispatch:        # para correrlo a mano
+  schedule:                 # programado (ajusta la hora)
+    - cron: "0 15 * * *"    # 15:00 UTC ~ 7:00 am Tijuana (según horario)
 
 jobs:
   run-track-bi:
@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install Python dependencies
+      - name: Install Python & Playwright deps
         run: |
           python -m pip install --upgrade pip
           pip install -r scripts/requirements.txt
@@ -34,16 +34,13 @@ jobs:
           DIRECCION_REPORTE_URL=${{ secrets.DIRECCION_REPORTE_URL }}
           KPI_DESEMPENO_URL=${{ secrets.KPI_DESEMPENO_URL }}
 
-          # URLs de módulo de reportes (corte caja / venta total / cargos)
           REPORTES_URL=${{ secrets.REPORTES_URL }}
 
-          # Carpetas donde guardan los archivos (dentro del repo)
           DIRECCION_OUTPUT_DIR=data/direccion_ingresos
           KPI_DESEMPENO_OUTPUT_DIR=data/kpi_desempeno
           KPI_VENTAS_NUEVOS_SOCIOS_OUTPUT_DIR=data/kpi_ventas_nuevos_socios
           DESCARGAS_OUTPUT_DIR=data/descargas
 
-          # Playwright siempre en headless en Actions
           SHOW_BROWSER=0
           EOF
 
