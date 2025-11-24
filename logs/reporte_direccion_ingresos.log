@@ -1,0 +1,722 @@
+2025-11-20 13:00:51,454 [ERROR] Faltan variables en .env: DIRECCION_USER, DIRECCION_PASS, DIRECCION_LOGIN_URL, DIRECCION_REPORTE_URL
+2025-11-20 13:12:25,631 [INFO] ==== Inicio de ejecución: Reporte Dirección Ingresos ====
+2025-11-20 13:12:25,631 [INFO] ======= Intento 1 de 3 =======
+2025-11-20 13:12:26,900 [INFO] [Intento 1] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-20 13:12:38,742 [INFO] [Intento 1] Verificando posible 404...
+2025-11-20 13:12:38,756 [INFO] [Intento 1] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-20 13:13:16,420 [INFO] Esperando a que aparezca la tabla del reporte...
+2025-11-20 13:13:47,857 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2025-11-20 13:13:47,857 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2025-11-20 13:19:15,083 [INFO] ==== Inicio de ejecución: Reporte Dirección Ingresos ====
+2025-11-20 13:19:15,083 [INFO] ======= Intento 1 de 3 =======
+2025-11-20 13:19:15,567 [INFO] [Intento 1] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-20 13:19:24,870 [INFO] [Intento 1] Verificando posible 404...
+2025-11-20 13:19:24,887 [INFO] [Intento 1] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-20 13:20:12,156 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-20 13:22:15,729 [INFO] ==== Inicio de ejecución: Reporte Dirección Ingresos ====
+2025-11-20 13:22:15,729 [INFO] ======= Intento 1 de 3 =======
+2025-11-20 13:22:16,190 [INFO] [Intento 1] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-20 13:22:25,080 [INFO] [Intento 1] Verificando posible 404...
+2025-11-20 13:22:25,113 [INFO] [Intento 1] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-20 13:23:00,990 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-20 13:23:01,012 [INFO] Tabla visible después de 0 segundos.
+2025-11-20 13:23:01,207 [INFO] [Intento 1] Tabla extraída con 8 filas y 3 columnas.
+2025-11-23 16:37:32,600 [INFO] ==== Inicio de ejecución: Reporte Dirección Ingresos ====
+2025-11-23 16:37:32,600 [INFO] ======= Intento 1 de 3 =======
+2025-11-23 16:37:49,173 [INFO] [Intento 1] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-23 16:38:06,074 [INFO] [Intento 1] Verificando posible 404...
+2025-11-23 16:38:06,118 [INFO] [Intento 1] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 16:39:05,868 [ERROR] [Intento 1] Timeout (posible fallo de red o servidor lento): Timeout 30000ms exceeded.
+2025-11-23 16:39:05,920 [WARNING] Fallo en intento 1: Timeout 30000ms exceeded.
+2025-11-23 16:39:05,920 [INFO] Reintentando...
+2025-11-23 16:39:10,923 [INFO] ======= Intento 2 de 3 =======
+2025-11-23 16:39:22,520 [INFO] [Intento 2] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-23 16:39:32,018 [INFO] [Intento 2] Verificando posible 404...
+2025-11-23 16:39:32,034 [INFO] [Intento 2] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 16:40:01,036 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 16:40:01,049 [INFO] Tabla visible después de 0 segundos.
+2025-11-23 16:40:01,255 [INFO] [Intento 2] Tabla extraída con 8 filas y 3 columnas.
+2025-11-23 16:42:57,130 [INFO] ==== Inicio de ejecución: Reporte Dirección Ingresos ====
+2025-11-23 16:42:57,130 [INFO] ======= Intento 1 de 3 =======
+2025-11-23 16:42:58,421 [INFO] [Intento 1] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-23 16:43:07,913 [INFO] [Intento 1] Verificando posible 404...
+2025-11-23 16:43:07,936 [INFO] [Intento 1] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 16:43:34,080 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 16:43:34,098 [INFO] Tabla visible después de 0 segundos.
+2025-11-23 16:43:34,250 [INFO] [Intento 1] Tabla extraída con 8 filas y 3 columnas.
+2025-11-23 16:43:35,061 [INFO] Archivo guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-23.xlsx
+2025-11-23 17:07:04,683 [INFO] ==== Inicio de ejecución: Reporte Dirección Ingresos ====
+2025-11-23 17:07:04,683 [INFO] ======= Intento 1 de 3 =======
+2025-11-23 17:07:17,865 [INFO] [Intento 1] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-23 17:07:26,896 [INFO] [Intento 1] Verificando posible 404...
+2025-11-23 17:07:26,911 [INFO] [Intento 1] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 17:07:53,247 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 17:07:53,263 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 17:07:53,263 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 17:07:53,435 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 17:07:53,468 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 17:07:53,468 [INFO] Tabla seleccionada: score=504, shape=(28, 18)
+2025-11-23 17:07:53,468 [INFO] [Intento 1] Tabla extraída con 28 filas y 18 columnas.
+2025-11-23 17:10:06,470 [INFO] ==== Inicio de ejecución: Reporte Dirección Ingresos ====
+2025-11-23 17:10:06,470 [INFO] ======= Intento 1 de 3 =======
+2025-11-23 17:10:07,131 [INFO] [Intento 1] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-23 17:10:16,317 [INFO] [Intento 1] Verificando posible 404...
+2025-11-23 17:10:16,332 [INFO] [Intento 1] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 17:10:42,672 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 17:10:42,692 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 17:10:42,694 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 17:10:42,829 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 17:10:42,863 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 17:10:42,866 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 17:10:42,866 [INFO] [Intento 1] Tabla extraída con 28 filas y 18 columnas.
+2025-11-23 17:10:43,355 [INFO] Archivo guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-23.xlsx
+2025-11-23 17:17:03,442 [INFO] ==== Inicio de ejecución: Reporte Dirección Ingresos ====
+2025-11-23 17:17:03,442 [INFO] ======= Intento 1 de 3 =======
+2025-11-23 17:17:15,974 [INFO] [Intento 1] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-23 17:17:24,947 [INFO] [Intento 1] Verificando posible 404...
+2025-11-23 17:17:24,962 [INFO] [Intento 1] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 17:17:51,449 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 17:17:51,465 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 17:17:51,474 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 17:17:51,583 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 17:17:51,605 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 17:17:51,605 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 17:17:51,605 [INFO] [Intento 1] Tabla extraída con 28 filas y 18 columnas.
+2025-11-23 17:20:33,492 [INFO] ==== Inicio de ejecución: Reporte Dirección Ingresos ====
+2025-11-23 17:20:33,492 [INFO] ======= Intento 1 de 3 =======
+2025-11-23 17:20:34,160 [INFO] [Intento 1] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-23 17:20:42,808 [INFO] [Intento 1] Verificando posible 404...
+2025-11-23 17:20:42,822 [INFO] [Intento 1] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 17:21:12,084 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 17:21:12,097 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 17:21:12,099 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 17:21:12,145 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 17:21:12,171 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 17:21:12,171 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 17:21:12,171 [INFO] [Intento 1] Tabla extraída con 28 filas y 18 columnas.
+2025-11-23 17:21:12,629 [INFO] Archivo guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-23.xlsx
+2025-11-23 17:24:34,209 [INFO] ==== Inicio de ejecución: Reporte Dirección Ingresos ====
+2025-11-23 17:24:34,209 [INFO] ======= Intento 1 de 3 =======
+2025-11-23 17:24:34,823 [INFO] [Intento 1] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-23 17:24:44,032 [INFO] [Intento 1] Verificando posible 404...
+2025-11-23 17:24:44,046 [INFO] [Intento 1] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 17:25:26,756 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 17:25:26,770 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 17:25:26,774 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 17:25:26,819 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 17:25:26,842 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 17:25:26,842 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 17:25:26,842 [INFO] [Intento 1] Tabla extraída con 28 filas y 18 columnas.
+2025-11-23 17:25:27,230 [INFO] Archivo guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-23_17-25.xlsx
+2025-11-23 18:52:10,265 [INFO] ==== Inicio de ejecución: Reportes Dirección + KPI Desempeño ====
+2025-11-23 18:52:10,265 [INFO] ======= Intento 1 de 3 =======
+2025-11-23 18:52:11,910 [INFO] [Intento 1] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-23 18:52:23,352 [INFO] [Intento 1] Verificando posible 404...
+2025-11-23 18:52:23,366 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 18:52:49,610 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 18:52:49,623 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 18:52:49,626 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 18:52:49,670 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 18:52:49,689 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 18:52:49,689 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 18:52:49,689 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 18:52:49,690 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 18:53:20,465 [WARNING] No se pudo seleccionar 'Desempeño' vía label: Locator.select_option: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Tipo de Reporte")
+. Intentando por texto.
+2025-11-23 18:53:50,508 [ERROR] [Intento 1] Timeout (posible fallo de red o servidor lento): Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Desempeño", exact=True)
+    - locator resolved to <option value="KpiTresDesempeño">Desempeño</option>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    57 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+
+2025-11-23 18:53:50,576 [WARNING] Fallo en intento 1: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Desempeño", exact=True)
+    - locator resolved to <option value="KpiTresDesempeño">Desempeño</option>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    57 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+
+2025-11-23 18:53:50,576 [INFO] Reintentando...
+2025-11-23 18:53:55,580 [INFO] ======= Intento 2 de 3 =======
+2025-11-23 18:53:56,179 [INFO] [Intento 2] Navegando a LOGIN_URL: https://ultragimnasios.com/Login
+2025-11-23 18:54:05,333 [INFO] [Intento 2] Verificando posible 404...
+2025-11-23 18:54:05,366 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 18:54:31,483 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 18:54:31,501 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 18:54:31,507 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 18:54:31,548 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 18:54:31,574 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 18:54:31,574 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 18:54:31,574 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 18:54:31,574 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 18:55:02,316 [WARNING] No se pudo seleccionar 'Desempeño' vía label: Locator.select_option: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Tipo de Reporte")
+. Intentando por texto.
+2025-11-23 18:55:28,232 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2025-11-23 18:55:28,232 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2025-11-23 19:00:39,635 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño ====
+2025-11-23 19:00:40,074 [INFO] Iniciando login...
+2025-11-23 19:00:46,179 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2025-11-23 19:00:55,315 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño ====
+2025-11-23 19:00:55,989 [INFO] Iniciando login...
+2025-11-23 19:01:05,619 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:01:05,620 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:01:32,096 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:01:32,112 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:01:32,119 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 19:01:32,170 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:01:32,201 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 19:01:32,202 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 19:01:32,202 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:01:32,203 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:01:32,203 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:02:02,994 [WARNING] No se pudo seleccionar 'Desempeño' vía label: Locator.select_option: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Tipo de Reporte")
+. Intentando por texto.
+2025-11-23 19:02:33,081 [WARNING] KPI Desempeño fallo en intento 1: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Desempeño", exact=True)
+    - locator resolved to <option value="KpiTresDesempeño">Desempeño</option>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    45 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+
+2025-11-23 19:02:38,085 [INFO] KPI Desempeño: intento 2/3
+2025-11-23 19:02:38,085 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:03:10,045 [WARNING] No se pudo seleccionar 'Desempeño' vía label: Locator.select_option: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Tipo de Reporte")
+. Intentando por texto.
+2025-11-23 19:03:41,114 [WARNING] KPI Desempeño fallo en intento 2: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Desempeño", exact=True)
+    - locator resolved to <option value="KpiTresDesempeño">Desempeño</option>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    10 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+
+2025-11-23 19:03:46,117 [INFO] KPI Desempeño: intento 3/3
+2025-11-23 19:03:46,117 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:04:17,098 [WARNING] No se pudo seleccionar 'Desempeño' vía label: Locator.select_option: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Tipo de Reporte")
+. Intentando por texto.
+2025-11-23 19:04:48,154 [WARNING] KPI Desempeño fallo en intento 3: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Desempeño", exact=True)
+    - locator resolved to <option value="KpiTresDesempeño">Desempeño</option>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    10 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+
+2025-11-23 19:04:49,458 [ERROR] \u274c Error general al obtener reportes: KPI Desempeño: falló después de 3 intentos. Último error: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Desempeño", exact=True)
+    - locator resolved to <option value="KpiTresDesempeño">Desempeño</option>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    10 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+
+2025-11-23 19:06:37,930 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño ====
+2025-11-23 19:06:38,887 [INFO] Iniciando login...
+2025-11-23 19:06:48,035 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:06:48,035 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:07:17,424 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:07:17,440 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:07:17,440 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 19:07:17,503 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:07:17,538 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 19:07:17,538 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 19:07:17,538 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:07:17,538 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:07:17,538 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:07:18,356 [INFO] Intentando seleccionar 'Desempeño' en Tipo de Reporte...
+2025-11-23 19:07:32,546 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2025-11-23 19:12:33,716 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño ====
+2025-11-23 19:12:35,446 [INFO] Iniciando login...
+2025-11-23 19:12:45,482 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:12:45,482 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:13:14,965 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:13:14,983 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:13:14,983 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 19:13:15,041 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:13:15,079 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 19:13:15,079 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 19:13:15,079 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:13:15,079 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:13:15,079 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:13:15,879 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-23 19:13:17,178 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:13:17,183 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:13:17,189 [INFO] Se encontraron 1 tablas en la página. Buscando la más grande...
+2025-11-23 19:13:17,212 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:13:17,212 [INFO] Tabla seleccionada: shape=(8, 3)
+2025-11-23 19:13:17,212 [INFO] KPI Desempeño: tabla extraída con 8 filas y 3 columnas.
+2025-11-23 19:13:19,051 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-23_19-12.xlsx
+2025-11-23 19:13:19,076 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-23_19-12.xlsx
+2025-11-23 19:16:50,195 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño ====
+2025-11-23 19:16:51,553 [INFO] Iniciando login...
+2025-11-23 19:17:02,209 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:17:02,209 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:17:28,851 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:17:28,866 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:17:28,871 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 19:17:28,934 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:17:28,980 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 19:17:28,980 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 19:17:28,980 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:17:28,983 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:17:28,983 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:17:29,791 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-23 19:17:31,098 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:17:31,103 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:17:31,109 [INFO] Se encontraron 1 tablas en la página. Buscando la más grande...
+2025-11-23 19:17:31,136 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:17:31,136 [INFO] Tabla seleccionada: shape=(8, 3)
+2025-11-23 19:17:31,136 [INFO] KPI Desempeño: tabla extraída con 8 filas y 3 columnas.
+2025-11-23 19:17:33,449 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-23_19-16.xlsx
+2025-11-23 19:17:33,454 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-23_19-16.xlsx
+2025-11-23 19:21:07,396 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño ====
+2025-11-23 19:21:08,223 [INFO] Iniciando login...
+2025-11-23 19:21:16,618 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:21:16,618 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:21:42,918 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:21:42,925 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:21:42,934 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 19:21:42,991 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:21:43,025 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 19:21:43,025 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 19:21:43,025 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:21:43,025 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:21:43,025 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:21:43,905 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-23 19:21:44,936 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:21:47,278 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-23 19:21:47,278 [INFO] KPI Desempeño: tabla extraída con 27 filas y 9 columnas.
+2025-11-23 19:21:47,705 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-23_19-21.xlsx
+2025-11-23 19:21:47,727 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-23_19-21.xlsx
+2025-11-23 19:32:05,804 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-23 19:32:06,467 [INFO] Iniciando login...
+2025-11-23 19:32:15,902 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:32:15,904 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:32:42,240 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:32:42,244 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:32:42,262 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 19:32:42,322 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:32:42,358 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 19:32:42,358 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 19:32:42,358 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:32:42,358 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:32:42,358 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:32:43,139 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-23 19:32:44,172 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:32:46,502 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-23 19:32:46,502 [INFO] KPI Desempeño: tabla extraída con 27 filas y 9 columnas.
+2025-11-23 19:32:46,502 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2025-11-23 19:32:46,502 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:32:47,261 [INFO] Seleccionando 'Ventas Nuevos Socios' en Tipo de Reporte mediante JS...
+2025-11-23 19:32:47,282 [WARNING] KPI Ventas Nuevos Socios fallo en intento 1: No se pudo seleccionar 'Ventas Nuevos Socios' en 'Tipo de Reporte'. Resultado JS: no-option
+2025-11-23 19:32:52,288 [INFO] KPI Ventas Nuevos Socios: intento 2/3
+2025-11-23 19:32:52,288 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:32:53,044 [INFO] Seleccionando 'Ventas Nuevos Socios' en Tipo de Reporte mediante JS...
+2025-11-23 19:32:53,067 [WARNING] KPI Ventas Nuevos Socios fallo en intento 2: No se pudo seleccionar 'Ventas Nuevos Socios' en 'Tipo de Reporte'. Resultado JS: no-option
+2025-11-23 19:32:58,070 [INFO] KPI Ventas Nuevos Socios: intento 3/3
+2025-11-23 19:32:58,070 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:32:58,843 [INFO] Seleccionando 'Ventas Nuevos Socios' en Tipo de Reporte mediante JS...
+2025-11-23 19:32:58,868 [WARNING] KPI Ventas Nuevos Socios fallo en intento 3: No se pudo seleccionar 'Ventas Nuevos Socios' en 'Tipo de Reporte'. Resultado JS: no-option
+2025-11-23 19:32:59,122 [ERROR] \u274c Error general al obtener reportes: KPI Ventas Nuevos Socios: falló después de 3 intentos. Último error: No se pudo seleccionar 'Ventas Nuevos Socios' en 'Tipo de Reporte'. Resultado JS: no-option
+2025-11-23 19:35:49,294 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-23 19:35:49,922 [INFO] Iniciando login...
+2025-11-23 19:35:59,208 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:35:59,209 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:36:25,844 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:36:25,860 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:36:25,867 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 19:36:25,912 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:36:25,948 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 19:36:25,948 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 19:36:25,948 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:36:25,948 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:36:25,948 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:36:26,727 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-23 19:36:26,761 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2025-11-23 19:36:27,762 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:36:30,095 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-23 19:36:30,100 [INFO] KPI Desempeño: tabla extraída con 27 filas y 9 columnas.
+2025-11-23 19:36:30,101 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2025-11-23 19:36:30,101 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:36:30,867 [INFO] Seleccionando 'Ventas Nuevos Socios' en Tipo de Reporte mediante JS...
+2025-11-23 19:36:50,994 [WARNING] KPI Ventas Nuevos Socios fallo en intento 1: No se pudo seleccionar 'Ventas Nuevos Socios' en 'Tipo de Reporte' después de 20s. Último resultado: no-option
+2025-11-23 19:36:55,995 [INFO] KPI Ventas Nuevos Socios: intento 2/3
+2025-11-23 19:36:55,995 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:36:56,800 [INFO] Seleccionando 'Ventas Nuevos Socios' en Tipo de Reporte mediante JS...
+2025-11-23 19:37:16,932 [WARNING] KPI Ventas Nuevos Socios fallo en intento 2: No se pudo seleccionar 'Ventas Nuevos Socios' en 'Tipo de Reporte' después de 20s. Último resultado: no-option
+2025-11-23 19:37:21,933 [INFO] KPI Ventas Nuevos Socios: intento 3/3
+2025-11-23 19:37:21,933 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:37:22,774 [INFO] Seleccionando 'Ventas Nuevos Socios' en Tipo de Reporte mediante JS...
+2025-11-23 19:37:36,652 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-23 19:37:37,290 [INFO] Iniciando login...
+2025-11-23 19:37:46,792 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:37:46,792 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:38:16,097 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:38:16,115 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:38:16,116 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 19:38:16,164 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:38:16,199 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 19:38:16,199 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 19:38:16,199 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:38:16,199 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:38:16,199 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:38:16,978 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-23 19:38:17,011 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2025-11-23 19:38:18,013 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:38:20,360 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-23 19:38:20,360 [INFO] KPI Desempeño: tabla extraída con 27 filas y 9 columnas.
+2025-11-23 19:38:20,360 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2025-11-23 19:38:20,360 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:38:21,100 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2025-11-23 19:38:21,123 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2025-11-23 19:38:22,129 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:38:23,452 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-23 19:38:23,452 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 27 filas y 9 columnas.
+2025-11-23 19:38:23,932 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-23_19-37.xlsx
+2025-11-23 19:38:23,961 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-23_19-37.xlsx
+2025-11-23 19:43:25,665 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-23 19:43:26,368 [INFO] Iniciando login...
+2025-11-23 19:43:37,691 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:43:37,691 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:44:07,095 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:44:07,111 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:44:07,111 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 19:44:07,194 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:44:07,222 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 19:44:07,222 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 19:44:07,222 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:44:07,222 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:44:07,222 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:44:08,018 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-23 19:44:08,050 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2025-11-23 19:44:09,051 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:44:11,375 [INFO] KPI Desempeño: tabla extraída con 27 filas y 9 columnas.
+2025-11-23 19:44:11,375 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2025-11-23 19:44:11,375 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:44:12,158 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2025-11-23 19:44:12,189 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2025-11-23 19:44:13,191 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:45:14,633 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-23 19:45:15,318 [INFO] Iniciando login...
+2025-11-23 19:45:24,829 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:45:24,830 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:45:51,399 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:45:51,417 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:45:51,422 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 19:45:51,471 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:45:51,502 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 19:45:51,502 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 19:45:51,502 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:45:51,502 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:45:51,502 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:45:52,268 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-23 19:45:52,303 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2025-11-23 19:45:53,305 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:45:55,641 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-23 19:45:55,641 [INFO] KPI Desempeño: tabla extraída con 27 filas y 9 columnas.
+2025-11-23 19:45:55,641 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2025-11-23 19:45:55,641 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:45:56,421 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2025-11-23 19:45:56,443 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2025-11-23 19:45:57,453 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:45:58,765 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-23 19:45:58,765 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 27 filas y 9 columnas.
+2025-11-23 19:45:59,249 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-23_19-45.xlsx
+2025-11-23 19:45:59,277 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-23_19-45.xlsx
+2025-11-23 19:49:32,365 [INFO] ==== Inicio de ejecución: Dirección + KPIs ====
+2025-11-23 19:49:33,054 [INFO] Iniciando login...
+2025-11-23 19:49:41,855 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:49:41,855 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:50:11,169 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:50:11,185 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:50:11,272 [INFO] Reporte Dirección: columnas aplanadas desde MultiIndex.
+2025-11-23 19:50:11,272 [INFO] Reporte Dirección: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 18 columnas.
+2025-11-23 19:50:11,272 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:50:11,272 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:50:11,272 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:50:12,042 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-23 19:50:13,073 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:51:31,995 [WARNING] KPI Desempeño fallo en intento 1: Page.wait_for_selector: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("table tbody tr") to be visible
+    7 × locator resolved to 8 elements. Proceeding with the first one: <tr>…</tr>
+    151 × locator resolved to 34 elements. Proceeding with the first one: <tr>…</tr>
+
+2025-11-23 19:55:04,909 [INFO] ==== Inicio de ejecución: Dirección + KPIs ====
+2025-11-23 19:55:05,589 [INFO] Iniciando login...
+2025-11-23 19:55:15,743 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:55:15,743 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:55:44,946 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:55:44,963 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:55:45,033 [INFO] Reporte Dirección: columnas aplanadas desde MultiIndex.
+2025-11-23 19:55:45,033 [INFO] Reporte Dirección: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 18 columnas.
+2025-11-23 19:55:45,033 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:55:45,033 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:55:45,033 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:55:45,847 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-23 19:55:46,881 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:56:44,044 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2025-11-23 19:56:46,128 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-23 19:56:46,774 [INFO] Iniciando login...
+2025-11-23 19:56:56,225 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 19:56:56,225 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 19:57:24,208 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 19:57:24,213 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 19:57:24,227 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 19:57:24,278 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 19:57:24,309 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 19:57:24,311 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 19:57:24,311 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 19:57:24,312 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 19:57:24,312 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:57:25,079 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-23 19:57:25,112 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2025-11-23 19:57:26,113 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:57:28,439 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-23 19:57:28,439 [INFO] KPI Desempeño: tabla extraída con 27 filas y 9 columnas.
+2025-11-23 19:57:28,439 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2025-11-23 19:57:28,439 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 19:57:29,196 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2025-11-23 19:57:29,221 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2025-11-23 19:57:30,224 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 19:57:31,523 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-23 19:57:31,523 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 27 filas y 9 columnas.
+2025-11-23 19:57:31,991 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-23_19-56.xlsx
+2025-11-23 19:57:32,006 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-23_19-56.xlsx
+2025-11-23 20:10:05,970 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-23 20:10:06,629 [INFO] Iniciando login...
+2025-11-23 20:10:14,817 [INFO] Reporte Dirección: intento 1/3
+2025-11-23 20:10:14,817 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-23 20:10:41,114 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-23 20:10:41,129 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-23 20:10:41,129 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-23 20:10:41,187 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-23 20:10:41,219 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-23 20:10:41,219 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-23 20:10:41,219 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-23 20:10:41,219 [INFO] KPI Desempeño: intento 1/3
+2025-11-23 20:10:41,219 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 20:10:41,999 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-23 20:10:42,031 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2025-11-23 20:10:43,032 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 20:10:45,381 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-23 20:10:45,381 [INFO] KPI Desempeño: tabla extraída con 27 filas y 9 columnas.
+2025-11-23 20:10:45,381 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2025-11-23 20:10:45,381 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-23 20:10:46,137 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2025-11-23 20:10:46,161 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2025-11-23 20:10:47,169 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-23 20:10:48,471 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-23 20:10:48,471 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 27 filas y 9 columnas.
+2025-11-23 20:10:48,961 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-23_20-10.xlsx
+2025-11-23 20:10:48,990 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-23_20-10.xlsx
+2025-11-23 20:10:49,020 [INFO] Archivo KPI Ventas Nuevos Socios guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_ventas_nuevos_socios\kpi_ventas_nuevos_socios_2025-11-23_20-10.xlsx
+2025-11-24 07:20:00,979 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-24 07:20:12,980 [INFO] Iniciando login...
+2025-11-24 07:20:22,425 [INFO] Reporte Dirección: intento 1/3
+2025-11-24 07:20:22,425 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-24 07:21:08,158 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-24 07:21:08,178 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-24 07:21:08,182 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-24 07:21:08,324 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-24 07:21:08,376 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-24 07:21:08,376 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-24 07:21:08,376 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-24 07:21:08,376 [INFO] KPI Desempeño: intento 1/3
+2025-11-24 07:21:08,376 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-24 07:21:09,257 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-24 07:21:09,290 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2025-11-24 07:21:10,290 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-24 07:21:14,657 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-24 07:21:14,658 [INFO] KPI Desempeño: tabla extraída con 27 filas y 9 columnas.
+2025-11-24 07:21:14,659 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2025-11-24 07:21:14,659 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-24 07:21:15,434 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2025-11-24 07:21:15,459 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2025-11-24 07:21:16,465 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-24 07:21:17,783 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-24 07:21:17,784 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 27 filas y 9 columnas.
+2025-11-24 07:21:18,451 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-24_07-20.xlsx
+2025-11-24 07:21:18,479 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-24_07-20.xlsx
+2025-11-24 07:21:18,497 [INFO] Archivo KPI Ventas Nuevos Socios guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_ventas_nuevos_socios\kpi_ventas_nuevos_socios_2025-11-24_07-20.xlsx
+2025-11-24 10:22:03,394 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-24 10:22:04,069 [INFO] Iniciando login...
+2025-11-24 10:22:14,000 [INFO] Reporte Dirección: intento 1/3
+2025-11-24 10:22:14,000 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-24 10:22:44,745 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-24 10:22:44,759 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-24 10:22:44,763 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-24 10:22:44,854 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-24 10:22:44,885 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-24 10:22:44,885 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-24 10:22:44,885 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-24 10:22:44,885 [INFO] KPI Desempeño: intento 1/3
+2025-11-24 10:22:44,885 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-24 10:22:45,684 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-24 10:22:45,712 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2025-11-24 10:22:46,714 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-24 10:22:50,055 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-24 10:22:50,055 [INFO] KPI Desempeño: tabla extraída con 27 filas y 9 columnas.
+2025-11-24 10:22:50,055 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2025-11-24 10:22:50,055 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-24 10:22:50,832 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2025-11-24 10:22:50,859 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2025-11-24 10:22:51,862 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-24 10:22:53,185 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-24 10:22:53,185 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 27 filas y 9 columnas.
+2025-11-24 10:22:53,674 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-24_10-22.xlsx
+2025-11-24 10:22:53,697 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-24_10-22.xlsx
+2025-11-24 10:22:53,730 [INFO] Archivo KPI Ventas Nuevos Socios guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_ventas_nuevos_socios\kpi_ventas_nuevos_socios_2025-11-24_10-22.xlsx
+2025-11-24 10:24:39,315 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-24 10:24:39,979 [INFO] Iniciando login...
+2025-11-24 10:24:56,476 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-24 10:24:57,123 [INFO] Iniciando login...
+2025-11-24 10:25:23,693 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-24 10:25:24,337 [INFO] Iniciando login...
+2025-11-24 10:27:02,460 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-24 10:27:03,168 [INFO] Iniciando login...
+2025-11-24 10:27:12,512 [INFO] Reporte Dirección: intento 1/3
+2025-11-24 10:27:12,513 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-24 10:27:53,730 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-24 10:27:53,746 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-24 10:27:53,751 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-24 10:27:53,793 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-24 10:27:53,831 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-24 10:27:53,831 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-24 10:27:53,831 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-24 10:27:53,832 [INFO] KPI Desempeño: intento 1/3
+2025-11-24 10:27:53,832 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-24 10:27:54,653 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-24 10:27:54,694 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2025-11-24 10:27:55,695 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-24 10:27:58,055 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-24 10:27:58,055 [INFO] KPI Desempeño: tabla extraída con 27 filas y 9 columnas.
+2025-11-24 10:27:58,056 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2025-11-24 10:27:58,056 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-24 10:27:58,827 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2025-11-24 10:27:58,863 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2025-11-24 10:27:59,864 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-24 10:28:01,173 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-24 10:28:01,173 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 27 filas y 9 columnas.
+2025-11-24 10:28:01,628 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-24_10-27.xlsx
+2025-11-24 10:28:01,656 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-24_10-27.xlsx
+2025-11-24 10:28:01,678 [INFO] Archivo KPI Ventas Nuevos Socios guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_ventas_nuevos_socios\kpi_ventas_nuevos_socios_2025-11-24_10-27.xlsx
+2025-11-24 10:44:02,819 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-24 10:44:03,496 [INFO] Iniciando login...
+2025-11-24 10:44:12,478 [INFO] Reporte Dirección: intento 1/3
+2025-11-24 10:44:12,478 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-24 10:44:39,744 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-24 10:44:39,764 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-24 10:44:39,767 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-24 10:44:39,811 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-24 10:44:39,835 [INFO] Tabla 1 candidata: 28 filas x 18 cols (score=504)
+2025-11-24 10:44:39,837 [INFO] Tabla seleccionada: shape=(28, 18)
+2025-11-24 10:44:39,837 [INFO] Reporte Dirección: tabla extraída con 28 filas y 18 columnas.
+2025-11-24 10:44:39,837 [INFO] KPI Desempeño: intento 1/3
+2025-11-24 10:44:39,837 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-24 10:44:40,639 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-24 10:44:40,660 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2025-11-24 10:44:41,668 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-24 10:44:43,993 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-24 10:44:43,993 [INFO] KPI Desempeño: tabla extraída con 27 filas y 9 columnas.
+2025-11-24 10:44:43,996 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2025-11-24 10:44:43,996 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-24 10:44:44,760 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2025-11-24 10:44:44,798 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2025-11-24 10:44:45,800 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-24 10:44:47,105 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 27 filas x 9 columnas.
+2025-11-24 10:44:47,105 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 27 filas y 9 columnas.
+2025-11-24 10:44:47,551 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-24_10-44.xlsx
+2025-11-24 10:44:47,578 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-24_10-44.xlsx
+2025-11-24 10:44:47,609 [INFO] Archivo KPI Ventas Nuevos Socios guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_ventas_nuevos_socios\kpi_ventas_nuevos_socios_2025-11-24_10-44.xlsx

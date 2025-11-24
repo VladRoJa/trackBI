@@ -1,0 +1,511 @@
+2025-11-23 20:52:06,777 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-23 20:52:06,777 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-23 20:52:07,480 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-23 20:52:16,505 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-23 20:52:16,505 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 20:52:18,077 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 20:52:18,128 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 20:52:49,145 [WARNING] Reporte Corte De Caja falló en intento 1: Locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-23 20:52:54,151 [INFO] Reporte Corte De Caja: intento 2/3
+2025-11-23 20:52:54,151 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 20:52:55,366 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 20:52:55,417 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 20:53:00,938 [WARNING] Reporte Corte De Caja falló en intento 2: Locator.fill: Target page, context or browser has been closed
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-23 20:53:05,940 [INFO] Reporte Corte De Caja: intento 3/3
+2025-11-23 20:53:05,940 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 20:53:05,940 [WARNING] Reporte Corte De Caja falló en intento 3: Page.goto: Target page, context or browser has been closed
+2025-11-23 20:53:06,156 [ERROR] \u274c Error general en reporte_descargas.py: Reporte Corte De Caja: falló después de 3 intentos. Último error: Page.goto: Target page, context or browser has been closed
+2025-11-23 20:58:39,006 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-23 20:58:39,006 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-23 20:58:39,649 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-23 20:58:48,447 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-23 20:58:48,448 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 20:58:49,335 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 20:58:49,370 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 20:59:20,396 [WARNING] Reporte Corte De Caja falló en intento 1: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-23 20:59:25,400 [INFO] Reporte Corte De Caja: intento 2/3
+2025-11-23 20:59:25,401 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 20:59:26,267 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 20:59:26,307 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 20:59:57,324 [WARNING] Reporte Corte De Caja falló en intento 2: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-23 21:00:02,325 [INFO] Reporte Corte De Caja: intento 3/3
+2025-11-23 21:00:02,325 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 21:00:03,176 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 21:00:03,225 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 21:00:34,242 [WARNING] Reporte Corte De Caja falló en intento 3: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-23 21:00:34,533 [ERROR] \u274c Error general en reporte_descargas.py: Reporte Corte De Caja: falló después de 3 intentos. Último error: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-23 21:01:39,239 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-23 21:01:39,239 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-23 21:01:39,869 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-23 21:01:48,703 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-23 21:01:48,703 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 21:01:49,574 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 21:01:49,623 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 21:01:50,624 [WARNING] Reporte Corte De Caja falló en intento 1: Page.evaluate() takes from 2 to 3 positional arguments but 4 were given
+2025-11-23 21:01:55,626 [INFO] Reporte Corte De Caja: intento 2/3
+2025-11-23 21:01:55,628 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 21:01:56,422 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 21:01:56,451 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 21:01:57,454 [WARNING] Reporte Corte De Caja falló en intento 2: Page.evaluate() takes from 2 to 3 positional arguments but 4 were given
+2025-11-23 21:02:02,455 [INFO] Reporte Corte De Caja: intento 3/3
+2025-11-23 21:02:02,455 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 21:02:03,255 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 21:02:03,308 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 21:02:04,309 [WARNING] Reporte Corte De Caja falló en intento 3: Page.evaluate() takes from 2 to 3 positional arguments but 4 were given
+2025-11-23 21:02:04,591 [ERROR] \u274c Error general en reporte_descargas.py: Reporte Corte De Caja: falló después de 3 intentos. Último error: Page.evaluate() takes from 2 to 3 positional arguments but 4 were given
+2025-11-23 21:08:19,022 [INFO] ==== Inicio de ejecución reporte_descargas (solo Corte de Caja) ====
+2025-11-23 21:08:19,656 [ERROR] \u274c Error general en reporte_descargas: Browser.new_context() got an unexpected keyword argument 'downloads_path'
+2025-11-23 21:17:17,139 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-23 21:17:17,139 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-23 21:17:17,775 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-23 21:17:26,824 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-23 21:17:26,824 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 21:17:27,763 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 21:17:27,811 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 21:17:28,812 [INFO] Seleccionando fecha para 'Fecha Inicio' (dia=1, usar_hoy=False)
+2025-11-23 21:17:59,672 [WARNING] Reporte Corte De Caja falló en intento 1: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".day, td.day, .datepicker-days td, .ui-datepicker-calendar td").filter(has_text="1").first
+    - locator resolved to <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    56 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+2025-11-23 21:18:04,684 [INFO] Reporte Corte De Caja: intento 2/3
+2025-11-23 21:18:04,684 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 21:18:05,529 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 21:18:05,576 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 21:18:06,578 [INFO] Seleccionando fecha para 'Fecha Inicio' (dia=1, usar_hoy=False)
+2025-11-23 21:18:37,471 [WARNING] Reporte Corte De Caja falló en intento 2: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".day, td.day, .datepicker-days td, .ui-datepicker-calendar td").filter(has_text="1").first
+    - locator resolved to <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    56 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+2025-11-23 21:18:42,486 [INFO] Reporte Corte De Caja: intento 3/3
+2025-11-23 21:18:42,486 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 21:18:43,339 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 21:18:43,376 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 21:18:44,383 [INFO] Seleccionando fecha para 'Fecha Inicio' (dia=1, usar_hoy=False)
+2025-11-23 21:19:15,272 [WARNING] Reporte Corte De Caja falló en intento 3: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".day, td.day, .datepicker-days td, .ui-datepicker-calendar td").filter(has_text="1").first
+    - locator resolved to <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    7 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+  - element was detached from the DOM, retrying
+    - locator resolved to <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    6 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+  - element was detached from the DOM, retrying
+
+2025-11-23 21:19:15,525 [ERROR] \u274c Error general en reporte_descargas.py: Reporte Corte De Caja: falló después de 3 intentos. Último error: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".day, td.day, .datepicker-days td, .ui-datepicker-calendar td").filter(has_text="1").first
+    - locator resolved to <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    7 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+  - element was detached from the DOM, retrying
+    - locator resolved to <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    6 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <td class="day old" data-day="31/10/2025" data-action="selectDay">31</td> from <div class="bootstrap-datetimepicker-widget dropdown-menu usetwentyfour top">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+  - element was detached from the DOM, retrying
+
+2025-11-23 21:26:53,417 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-23 21:26:53,417 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-23 21:26:54,048 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-23 21:27:03,486 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-23 21:27:03,486 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 21:27:04,367 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 21:27:04,403 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 21:27:35,432 [WARNING] Reporte Corte De Caja falló en intento 1: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-23 21:27:40,438 [INFO] Reporte Corte De Caja: intento 2/3
+2025-11-23 21:27:40,438 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 21:27:41,307 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 21:27:41,352 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 21:28:12,369 [WARNING] Reporte Corte De Caja falló en intento 2: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-23 21:28:17,372 [INFO] Reporte Corte De Caja: intento 3/3
+2025-11-23 21:28:17,372 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 21:28:18,237 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 21:28:18,270 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 21:28:49,302 [WARNING] Reporte Corte De Caja falló en intento 3: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-23 21:28:49,584 [ERROR] \u274c Error general en reporte_descargas.py: Reporte Corte De Caja: falló después de 3 intentos. Último error: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-23 21:31:46,726 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-23 21:31:46,726 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-23 21:31:47,344 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-23 21:31:56,853 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-23 21:31:56,853 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 21:31:57,750 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-23 21:31:57,793 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-23 21:32:04,284 [WARNING] Reporte Corte De Caja falló en intento 1: Locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-23 21:32:09,289 [INFO] Reporte Corte De Caja: intento 2/3
+2025-11-23 21:32:09,289 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-23 21:32:09,289 [WARNING] Reporte Corte De Caja falló en intento 2: Page.goto: Target page, context or browser has been closed
+2025-11-24 08:13:51,328 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-24 08:13:51,328 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-24 08:13:52,048 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-24 08:14:01,654 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-24 08:14:01,654 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 08:14:02,620 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 08:14:02,679 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 08:14:33,700 [WARNING] Reporte Corte De Caja falló en intento 1: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-24 08:14:38,701 [INFO] Reporte Corte De Caja: intento 2/3
+2025-11-24 08:14:38,701 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 08:14:38,817 [WARNING] Reporte Corte De Caja falló en intento 2: Page.goto: net::ERR_ABORTED; maybe frame was detached?
+Call log:
+  - navigating to "https://ultragimnasios.com/Modulo/Reporte/Index", waiting until "load"
+
+2025-11-24 08:14:43,819 [INFO] Reporte Corte De Caja: intento 3/3
+2025-11-24 08:14:43,819 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 08:14:43,822 [WARNING] Reporte Corte De Caja falló en intento 3: Page.goto: Target page, context or browser has been closed
+2025-11-24 08:14:44,074 [ERROR] \u274c Error general en reporte_descargas.py: Reporte Corte De Caja: falló después de 3 intentos. Último error: Page.goto: Target page, context or browser has been closed
+2025-11-24 08:58:49,597 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-24 08:58:49,597 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-24 08:58:50,332 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-24 08:59:00,244 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-24 08:59:00,246 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 08:59:01,325 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 08:59:01,365 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 08:59:32,386 [WARNING] Reporte Corte De Caja falló en intento 1: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-24 08:59:37,388 [INFO] Reporte Corte De Caja: intento 2/3
+2025-11-24 08:59:37,390 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 08:59:38,295 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 08:59:38,332 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 08:59:42,574 [WARNING] Reporte Corte De Caja falló en intento 2: Locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for get_by_label("Fecha Inicio")
+
+2025-11-24 08:59:47,576 [INFO] Reporte Corte De Caja: intento 3/3
+2025-11-24 08:59:47,576 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 08:59:47,577 [WARNING] Reporte Corte De Caja falló en intento 3: Page.goto: Target page, context or browser has been closed
+2025-11-24 08:59:47,878 [ERROR] \u274c Error general en reporte_descargas.py: Reporte Corte De Caja: falló después de 3 intentos. Último error: Page.goto: Target page, context or browser has been closed
+2025-11-24 09:02:26,852 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-24 09:02:26,852 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-24 09:02:27,506 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-24 09:02:37,902 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-24 09:02:37,903 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 09:02:39,040 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 09:02:39,080 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 09:03:10,096 [WARNING] Reporte Corte De Caja falló en intento 1: Page.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("#FechaInicio")
+
+2025-11-24 09:03:15,098 [INFO] Reporte Corte De Caja: intento 2/3
+2025-11-24 09:03:15,098 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 09:03:15,982 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 09:03:16,018 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 09:03:31,105 [WARNING] Reporte Corte De Caja falló en intento 2: Page.click: Target page, context or browser has been closed
+Call log:
+  - waiting for locator("#FechaInicio")
+
+2025-11-24 09:03:36,120 [INFO] Reporte Corte De Caja: intento 3/3
+2025-11-24 09:03:36,120 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 09:03:36,125 [WARNING] Reporte Corte De Caja falló en intento 3: Page.goto: Target page, context or browser has been closed
+2025-11-24 09:03:36,374 [ERROR] \u274c Error general en reporte_descargas.py: Reporte Corte De Caja: falló después de 3 intentos. Último error: Page.goto: Target page, context or browser has been closed
+2025-11-24 09:05:19,689 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-24 09:05:19,689 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-24 09:05:20,625 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-24 09:05:29,703 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-24 09:05:29,703 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 09:05:30,759 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 09:05:30,806 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 09:05:34,124 [INFO] Buscando botón 'Generar'...
+2025-11-24 09:06:30,703 [INFO] Preparando descarga Excel para Reporte Corte De Caja (Membresia)...
+2025-11-24 09:06:30,705 [INFO] Haciendo clic en tab 'Membresia'...
+2025-11-24 09:07:30,728 [ERROR] No se pudo cambiar a tab 'Membresia': Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Membresia").first
+
+2025-11-24 09:07:30,728 [WARNING] Reporte Corte De Caja falló en intento 1: No se pudo cambiar a tab 'Membresia'.
+2025-11-24 09:07:35,731 [INFO] Reporte Corte De Caja: intento 2/3
+2025-11-24 09:07:35,731 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 09:07:36,601 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 09:07:36,660 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 09:07:40,211 [INFO] Buscando botón 'Generar'...
+2025-11-24 09:08:36,999 [INFO] Preparando descarga Excel para Reporte Corte De Caja (Membresia)...
+2025-11-24 09:08:36,999 [INFO] Haciendo clic en tab 'Membresia'...
+2025-11-24 09:08:44,996 [ERROR] No se pudo cambiar a tab 'Membresia': Locator.click: Target page, context or browser has been closed
+2025-11-24 09:08:44,996 [WARNING] Reporte Corte De Caja falló en intento 2: No se pudo cambiar a tab 'Membresia'.
+2025-11-24 09:08:49,998 [INFO] Reporte Corte De Caja: intento 3/3
+2025-11-24 09:08:49,998 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 09:08:50,001 [WARNING] Reporte Corte De Caja falló en intento 3: Page.goto: Target page, context or browser has been closed
+2025-11-24 09:08:50,898 [ERROR] \u274c Error general en reporte_descargas.py: Reporte Corte De Caja: falló después de 3 intentos. Último error: Page.goto: Target page, context or browser has been closed
+2025-11-24 09:15:21,164 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-24 09:15:21,164 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-24 09:15:21,830 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-24 09:15:31,717 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-24 09:15:31,717 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 09:15:32,900 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 09:15:32,956 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 09:15:36,279 [INFO] Buscando botón 'Generar'...
+2025-11-24 09:16:40,932 [INFO] Preparando descarga Excel para Reporte Corte De Caja (Membresia)...
+2025-11-24 09:17:00,949 [WARNING] Reporte Corte De Caja falló en intento 1: Page.wait_for_selector: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator("text=Membresía:not(.disabled):not([disabled])") to be visible
+
+2025-11-24 09:17:05,950 [INFO] Reporte Corte De Caja: intento 2/3
+2025-11-24 09:17:05,950 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 09:17:07,061 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 09:17:07,135 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 09:17:10,483 [INFO] Buscando botón 'Generar'...
+2025-11-24 09:17:30,092 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2025-11-24 09:21:13,242 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-24 09:21:13,242 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-24 09:21:13,872 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-24 09:21:23,029 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-24 09:21:23,029 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 09:21:24,086 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 09:21:24,143 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 09:21:27,471 [INFO] Buscando botón 'Generar'...
+2025-11-24 09:22:53,495 [INFO] Preparando descarga Excel para Reporte Corte De Caja (Membresia)...
+2025-11-24 09:23:04,996 [INFO] Reporte Corte De Caja (Membresia): archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-24 09:43:35,691 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-24 09:43:35,691 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-24 09:43:36,413 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-24 09:43:45,770 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-24 09:43:45,770 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 09:43:46,887 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 09:43:46,922 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 09:43:50,181 [INFO] Buscando botón 'Generar'...
+2025-11-24 09:45:29,180 [INFO] Preparando descarga Excel para Reporte Corte De Caja (Membresia)...
+2025-11-24 09:45:41,356 [INFO] Reporte Corte De Caja (Membresia): archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-24 09:45:41,356 [INFO] Reporte Venta Total: intento 1/3
+2025-11-24 09:45:41,356 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-24 09:45:42,206 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-24 09:45:42,244 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-24 09:45:45,478 [INFO] Buscando botón 'Generar'...
+2025-11-24 09:45:45,649 [INFO] Preparando descarga Excel para Reporte Venta Total...
+2025-11-24 09:45:48,363 [INFO] Reporte Venta Total: archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\venta_total.xlsx
+2025-11-24 09:53:24,606 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-24 09:53:24,606 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-24 09:53:25,307 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-24 09:53:34,369 [INFO] Reporte Venta Total: intento 1/3
+2025-11-24 09:53:34,369 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-24 09:53:35,522 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-24 09:53:35,573 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-24 09:53:38,858 [INFO] Buscando botón 'Generar'...
+2025-11-24 09:54:16,722 [INFO] Preparando descarga Excel para Reporte Venta Total...
+2025-11-24 09:54:45,478 [INFO] Reporte Venta Total: archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\venta_total.xlsx
+2025-11-24 09:59:58,873 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-24 09:59:58,873 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-24 09:59:59,592 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-24 10:00:09,287 [INFO] Reporte Cargos Recurrentes: intento 1/3
+2025-11-24 10:00:09,287 [INFO] ==== Descarga: Reporte Cargos Recurrentes ====
+2025-11-24 10:00:10,214 [INFO] Seleccionando tipo de reporte 'Reporte Cargos Recurrentes'...
+2025-11-24 10:00:10,269 [INFO] Tipo de reporte 'Reporte Cargos Recurrentes' seleccionado correctamente.
+2025-11-24 10:00:14,210 [INFO] Buscando botón 'Generar'...
+2025-11-24 10:00:39,264 [INFO] Preparando descarga Excel para Reporte Cargos Recurrentes...
+2025-11-24 10:00:41,068 [INFO] Reporte Cargos Recurrentes: archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\cargos_recurrentes.xlsx
+2025-11-24 10:01:29,415 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-24 10:01:29,415 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-24 10:01:30,107 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-24 10:01:39,387 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-24 10:01:39,387 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 10:01:40,450 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 10:01:40,496 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 10:01:43,801 [INFO] Buscando botón 'Generar'...
+2025-11-24 10:03:14,641 [INFO] Preparando descarga Excel para Reporte Corte De Caja (Membresia)...
+2025-11-24 10:03:25,854 [INFO] Reporte Corte De Caja (Membresia): archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-24 10:03:25,854 [INFO] Reporte Venta Total: intento 1/3
+2025-11-24 10:03:25,854 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-24 10:03:26,696 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-24 10:03:26,738 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-24 10:03:30,024 [INFO] Buscando botón 'Generar'...
+2025-11-24 10:04:11,019 [INFO] Preparando descarga Excel para Reporte Venta Total...
+2025-11-24 10:04:39,011 [INFO] Reporte Venta Total: archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\venta_total.xlsx
+2025-11-24 10:04:39,011 [INFO] Reporte Cargos Recurrentes: intento 1/3
+2025-11-24 10:04:39,011 [INFO] ==== Descarga: Reporte Cargos Recurrentes ====
+2025-11-24 10:04:40,064 [INFO] Seleccionando tipo de reporte 'Reporte Cargos Recurrentes'...
+2025-11-24 10:04:40,171 [INFO] Tipo de reporte 'Reporte Cargos Recurrentes' seleccionado correctamente.
+2025-11-24 10:04:44,066 [INFO] Buscando botón 'Generar'...
+2025-11-24 10:05:09,124 [INFO] Preparando descarga Excel para Reporte Cargos Recurrentes...
+2025-11-24 10:05:10,638 [INFO] Reporte Cargos Recurrentes: archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\cargos_recurrentes.xlsx
+2025-11-24 10:44:47,883 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-24 10:44:47,883 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-24 10:44:48,580 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-24 10:44:58,374 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-24 10:44:58,375 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-24 10:44:59,732 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-24 10:44:59,775 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-24 10:45:03,083 [INFO] Buscando botón 'Generar'...
+2025-11-24 10:46:50,323 [INFO] Preparando descarga Excel para Reporte Corte De Caja (Membresia)...
+2025-11-24 10:47:01,517 [INFO] Reporte Corte De Caja (Membresia): archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-24 10:47:01,517 [INFO] Reporte Venta Total: intento 1/3
+2025-11-24 10:47:01,517 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-24 10:47:02,356 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-24 10:47:02,399 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-24 10:47:05,612 [INFO] Buscando botón 'Generar'...
+2025-11-24 10:47:53,475 [INFO] Preparando descarga Excel para Reporte Venta Total...
+2025-11-24 10:48:21,529 [INFO] Reporte Venta Total: archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\venta_total.xlsx
+2025-11-24 10:48:21,529 [INFO] Reporte Cargos Recurrentes: intento 1/3
+2025-11-24 10:48:21,529 [INFO] ==== Descarga: Reporte Cargos Recurrentes ====
+2025-11-24 10:48:22,759 [INFO] Seleccionando tipo de reporte 'Reporte Cargos Recurrentes'...
+2025-11-24 10:48:22,913 [INFO] Tipo de reporte 'Reporte Cargos Recurrentes' seleccionado correctamente.
+2025-11-24 10:48:26,889 [INFO] Buscando botón 'Generar'...
+2025-11-24 10:48:51,932 [INFO] Preparando descarga Excel para Reporte Cargos Recurrentes...
+2025-11-24 10:48:53,437 [INFO] Reporte Cargos Recurrentes: archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\cargos_recurrentes.xlsx
