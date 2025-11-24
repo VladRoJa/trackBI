@@ -1,0 +1,35 @@
+name: Track BI - Reportes Gasca
+
+on:
+  schedule:
+    - cron: '0 15 * * *'   
+  workflow_dispatch:
+
+jobs:
+  run-track-bi:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Crear .env desde secret
+        run: |
+          echo "${{ secrets.TRACK_BI_ENV }}" > .env
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r scripts/requirements.txt
+
+      - name: Ejecutar reporte Dirección
+        run: |
+          python scripts/reporte_direccion_ingresos.py
+
+      - name: Ejecutar descargas (corte caja, venta total, cargos recurrentes)
+        run: |
+          python scripts/reporte_descargas.py
