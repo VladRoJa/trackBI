@@ -3,7 +3,7 @@ name: track-bi
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 15 * * *"   # 7am Tijuana aprox (ajustas después)
+    - cron: "0 15 * * *"   # Ajusta horario UTC cuando ya tengas todo fino
 
 jobs:
   run-track-bi:
@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install Python dependencies
+      - name: Install Python dependencies + Playwright browsers
         run: |
           python -m pip install --upgrade pip
           pip install -r scripts/requirements.txt
@@ -37,23 +37,29 @@ jobs:
 
           REPORTES_URL=${{ secrets.REPORTES_URL }}
 
-          DIRECCION_OUTPUT_DIR=data/direccion_ingresos
-          KPI_DESEMPENO_OUTPUT_DIR=data/kpi_desempeno
-          KPI_VENTAS_NUEVOS_SOCIOS_OUTPUT_DIR=data/kpi_ventas_nuevos_socios
-          DESCARGAS_OUTPUT_DIR=data/descargas
+          DIRECCION_OUTPUT_DIR=scripts/data/direccion_ingresos
+          KPI_DESEMPENO_OUTPUT_DIR=scripts/data/kpi_desempeno
+          KPI_VENTAS_NUEVOS_SOCIOS_OUTPUT_DIR=scripts/data/kpi_ventas_nuevos_socios
+          DESCARGAS_OUTPUT_DIR=scripts/data/descargas
 
           SHOW_BROWSER=0
           EOF
 
       - name: Create output folders
         run: |
-          mkdir -p data/direccion_ingresos
-          mkdir -p data/kpi_desempeno
-          mkdir -p data/kpi_ventas_nuevos_socios
-          mkdir -p data/descargas
+          mkdir -p scripts/data/direccion_ingresos
+          mkdir -p scripts/data/kpi_desempeno
+          mkdir -p scripts/data/kpi_ventas_nuevos_socios
+          mkdir -p scripts/data/descargas
 
-      - name: Run Python scripts
+      # ---------- 1) Script de Dirección + KPIs ----------
+      - name: Ejecutar reporte Dirección
         working-directory: scripts
         run: |
           python reporte_direccion_ingresos.py
+
+      # ---------- 2) Script de descargas ----------
+      - name: Ejecutar descargas (corte caja, venta total, cargos recurrentes)
+        working-directory: scripts
+        run: |
           python reporte_descargas.py
