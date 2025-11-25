@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # para poder hacer push sin bronca
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -39,20 +41,16 @@ jobs:
 
           REPORTES_URL=${{ secrets.REPORTES_URL }}
 
-          DIRECCION_OUTPUT_DIR=scripts/data/direccion_ingresos
-          KPI_DESEMPENO_OUTPUT_DIR=scripts/data/kpi_desempeno
-          KPI_VENTAS_NUEVOS_SOCIOS_OUTPUT_DIR=scripts/data/kpi_ventas_nuevos_socios
-
+          # En Actions siempre headless
           SHOW_BROWSER=0
           EOF
 
-
       - name: Create output folders
         run: |
-          mkdir -p scripts/data/direccion_ingresos
-          mkdir -p scripts/data/kpi_desempeno
-          mkdir -p scripts/data/kpi_ventas_nuevos_socios
-          mkdir -p scripts/data/descargas
+          mkdir -p data/direccion_ingresos
+          mkdir -p data/kpi_desempeno
+          mkdir -p data/kpi_ventas_nuevos_socios
+          mkdir -p data/descargas
 
       # ---------- 1) Script de Dirección + KPIs ----------
       - name: Ejecutar reporte Dirección
@@ -75,10 +73,10 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git add \
-            scripts/data/direccion_ingresos/*.xlsx \
-            scripts/data/kpi_desempeno/*.xlsx \
-            scripts/data/kpi_ventas_nuevos_socios/*.xlsx \
-            scripts/data/descargas/*.xlsx || echo "Nada que agregar"
+            data/direccion_ingresos/*.xlsx \
+            data/kpi_desempeno/*.xlsx \
+            data/kpi_ventas_nuevos_socios/*.xlsx \
+            data/descargas/*.xlsx || echo "Nada que agregar"
 
           if git diff --cached --quiet; then
             echo "✅ No hay cambios nuevos en los Excel, no se hace commit."
@@ -89,4 +87,3 @@ jobs:
           git commit -m "$MSG"
           echo "🚀 Haciendo push a main..."
           git push origin main
-
