@@ -3,7 +3,13 @@ name: track-bi
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 15 * * *"   # Ajusta horario UTC cuando ya tengas todo fino
+    # 1) Todos los días a las 7:00 am (Mexicali)  -> 15:00 UTC
+    - cron: "0 15 * * *"
+
+    # 2) Último día del mes a las 11:00 pm (Mexicali)
+    #    Se programa a las 07:00 UTC del día 1,
+    #    que actualmente corresponde a las 23:00 del último día anterior en Mexicali (UTC-8)
+    - cron: "0 7 1 * *"
 
 permissions:
   contents: write    
@@ -11,12 +17,9 @@ permissions:
 jobs:
   run-track-bi:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0   # para poder hacer push sin bronca
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -38,27 +41,27 @@ jobs:
 
           DIRECCION_REPORTE_URL=${{ secrets.DIRECCION_REPORTE_URL }}
           KPI_DESEMPENO_URL=${{ secrets.KPI_DESEMPENO_URL }}
-
           REPORTES_URL=${{ secrets.REPORTES_URL }}
 
-          # En Actions siempre headless
+          DIRECCION_OUTPUT_DIR=scripts/data/direccion_ingresos
+          KPI_DESEMPENO_OUTPUT_DIR=scripts/data/kpi_desempeno
+          KPI_VENTAS_NUEVOS_SOCIOS_OUTPUT_DIR=scripts/data/kpi_ventas_nuevos_socios
+
           SHOW_BROWSER=0
           EOF
 
       - name: Create output folders
         run: |
-          mkdir -p data/direccion_ingresos
-          mkdir -p data/kpi_desempeno
-          mkdir -p data/kpi_ventas_nuevos_socios
-          mkdir -p data/descargas
+          mkdir -p scripts/data/direccion_ingresos
+          mkdir -p scripts/data/kpi_desempeno
+          mkdir -p scripts/data/kpi_ventas_nuevos_socios
+          mkdir -p scripts/data/descargas
 
-      # ---------- 1) Script de Dirección + KPIs ----------
       - name: Ejecutar reporte Dirección
         working-directory: scripts
         run: |
           python reporte_direccion_ingresos.py
 
-      # ---------- 2) Script de descargas ----------
       - name: Ejecutar descargas (corte caja, venta total, cargos recurrentes)
         working-directory: scripts
         run: |
@@ -73,10 +76,10 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git add \
-            data/direccion_ingresos/*.xlsx \
-            data/kpi_desempeno/*.xlsx \
-            data/kpi_ventas_nuevos_socios/*.xlsx \
-            data/descargas/*.xlsx || echo "Nada que agregar"
+            scripts/data/direccion_ingresos/*.xlsx \
+            scripts/data/kpi_desempeno/*.xlsx \
+            scripts/data/kpi_ventas_nuevos_socios/*.xlsx \
+            scripts/data/descargas/*.xlsx || echo "Nada que agregar"
 
           if git diff --cached --quiet; then
             echo "✅ No hay cambios nuevos en los Excel, no se hace commit."
