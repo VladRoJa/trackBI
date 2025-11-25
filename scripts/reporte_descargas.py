@@ -4,7 +4,8 @@ import logging
 import time
 from datetime import datetime
 from pathlib import Path
-
+from io import StringIO
+import pandas as pd
 from dotenv import load_dotenv
 from playwright.sync_api import sync_playwright
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
@@ -425,6 +426,50 @@ def esperar_tabla_con_registros(page, min_filas: int = 10, timeout: int = 120):
         f"(último conteo={ultimo_conteo})."
     )
 
+def extraer_tabla_principal_venta_total(page):
+    """
+    Recorre todas las tablas de la página de Venta Total y devuelve
+    la más grande (filas * columnas) como DataFrame.
+    La usamos en lugar de Exportar -> Excel.
+    """
+    tablas = page.locator("table")
+    total = tablas.count()
+
+    if total == 0:
+        raise RuntimeError("Venta Total: no se encontró ninguna tabla en la página.")
+
+    logging.info(f"Venta Total: se encontraron {total} tablas. Buscando la más grande...")
+    best_df = None
+    best_score = 0
+
+    for i in range(total):
+        try:
+            html_table = tablas.nth(i).evaluate("el => el.outerHTML")
+            df_list = pd.read_html(StringIO(html_table))
+        except Exception as e:
+            logging.warning(f"Venta Total: error leyendo tabla {i}: {e}")
+            continue
+
+        for df in df_list:
+            if df is None or df.empty:
+                continue
+
+            filas, columnas = df.shape
+            score = filas * columnas
+            logging.info(f"Venta Total: tabla {i} candidata {filas}x{columnas} (score={score})")
+
+            if score > best_score:
+                best_score = score
+                best_df = df
+
+    if best_df is None or best_df.empty:
+        raise RuntimeError("Venta Total: no se pudo determinar una tabla principal (todas vacías).")
+
+    logging.info(f"Venta Total: tabla seleccionada con shape={best_df.shape}")
+    return best_df
+
+
+
 
 # ============================================================
 # REPORTES ESPECÍFICOS
@@ -488,42 +533,77 @@ def descargar_reporte_venta_total(page):
       - Sucursal en 'Seleccione...'
       - Generar
       - Esperar a que la tabla tenga registros
-      - Exportar -> Excel
+      - Leer tabla HTML con pandas
+      - Guardar a OUTPUT_DIR/venta_total.xlsx
     """
     logging.info("==== Descarga: Reporte Venta Total ====")
-    print("\n🔹 Descargando 'Reporte Venta Total'...\n")
+    print("\n🔹 Descargando 'Reporte Venta Total'...\n", flush=True)
 
     # Ir a la pantalla de reportes (por si venimos de otro reporte)
-    print("➡ Entrando a módulo de Reportes...")
+    print("➡ Entrando a módulo de Reportes...", flush=True)
     page.goto(REPORTES_URL, timeout=120_000)
     page.wait_for_load_state("networkidle")
 
     # Seleccionar tipo de reporte
     seleccionar_tipo_reporte(page, "Reporte Venta Total")
 
-    # Reutilizamos fechas 1 del mes actual -> hoy
-    rellenar_fechas_corte_caja(page)
+    # Fechas: 1 del mes actual -> hoy
+    hoy = datetime.now()
+    inicio_mes = hoy.replace(day=1)
+
+    fecha_inicio_str = inicio_mes.strftime("%m/%d/%Y")
+    fecha_fin_str    = hoy.strftime("%m/%d/%Y")
+
+    print(f"➡ Fecha Inicio = {fecha_inicio_str}", flush=True)
+    print(f"➡ Fecha Fin    = {fecha_fin_str}", flush=True)
+
+    # Inputs de texto (las fechas)
+    inputs = page.locator("input[type='text']")
+    total = inputs.count()
+    print(f"   inputs[type='text'] encontrados: {total}", flush=True)
+
+    if total < 2:
+        raise RuntimeError(
+            f"Venta Total: esperaba al menos 2 inputs de texto para fechas, pero encontré {total}"
+        )
+
+    campo_inicio = inputs.nth(0)
+    campo_fin    = inputs.nth(1)
+
+    for campo, valor, nombre in [
+        (campo_inicio, fecha_inicio_str, "Fecha Inicio"),
+        (campo_fin,    fecha_fin_str,    "Fecha Fin"),
+    ]:
+        print(f"   escribiendo {nombre} = {valor}", flush=True)
+        campo.click()
+        campo.fill("")
+        campo.type(valor, delay=50)
+        time.sleep(0.3)
 
     # Generar reporte
     click_boton_generar(page)
 
-    # Primero esperamos a que al menos exista el botón Exportar
-    print("⏳ Esperando a que aparezca el botón 'Exportar'...")
+    # Esperar a que exista botón Exportar (indicador de que la tabla se creó)
+    print("⏳ Esperando a que aparezca el botón 'Exportar'...", flush=True)
     page.wait_for_selector("button:has-text('Exportar')", timeout=120_000)
 
-    # Luego esperamos a que la tabla tenga X filas
-    # (con 10 cuadramos con lo que ves en la pantalla por defecto)
+    # Luego esperar a que la tabla tenga X filas
     esperar_tabla_con_registros(page, min_filas=10, timeout=120)
+    print("✔ Reporte Venta Total cargado con registros.", flush=True)
 
-    print("✔ Reporte Venta Total cargado con registros.")
+    # 👉 En lugar de Exportar -> Excel, leemos la tabla HTML y guardamos a xlsx
+    print("➡ Extrayendo tabla principal de Venta Total desde HTML...", flush=True)
+    df_venta = extraer_tabla_principal_venta_total(page)
 
-    # Descargar Excel (no hay tabs aquí)
-    return descargar_excel_desde_tabla(
-        page,
-        nombre_reporte="Reporte Venta Total",
-        nombre_archivo="venta_total.xlsx",
-        usar_tab=None,
-    )
+    destino = OUTPUT_DIR / "venta_total.xlsx"
+    if destino.exists():
+        destino.unlink()
+
+    df_venta.to_excel(destino, index=False)
+    logging.info(f"Reporte Venta Total guardado en: {destino}")
+    print(f"✅ Reporte Venta Total guardado en: {destino}", flush=True)
+
+    return destino
 
 def descargar_reporte_cargos_recurrentes(page):
     """
