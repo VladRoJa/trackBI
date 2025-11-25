@@ -36,7 +36,6 @@ jobs:
 
           DIRECCION_REPORTE_URL=${{ secrets.DIRECCION_REPORTE_URL }}
           KPI_DESEMPENO_URL=${{ secrets.KPI_DESEMPENO_URL }}
-          KPI_VENTAS_NUEVAS_SOCIOS_URL=${{ secrets.KPI_VENTAS_NUEVAS_SOCIOS_URL }}
 
           REPORTES_URL=${{ secrets.REPORTES_URL }}
 
@@ -44,9 +43,9 @@ jobs:
           KPI_DESEMPENO_OUTPUT_DIR=scripts/data/kpi_desempeno
           KPI_VENTAS_NUEVOS_SOCIOS_OUTPUT_DIR=scripts/data/kpi_ventas_nuevos_socios
 
-
           SHOW_BROWSER=0
           EOF
+
 
       - name: Create output folders
         run: |
@@ -72,26 +71,22 @@ jobs:
           echo "🔍 Estado antes de commit:"
           git status
 
-          # Configurar identidad del bot
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Agregar los Excel que genera el workflow
           git add \
-            data/direccion_ingresos/*.xlsx \
-            data/kpi_desempeno/*.xlsx \
-            data/kpi_ventas_nuevos_socios/*.xlsx \
-            data/descargas/*.xlsx || echo "Nada que agregar"
+            scripts/data/direccion_ingresos/*.xlsx \
+            scripts/data/kpi_desempeno/*.xlsx \
+            scripts/data/kpi_ventas_nuevos_socios/*.xlsx \
+            scripts/data/descargas/*.xlsx || echo "Nada que agregar"
 
-          # Si no hay cambios, salimos sin fallar
           if git diff --cached --quiet; then
             echo "✅ No hay cambios nuevos en los Excel, no se hace commit."
             exit 0
           fi
 
-          # Hacer commit y push
           MSG="chore: auto-update track BI $(date -u +'%Y-%m-%d %H:%M UTC')"
           git commit -m "$MSG"
           echo "🚀 Haciendo push a main..."
           git push origin main
-      
+
