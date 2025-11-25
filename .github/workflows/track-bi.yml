@@ -2,7 +2,12 @@ name: track-bi
 
 on:
   workflow_dispatch:
-    - cron: "*/5 * * * *"
+  schedule:
+    # 1) Todos los días a las 7:00 am (Mexicali = UTC-8) -> 15:00 UTC
+    - cron: "0 15 * * *"
+    # 2) Último día del mes a las 11:00 pm (Mexicali)
+    #    Se programa a las 07:00 UTC del día 1 siguiente
+    - cron: "0 7 1 * *"
 
 permissions:
   contents: write    
@@ -66,30 +71,21 @@ jobs:
           echo "🔍 Estado antes de commit:"
           git status
 
-          # Config identidad del bot
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Agregar los Excel generados
           git add \
             data/direccion_ingresos/*.xlsx \
             data/kpi_desempeno/*.xlsx \
             data/kpi_ventas_nuevos_socios/*.xlsx \
             data/descargas/*.xlsx || echo "Nada que agregar"
 
-          # Si no hay nada staged, salir sin error
           if git diff --cached --quiet; then
             echo "✅ No hay cambios nuevos en los Excel, no se hace commit."
             exit 0
           fi
 
-          # Commit
           MSG="chore: auto-update track BI $(date -u +'%Y-%m-%d %H:%M UTC')"
           git commit -m "$MSG"
-
-          echo "📥 Haciendo pull --rebase de origin/main antes del push..."
-          git pull --rebase origin main
-
           echo "🚀 Haciendo push a main..."
           git push origin main
- 
