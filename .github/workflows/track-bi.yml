@@ -43,7 +43,7 @@ jobs:
           DIRECCION_OUTPUT_DIR=scripts/data/direccion_ingresos
           KPI_DESEMPENO_OUTPUT_DIR=scripts/data/kpi_desempeno
           KPI_VENTAS_NUEVOS_SOCIOS_OUTPUT_DIR=scripts/data/kpi_ventas_nuevos_socios
-          DESCARGAS_OUTPUT_DIR=scripts/data/descargas
+
 
           SHOW_BROWSER=0
           EOF

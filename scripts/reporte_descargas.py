@@ -33,12 +33,7 @@ LOGIN_URL = os.getenv("DIRECCION_LOGIN_URL")
 REPORTES_URL = os.getenv("REPORTES_URL")
 
 # Carpeta destino para los archivos descargados (SIN fecha)
-OUTPUT_DIR = Path(
-    os.getenv(
-        "DESCARGAS_OUTPUT_DIR",
-        BASE_DIR / "data/descargas"
-    )
-).resolve()
+OUTPUT_DIR = BASE_DIR / "data" / "descargas"
 
 # Mostrar navegador (1 = visible, 0 = headless)
 SHOW_BROWSER = os.getenv("SHOW_BROWSER", "0") == "1"
