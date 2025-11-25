@@ -7,6 +7,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 from playwright.sync_api import sync_playwright
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 
 # ============================================================
 # CONFIGURACIÓN GENERAL
@@ -373,13 +374,16 @@ def descargar_excel_desde_tabla(
 
     # Click en "Excel" con expect_download
     print("➡ Clic en 'Excel' (esperando descarga)...")
-    with page.expect_download() as dl_info:
-        try:
-            page.get_by_text("Excel", exact=False).first.click()
-        except Exception:
-            page.locator("text=Excel").first.click()
-
-    download = dl_info.value
+    try:
+        with page.expect_download(timeout=60_000) as dl_info:  # 60s máx
+            try:
+                page.get_by_text("Excel", exact=False).first.click()
+            except Exception:
+                page.locator("text=Excel").first.click()
+        download = dl_info.value
+    except PlaywrightTimeoutError as e:
+        logging.error(f"{nombre_reporte}: timeout esperando download de Excel: {e}")
+        raise RuntimeError(f"{nombre_reporte}: no se pudo iniciar/terminar la descarga de Excel en 60s")
 
     destino = OUTPUT_DIR / nombre_archivo
     if destino.exists():
@@ -628,46 +632,55 @@ def main():
     validar_config()
     logging.info("==== Inicio de ejecución reporte_descargas.py ====")
 
+    inicio_total = time.time()
+    print("🚀 Iniciando reporte_descargas.py", flush=True)
+
     try:
         with sync_playwright() as p:
+            # en Actions siempre va headless porque SHOW_BROWSER=0 en el .env
             browser = p.chromium.launch(headless=not SHOW_BROWSER)
-            # 👇 sin downloads_path, solo accept_downloads
             context = browser.new_context(accept_downloads=True)
             page = context.new_page()
 
-            # 1) Login una sola vez
+            # 1) Login
+            print("➡ [1/4] Haciendo login en Gasca...", flush=True)
             hacer_login(page)
+            print("✅ Login OK", flush=True)
 
-            # 2) Reporte Corte de Caja
+            # 2) Corte de caja
+            print("➡ [2/4] Descargando REPORTE CORTE DE CAJA...", flush=True)
             ejecutar_con_reintentos(
                 lambda: descargar_reporte_corte_caja(page),
                 "Reporte Corte De Caja"
             )
+            print("✅ Corte de caja descargado", flush=True)
 
-            # 3) Reporte Venta Total
+            # 3) Venta total
+            print("➡ [3/4] Descargando REPORTE VENTA TOTAL...", flush=True)
             ejecutar_con_reintentos(
                 lambda: descargar_reporte_venta_total(page),
                 "Reporte Venta Total"
             )
+            print("✅ Venta total descargada", flush=True)
 
-            # 3) Reporte Cargos Recurrentes
+            # 4) Cargos recurrentes
+            print("➡ [4/4] Descargando REPORTE CARGOS RECURRENTES...", flush=True)
             ejecutar_con_reintentos(
                 lambda: descargar_reporte_cargos_recurrentes(page),
                 "Reporte Cargos Recurrentes"
             )
-
-
-            
+            print("✅ Cargos recurrentes descargados", flush=True)
 
             browser.close()
 
     except Exception as e:
         msg = f"❌ Error general en reporte_descargas.py: {e}"
-        print(msg)
+        print(msg, flush=True)
         logging.error(msg)
         sys.exit(1)
 
-    print("\n🎉 Script reporte_descargas.py terminado sin errores.\n")
+    dur = time.time() - inicio_total
+    print(f"\n🎉 reporte_descargas.py terminado sin errores en {dur:.1f} s.\n", flush=True)
 
 
 if __name__ == "__main__":
