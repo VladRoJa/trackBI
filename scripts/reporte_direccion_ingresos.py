@@ -13,6 +13,12 @@ from playwright.sync_api import (
 )
 import pandas as pd
 import requests
+import pytz
+
+TZ = pytz.timezone("America/Tijuana")  # Hora local Mexicali
+
+
+
 
 # ================= Configuración general ================= #
 
@@ -470,7 +476,7 @@ def main():
     validar_config()
     logging.info("==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====")
 
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
+    timestamp = datetime.now(TZ).strftime("%Y-%m-%d_%H-%M")
 
     try:
         with sync_playwright() as p:
