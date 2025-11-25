@@ -463,6 +463,29 @@ def extraer_tabla_principal_venta_total(page):
     logging.info(f"Venta Total: tabla seleccionada con shape={best_df.shape}")
     return best_df
 
+def esperar_fin_carga_venta_total(page, timeout: int = 120):
+    """
+    Para Venta Total:
+      - Espera (si aparece) el texto 'Cargando...'
+      - Luego espera a que desaparezca.
+    No valida filas ni nada más; solo se asegura de que terminó el backend.
+    """
+    print("⏳ Esperando a que termine 'Cargando...' en Venta Total...", flush=True)
+
+    # 1) Intentar ver 'Cargando...' (puede o no aparecer según velocidad)
+    try:
+        page.wait_for_selector("text=Cargando...", timeout=10_000)
+        print("✔ 'Cargando...' detectado", flush=True)
+    except Exception:
+        print("⚠ No se vio 'Cargando...' (probablemente cargó muy rápido)", flush=True)
+        return  # si no apareció, asumimos que ya terminó o es muy rápido
+
+    # 2) Esperar a que desaparezca
+    try:
+        page.wait_for_selector("text=Cargando...", state="detached", timeout=timeout * 1000)
+        print("✔ 'Cargando...' desapareció", flush=True)
+    except Exception:
+        raise RuntimeError("Venta Total: 'Cargando...' no desapareció dentro del timeout.")
 
 
 
@@ -527,14 +550,13 @@ def descargar_reporte_venta_total(page):
       - Fecha Fin    = hoy
       - Sucursal en 'Seleccione...'
       - Generar
-      - Esperar a que la tabla tenga registros
-      - Leer tabla HTML con pandas
-      - Guardar a OUTPUT_DIR/venta_total.xlsx
+      - Esperar a que termine 'Cargando...'
+      - Exportar -> Excel
     """
     logging.info("==== Descarga: Reporte Venta Total ====")
     print("\n🔹 Descargando 'Reporte Venta Total'...\n", flush=True)
 
-    # Ir a la pantalla de reportes (por si venimos de otro reporte)
+    # Ir a la pantalla de reportes
     print("➡ Entrando a módulo de Reportes...", flush=True)
     page.goto(REPORTES_URL, timeout=120_000)
     page.wait_for_load_state("networkidle")
@@ -578,27 +600,20 @@ def descargar_reporte_venta_total(page):
     # Generar reporte
     click_boton_generar(page)
 
-    # Esperar a que exista botón Exportar (indicador de que la tabla se creó)
-    print("⏳ Esperando a que aparezca el botón 'Exportar'...", flush=True)
+    # Esperar a que el backend termine (solo 'Cargando...')
+    esperar_fin_carga_venta_total(page, timeout=120)
+
+    # Asegurarnos de que el botón Exportar ya está listo
     page.wait_for_selector("button:has-text('Exportar')", timeout=120_000)
+    print("✔ Reporte Venta Total cargado. Exportando a Excel...", flush=True)
 
-    # Luego esperar a que la tabla tenga X filas
-    esperar_tabla_con_registros(page, min_filas=10, timeout=120)
-    print("✔ Reporte Venta Total cargado con registros.", flush=True)
-
-    # 👉 En lugar de Exportar -> Excel, leemos la tabla HTML y guardamos a xlsx
-    print("➡ Extrayendo tabla principal de Venta Total desde HTML...", flush=True)
-    df_venta = extraer_tabla_principal_venta_total(page)
-
-    destino = OUTPUT_DIR / "venta_total.xlsx"
-    if destino.exists():
-        destino.unlink()
-
-    df_venta.to_excel(destino, index=False)
-    logging.info(f"Reporte Venta Total guardado en: {destino}")
-    print(f"✅ Reporte Venta Total guardado en: {destino}", flush=True)
-
-    return destino
+    # Exportar → Excel (usa el helper genérico)
+    return descargar_excel_desde_tabla(
+        page,
+        nombre_reporte="Reporte Venta Total",
+        nombre_archivo="venta_total.xlsx",
+        usar_tab=None  # no hay tabs especiales aquí
+    )
 
 def descargar_reporte_cargos_recurrentes(page):
     """
