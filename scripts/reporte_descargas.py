@@ -727,19 +727,33 @@ def descargar_reporte_venta_total(page):
 
         print("➡ Click en opción 'Excel' (sin esperar navegación)...", flush=True)
 
-        # Intento 1: menuitem
+        click_error = None
         try:
-            page.get_by_role("menuitem", name="Excel").click(
-                no_wait_after=True,
-                timeout=2_000,
-            )
-        except Exception:
-            # Intento 2: cualquier texto 'Excel', forzado y sin waits
-            page.get_by_text("Excel", exact=False).first.click(
-                force=True,
-                no_wait_after=True,
-                timeout=2_000,
-            )
+            # Intento normal de Playwright
+            page.get_by_text("Excel", exact=False).first.click(force=True, timeout=10_000)
+        except Exception as e:
+            click_error = e
+            logging.warning(f"Venta Total: error al hacer click en Excel (Playwright): {e}")
+            print("⚠ Venta Total: error al hacer click en Excel con Playwright, probando click por JS...", flush=True)
+            try:
+                # Fallback: click por JavaScript al <span>Excel</span>
+                page.evaluate(
+                    """
+                    () => {
+                        const spans = Array.from(document.querySelectorAll('span'));
+                        const excelSpan = spans.find(s => s.textContent && s.textContent.includes('Excel'));
+                        if (excelSpan) {
+                            excelSpan.click();
+                            return 'clicked-js';
+                        }
+                        return 'no-element';
+                    }
+                    """
+                )
+            except Exception as e2:
+                logging.error(f"Venta Total: también falló el click por JS en Excel: {e2}")
+                # aquí ya sí puedes decidir si abortas o dejas que igual siga buscando el archivo
+
 
     except Exception as e:
         # Este error SÍ lo registramos, pero NO queremos que truene antes de revisar el archivo
@@ -873,10 +887,14 @@ def main():
 
     try:
         with sync_playwright() as p:
-            # en Actions siempre va headless porque SHOW_BROWSER=0 en el .env
             browser = p.chromium.launch(headless=not SHOW_BROWSER)
             context = browser.new_context(accept_downloads=True)
+
+            # 🔧 subimos timeouts por si en algún lado están muy bajos
+            context.set_default_timeout(60_000)
+
             page = context.new_page()
+            page.set_default_timeout(60_000)
 
             # 1) Login
             print("➡ [1/4] Haciendo login en Gasca...", flush=True)
