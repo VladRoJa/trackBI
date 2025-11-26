@@ -1258,3 +1258,50 @@ Call log:
 2025-11-26 09:24:46,048 [INFO] Buscando botón 'Generar'...
 2025-11-26 09:25:11,103 [INFO] Preparando descarga Excel para Reporte Cargos Recurrentes...
 2025-11-26 09:25:13,078 [INFO] Reporte Cargos Recurrentes: archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\cargos_recurrentes.xlsx
+2025-11-26 10:30:46,037 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-26 10:30:46,037 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-26 10:30:46,754 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-26 10:30:56,134 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-26 10:30:56,134 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-26 10:30:57,214 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-26 10:30:57,265 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-26 10:31:00,504 [INFO] Buscando botón 'Generar'...
+2025-11-26 10:33:07,397 [INFO] Preparando descarga Excel para Reporte Corte De Caja (Membresia)...
+2025-11-26 10:33:22,618 [INFO] Reporte Corte De Caja (Membresia): archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 10:33:22,618 [INFO] Limpiando Excel pesado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 10:33:36,331 [INFO] Excel limpio guardado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 10:33:36,333 [INFO] Reporte Venta Total: intento 1/3
+2025-11-26 10:33:36,333 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 10:33:37,230 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 10:33:37,394 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 10:33:40,605 [INFO] Buscando botón 'Generar'...
+2025-11-26 10:35:30,314 [ERROR] Venta Total: error en export/espera/limpieza: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Excel").first
+    - locator resolved to <span>Excel</span>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+
+2025-11-26 10:35:30,315 [INFO] Reporte Venta Total: flujo completado (sin excepciones fatales).
+2025-11-26 10:35:30,315 [INFO] Reporte Cargos Recurrentes: intento 1/3
+2025-11-26 10:35:30,316 [INFO] ==== Descarga: Reporte Cargos Recurrentes ====
+2025-11-26 10:35:40,664 [INFO] Seleccionando tipo de reporte 'Reporte Cargos Recurrentes'...
+2025-11-26 10:35:40,714 [INFO] Tipo de reporte 'Reporte Cargos Recurrentes' seleccionado correctamente.
+2025-11-26 10:35:44,640 [INFO] Buscando botón 'Generar'...
+2025-11-26 10:36:09,697 [INFO] Preparando descarga Excel para Reporte Cargos Recurrentes...
+2025-11-26 10:36:11,381 [INFO] Reporte Cargos Recurrentes: archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\cargos_recurrentes.xlsx
+2025-11-26 10:38:22,542 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-26 10:38:22,542 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-26 10:38:23,229 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-26 10:38:32,280 [INFO] Reporte Venta Total: intento 1/3
+2025-11-26 10:38:32,280 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 10:38:33,250 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 10:38:33,307 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 10:38:36,575 [INFO] Buscando botón 'Generar'...
+2025-11-26 10:42:06,863 [INFO] Limpiando Excel pesado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\venta_total.xlsx
+2025-11-26 10:42:35,259 [INFO] Excel limpio guardado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\venta_total.xlsx
+2025-11-26 10:42:35,259 [INFO] Reporte Venta Total: flujo completado (sin excepciones fatales).
