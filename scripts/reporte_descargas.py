@@ -857,12 +857,12 @@ def main():
             print("✅ Login OK", flush=True)
 
             # 2) Corte de caja
-#            print("➡ [2/4] Descargando REPORTE CORTE DE CAJA...", flush=True)
-#            ejecutar_con_reintentos(
-#                lambda: descargar_reporte_corte_caja(page),
-#                "Reporte Corte De Caja"
-#            )
-#            print("✅ Corte de caja descargado", flush=True)
+            print("➡ [2/4] Descargando REPORTE CORTE DE CAJA...", flush=True)
+            ejecutar_con_reintentos(
+                lambda: descargar_reporte_corte_caja(page),
+                "Reporte Corte De Caja"
+            )
+            print("✅ Corte de caja descargado", flush=True)
 
             # 3) Venta total
             print("➡ [3/4] Descargando REPORTE VENTA TOTAL...", flush=True)
@@ -873,12 +873,12 @@ def main():
             print("✅ Venta total descargada", flush=True)
 
             # 4) Cargos recurrentes
-#            print("➡ [4/4] Descargando REPORTE CARGOS RECURRENTES...", flush=True)
-#            ejecutar_con_reintentos(
-#                lambda: descargar_reporte_cargos_recurrentes(page),
-#                "Reporte Cargos Recurrentes"
-#            )
-#            print("✅ Cargos recurrentes descargados", flush=True)
+            print("➡ [4/4] Descargando REPORTE CARGOS RECURRENTES...", flush=True)
+            ejecutar_con_reintentos(
+                lambda: descargar_reporte_cargos_recurrentes(page),
+                "Reporte Cargos Recurrentes"
+            )
+            print("✅ Cargos recurrentes descargados", flush=True)
 
             browser.close()
 
