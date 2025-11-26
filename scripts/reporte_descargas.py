@@ -67,27 +67,55 @@ def validar_config():
 def limpiar_excel_inplace(ruta: Path | str):
     """
     Lee un .xlsx y lo vuelve a guardar sin estilos/formatos, sólo datos.
-    Esto reduce muchísimo el tamaño del archivo.
-    Deja el archivo con el MISMO nombre en disco.
+    Si no se puede leer (archivo aún en descarga, corrupto, etc.),
+    deja el archivo tal cual y NO truena el script.
     """
     ruta = Path(ruta)  # por si viene como string
     print(f"🧹 Limpiando Excel pesado: {ruta.name}...", flush=True)
     logging.info(f"Limpiando Excel pesado: {ruta}")
 
-    # Leemos la primer hoja (es lo que trae el reporte de Gasca)
-    df = pd.read_excel(ruta)
+    # --- Reintentos por si el archivo todavía se está terminando de escribir ---
+    df = None
+    ultimo_error = None
+    for intento in range(1, 4):  # hasta 3 intentos
+        try:
+            df = pd.read_excel(ruta)
+            break
+        except Exception as e:
+            ultimo_error = e
+            logging.warning(
+                f"No se pudo leer {ruta} en intento {intento}/3 para limpieza: {e}"
+            )
+            print(
+                f"⚠ No se pudo leer {ruta.name} (intento {intento}/3). "
+                f"Esperando 10s y reintentando...",
+                flush=True,
+            )
+            time.sleep(10)
+
+    if df is None:
+        # No se pudo leer; dejamos el archivo como está y NO reventamos
+        msg = f"No se pudo limpiar {ruta.name} después de 3 intentos. Se deja sin cambios."
+        logging.error(msg)
+        print(f"⚠ {msg}", flush=True)
+        return ruta
 
     # Guardamos en un archivo temporal
     tmp_path = ruta.with_suffix(".tmp.xlsx")
     df.to_excel(tmp_path, index=False)
 
     # Reemplazamos el original por el limpio
-    ruta.unlink()          # borrar original
-    tmp_path.rename(ruta)  # renombrar tmp -> original
+    try:
+        ruta.unlink()          # borrar original
+    except Exception as e:
+        logging.warning(f"No se pudo borrar el archivo original {ruta}: {e}")
+
+    tmp_path.rename(ruta)      # renombrar tmp -> original
 
     print(f"✔ Excel limpio guardado: {ruta.name}", flush=True)
     logging.info(f"Excel limpio guardado: {ruta}")
     return ruta
+
 
 
 
@@ -583,7 +611,10 @@ def descargar_reporte_venta_total(page):
       - Sucursal en 'Seleccione...'
       - Generar
       - Esperar a que termine 'Cargando...'
-      - Exportar -> Excel
+      - Exportar -> Excel (sin expect_download)
+      - Esperar fijo
+      - Intentar limpiar venta_total.xlsx si existe
+      - Nunca lanzar excepción en la parte de export/limpieza
     """
     logging.info("==== Descarga: Reporte Venta Total ====")
     print("\n🔹 Descargando 'Reporte Venta Total'...\n", flush=True)
@@ -639,16 +670,61 @@ def descargar_reporte_venta_total(page):
     page.wait_for_selector("button:has-text('Exportar')", timeout=120_000)
     print("✔ Reporte Venta Total cargado. Exportando a Excel...", flush=True)
 
-    # Exportar → Excel (usa el helper genérico)
-    ruta = descargar_excel_desde_tabla(
-        page,
-        nombre_reporte="Reporte Venta Total",
-        nombre_archivo="venta_total.xlsx",
-        usar_tab=None  # no hay tabs especiales aquí
-    )
+    # Ruta esperada del archivo
+    ruta = OUTPUT_DIR / "venta_total.xlsx"
 
-    # 🧹 Limpiar para que pese menos
-    limpiar_excel_inplace(ruta)
+    # --- Todo el bloque de export/espera/limpieza va blindado ---
+    try:
+        print("➡ Click en 'Exportar'...", flush=True)
+        export_btn = None
+        try:
+            export_btn = page.get_by_role("button", name="Exportar")
+        except Exception:
+            pass
+
+        if not export_btn:
+            export_btn = page.locator("button:has-text('Exportar')").first
+
+        export_btn.scroll_into_view_if_needed()
+        export_btn.click()
+        time.sleep(1)  # que se abra el menú
+
+        print("➡ Click en opción 'Excel'...", flush=True)
+        try:
+            # si está como menuitem
+            page.get_by_role("menuitem", name="Excel").click()
+        except Exception:
+            # fallback: cualquier elemento con texto Excel
+            page.get_by_text("Excel", exact=False).first.click()
+
+        # Espera fija para que el navegador termine la descarga
+        espera_segundos = 75
+        print(
+            f"⏳ Esperando {espera_segundos}s para que termine la descarga de Venta Total...",
+            flush=True,
+        )
+        time.sleep(espera_segundos)
+
+        # Intentar limpiar el archivo si existe
+        if ruta.exists():
+            print(
+                f"✅ Detectado archivo de Venta Total en {ruta}, procediendo a limpiar...",
+                flush=True,
+            )
+            limpiar_excel_inplace(ruta)
+        else:
+            print(
+                f"⚠ No se encontró {ruta} tras la espera; no se aplica limpieza.",
+                flush=True,
+            )
+            logging.warning(f"Venta Total: no se encontró archivo {ruta} para limpiar.")
+
+    except Exception as e:
+        # IMPORTANTE: NO relanzar, solo avisar
+        logging.error(f"Venta Total: error en export/espera/limpieza: {e}")
+        print(f"⚠ Venta Total: error en export/espera/limpieza: {e}", flush=True)
+
+    logging.info("Reporte Venta Total: flujo completado (sin excepciones fatales).")
     return ruta
 
     

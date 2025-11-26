@@ -949,3 +949,285 @@ playwright._impl._errors.TargetClosedError: Target page, context or browser has 
 2025-11-25 22:00:03,209 [INFO] Buscando botón 'Generar'...
 2025-11-25 22:00:28,281 [INFO] Preparando descarga Excel para Reporte Cargos Recurrentes...
 2025-11-25 22:00:29,917 [INFO] Reporte Cargos Recurrentes: archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\cargos_recurrentes.xlsx
+2025-11-26 07:21:28,265 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-26 07:21:28,266 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-26 07:21:29,312 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-26 07:21:38,427 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-26 07:21:38,428 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-26 07:21:39,548 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-26 07:21:39,600 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-26 07:21:42,959 [INFO] Buscando botón 'Generar'...
+2025-11-26 07:23:36,683 [INFO] Preparando descarga Excel para Reporte Corte De Caja (Membresia)...
+2025-11-26 07:23:49,920 [INFO] Reporte Corte De Caja (Membresia): archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 07:23:49,920 [INFO] Limpiando Excel pesado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 07:24:03,168 [INFO] Excel limpio guardado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 07:24:03,173 [INFO] Reporte Venta Total: intento 1/3
+2025-11-26 07:24:03,173 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 07:24:04,003 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 07:24:04,151 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 07:24:07,398 [INFO] Buscando botón 'Generar'...
+2025-11-26 07:24:53,770 [INFO] Preparando descarga Excel para Reporte Venta Total...
+2025-11-26 07:25:54,942 [ERROR] Reporte Venta Total: timeout esperando download de Excel: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("text=Excel").first
+    - locator resolved to <span>Excel</span>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+
+2025-11-26 07:25:54,943 [WARNING] Reporte Venta Total falló en intento 1: Reporte Venta Total: no se pudo iniciar/terminar la descarga de Excel en 60s
+2025-11-26 07:25:59,944 [INFO] Reporte Venta Total: intento 2/3
+2025-11-26 07:25:59,944 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 07:26:44,549 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 07:26:44,616 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 07:26:47,975 [INFO] Buscando botón 'Generar'...
+2025-11-26 07:27:42,689 [INFO] Preparando descarga Excel para Reporte Venta Total...
+2025-11-26 07:28:19,563 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2025-11-26 07:28:34,904 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-26 07:28:34,905 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-26 07:28:35,827 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-26 07:28:45,068 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-26 07:28:45,068 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-26 07:28:46,131 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-26 07:28:46,176 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-26 07:28:49,424 [INFO] Buscando botón 'Generar'...
+2025-11-26 07:30:59,626 [INFO] Preparando descarga Excel para Reporte Corte De Caja (Membresia)...
+2025-11-26 07:31:19,431 [INFO] Reporte Corte De Caja (Membresia): archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 07:31:19,431 [INFO] Limpiando Excel pesado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 07:31:39,167 [INFO] Excel limpio guardado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 07:31:39,173 [INFO] Reporte Venta Total: intento 1/3
+2025-11-26 07:31:39,173 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 07:31:40,038 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 07:31:40,195 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 07:31:43,474 [INFO] Buscando botón 'Generar'...
+2025-11-26 07:32:37,060 [INFO] Preparando descarga Excel para Reporte Venta Total...
+2025-11-26 07:33:38,247 [ERROR] Reporte Venta Total: timeout esperando download de Excel: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("text=Excel").first
+    - locator resolved to <span>Excel</span>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+
+2025-11-26 07:33:38,247 [WARNING] Reporte Venta Total falló en intento 1: Reporte Venta Total: no se pudo iniciar/terminar la descarga de Excel en 60s
+2025-11-26 07:33:43,248 [INFO] Reporte Venta Total: intento 2/3
+2025-11-26 07:33:43,248 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 07:33:59,039 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 07:33:59,162 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 07:34:02,475 [INFO] Buscando botón 'Generar'...
+2025-11-26 07:34:55,053 [INFO] Preparando descarga Excel para Reporte Venta Total...
+2025-11-26 07:35:56,215 [ERROR] Reporte Venta Total: timeout esperando download de Excel: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("text=Excel").first
+    - locator resolved to <span>Excel</span>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+
+2025-11-26 07:35:56,215 [WARNING] Reporte Venta Total falló en intento 2: Reporte Venta Total: no se pudo iniciar/terminar la descarga de Excel en 60s
+2025-11-26 07:36:01,216 [INFO] Reporte Venta Total: intento 3/3
+2025-11-26 07:36:01,216 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 07:36:15,950 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 07:36:16,000 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 07:36:19,470 [INFO] Buscando botón 'Generar'...
+2025-11-26 07:37:12,551 [INFO] Preparando descarga Excel para Reporte Venta Total...
+2025-11-26 07:38:13,708 [ERROR] Reporte Venta Total: timeout esperando download de Excel: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("text=Excel").first
+    - locator resolved to <span>Excel</span>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+
+2025-11-26 07:38:13,708 [WARNING] Reporte Venta Total falló en intento 3: Reporte Venta Total: no se pudo iniciar/terminar la descarga de Excel en 60s
+2025-11-26 07:38:14,502 [ERROR] \u274c Error general en reporte_descargas.py: Reporte Venta Total: falló después de 3 intentos. Último error: Reporte Venta Total: no se pudo iniciar/terminar la descarga de Excel en 60s
+2025-11-26 07:57:17,743 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-26 07:57:17,743 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-26 07:57:18,833 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-26 07:57:28,203 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-26 07:57:28,204 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-26 07:57:29,439 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-26 07:57:29,487 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-26 07:57:32,880 [INFO] Buscando botón 'Generar'...
+2025-11-26 07:59:14,422 [INFO] Preparando descarga Excel para Reporte Corte De Caja (Membresia)...
+2025-11-26 07:59:28,142 [INFO] Reporte Corte De Caja (Membresia): archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 07:59:28,142 [INFO] Limpiando Excel pesado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 07:59:42,193 [INFO] Excel limpio guardado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 07:59:42,200 [INFO] Reporte Venta Total: intento 1/3
+2025-11-26 07:59:42,200 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 07:59:43,037 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 07:59:43,213 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 07:59:46,550 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:01:32,439 [WARNING] Reporte Venta Total falló en intento 1: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Excel").first
+    - locator resolved to <span>Excel</span>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+
+2025-11-26 08:01:37,440 [INFO] Reporte Venta Total: intento 2/3
+2025-11-26 08:01:37,441 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 08:01:38,836 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 08:01:38,937 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 08:01:42,267 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:01:46,673 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2025-11-26 08:04:43,301 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-26 08:04:43,301 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-26 08:04:44,081 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-26 08:04:53,856 [INFO] Reporte Venta Total: intento 1/3
+2025-11-26 08:04:53,856 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 08:04:55,531 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 08:04:55,583 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 08:04:58,913 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:08:30,400 [INFO] Limpiando Excel pesado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\venta_total.xlsx
+2025-11-26 08:08:57,643 [INFO] Excel limpio guardado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\venta_total.xlsx
+2025-11-26 08:08:57,651 [INFO] Reporte Venta Total: flujo completado.
+2025-11-26 08:10:19,898 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-26 08:10:19,898 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-26 08:10:20,689 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-26 08:10:30,171 [INFO] Reporte Corte De Caja: intento 1/3
+2025-11-26 08:10:30,171 [INFO] ==== Descarga: Reporte Corte De Caja ====
+2025-11-26 08:10:31,303 [INFO] Seleccionando tipo de reporte 'Reporte Corte De Caja'...
+2025-11-26 08:10:31,354 [INFO] Tipo de reporte 'Reporte Corte De Caja' seleccionado correctamente.
+2025-11-26 08:10:34,697 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:12:21,256 [INFO] Preparando descarga Excel para Reporte Corte De Caja (Membresia)...
+2025-11-26 08:12:34,447 [INFO] Reporte Corte De Caja (Membresia): archivo guardado en C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 08:12:34,447 [INFO] Limpiando Excel pesado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 08:12:47,884 [INFO] Excel limpio guardado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\corte_caja.xlsx
+2025-11-26 08:12:47,886 [INFO] Reporte Venta Total: intento 1/3
+2025-11-26 08:12:47,886 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 08:12:48,742 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 08:12:48,856 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 08:12:52,172 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:14:42,490 [WARNING] Reporte Venta Total falló en intento 1: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Excel").first
+    - locator resolved to <span>Excel</span>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+
+2025-11-26 08:14:47,491 [INFO] Reporte Venta Total: intento 2/3
+2025-11-26 08:14:47,491 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 08:14:48,981 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 08:14:49,086 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 08:14:52,342 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:14:58,654 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2025-11-26 08:15:24,161 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-26 08:15:24,161 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-26 08:15:24,955 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-26 08:15:37,688 [INFO] Reporte Venta Total: intento 1/3
+2025-11-26 08:15:37,688 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 08:15:38,919 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 08:15:38,989 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 08:15:42,172 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:17:41,143 [WARNING] Reporte Venta Total falló en intento 1: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Excel").first
+    - locator resolved to <span>Excel</span>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+
+2025-11-26 08:17:46,144 [INFO] Reporte Venta Total: intento 2/3
+2025-11-26 08:17:46,144 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 08:17:47,309 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 08:17:47,426 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 08:17:50,737 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:19:43,681 [WARNING] Reporte Venta Total falló en intento 2: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Excel").first
+    - locator resolved to <span>Excel</span>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+
+2025-11-26 08:19:48,683 [INFO] Reporte Venta Total: intento 3/3
+2025-11-26 08:19:48,683 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 08:19:51,879 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 08:19:51,996 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 08:19:55,225 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:19:59,741 [WARNING] Reporte Venta Total falló en intento 3: Venta Total: 'Cargando...' no desapareció dentro del timeout.
+2025-11-26 08:20:00,255 [ERROR] \u274c Error general en reporte_descargas.py: Reporte Venta Total: falló después de 3 intentos. Último error: Venta Total: 'Cargando...' no desapareció dentro del timeout.
+2025-11-26 08:28:02,388 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-26 08:28:02,388 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-26 08:28:03,494 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-26 08:28:14,374 [INFO] Reporte Venta Total: intento 1/3
+2025-11-26 08:28:14,374 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 08:28:15,496 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 08:28:15,545 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 08:28:18,782 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:30:13,337 [WARNING] Reporte Venta Total falló en intento 1: Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_text("Excel").first
+    - locator resolved to <span>Excel</span>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+
+2025-11-26 08:30:18,338 [INFO] Reporte Venta Total: intento 2/3
+2025-11-26 08:30:18,338 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 08:30:21,632 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 08:30:21,701 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 08:30:24,926 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:30:37,100 [WARNING] Reporte Venta Total falló en intento 2: Venta Total: 'Cargando...' no desapareció dentro del timeout.
+2025-11-26 08:30:42,102 [INFO] Reporte Venta Total: intento 3/3
+2025-11-26 08:30:42,102 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 08:30:42,104 [WARNING] Reporte Venta Total falló en intento 3: Page.goto: Target page, context or browser has been closed
+2025-11-26 08:30:42,392 [ERROR] \u274c Error general en reporte_descargas.py: Reporte Venta Total: falló después de 3 intentos. Último error: Page.goto: Target page, context or browser has been closed
+2025-11-26 08:37:43,010 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-26 08:37:43,010 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-26 08:37:43,764 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-26 08:37:53,207 [INFO] Reporte Venta Total: intento 1/3
+2025-11-26 08:37:53,207 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 08:37:54,260 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 08:37:54,323 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 08:37:57,597 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:41:33,717 [INFO] Limpiando Excel pesado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\venta_total.xlsx
+2025-11-26 08:42:00,410 [INFO] Excel limpio guardado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\venta_total.xlsx
+2025-11-26 08:42:00,419 [INFO] Reporte Venta Total: flujo completado (sin excepciones fatales).
+2025-11-26 08:42:58,311 [INFO] OUTPUT_DIR=C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas
+2025-11-26 08:42:58,311 [INFO] ==== Inicio de ejecución reporte_descargas.py ====
+2025-11-26 08:42:59,108 [INFO] Iniciando login en Gasca (reportes)...
+2025-11-26 08:43:09,004 [INFO] Reporte Venta Total: intento 1/3
+2025-11-26 08:43:09,005 [INFO] ==== Descarga: Reporte Venta Total ====
+2025-11-26 08:43:10,084 [INFO] Seleccionando tipo de reporte 'Reporte Venta Total'...
+2025-11-26 08:43:10,132 [INFO] Tipo de reporte 'Reporte Venta Total' seleccionado correctamente.
+2025-11-26 08:43:13,413 [INFO] Buscando botón 'Generar'...
+2025-11-26 08:46:20,607 [INFO] Limpiando Excel pesado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\venta_total.xlsx
+2025-11-26 08:46:51,030 [INFO] Excel limpio guardado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\descargas\venta_total.xlsx
+2025-11-26 08:46:51,041 [INFO] Reporte Venta Total: flujo completado (sin excepciones fatales).

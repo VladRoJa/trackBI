@@ -748,3 +748,31 @@ playwright._impl._errors.TargetClosedError: Target page, context or browser has 
 2025-11-24 12:34:48,103 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-24_12-33.xlsx
 2025-11-24 12:34:48,132 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-24_12-33.xlsx
 2025-11-24 12:34:48,162 [INFO] Archivo KPI Ventas Nuevos Socios guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_ventas_nuevos_socios\kpi_ventas_nuevos_socios_2025-11-24_12-33.xlsx
+2025-11-26 07:20:02,841 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2025-11-26 07:20:15,868 [INFO] Iniciando login...
+2025-11-26 07:20:26,909 [INFO] Reporte Dirección: intento 1/3
+2025-11-26 07:20:26,909 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2025-11-26 07:21:15,257 [INFO] Esperando tabla hasta 120 segundos...
+2025-11-26 07:21:15,278 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2025-11-26 07:21:15,285 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2025-11-26 07:21:15,461 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2025-11-26 07:21:15,495 [INFO] Tabla 1 candidata: 29 filas x 18 cols (score=522)
+2025-11-26 07:21:15,495 [INFO] Tabla seleccionada: shape=(29, 18)
+2025-11-26 07:21:15,495 [INFO] Reporte Dirección: tabla extraída con 29 filas y 18 columnas.
+2025-11-26 07:21:15,495 [INFO] KPI Desempeño: intento 1/3
+2025-11-26 07:21:15,495 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-26 07:21:16,428 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2025-11-26 07:21:16,460 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2025-11-26 07:21:17,460 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-26 07:21:22,859 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 9 columnas.
+2025-11-26 07:21:22,859 [INFO] KPI Desempeño: tabla extraída con 28 filas y 9 columnas.
+2025-11-26 07:21:22,859 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2025-11-26 07:21:22,859 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2025-11-26 07:21:23,906 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2025-11-26 07:21:23,958 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2025-11-26 07:21:24,959 [INFO] Haciendo clic en botón 'Generar'...
+2025-11-26 07:21:26,274 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 9 columnas.
+2025-11-26 07:21:26,275 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 28 filas y 9 columnas.
+2025-11-26 07:21:27,168 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-11-26_07-20.xlsx
+2025-11-26 07:21:27,201 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-11-26_07-20.xlsx
+2025-11-26 07:21:27,235 [INFO] Archivo KPI Ventas Nuevos Socios guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_ventas_nuevos_socios\kpi_ventas_nuevos_socios_2025-11-26_07-20.xlsx
