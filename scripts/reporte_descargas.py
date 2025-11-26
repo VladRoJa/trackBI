@@ -698,7 +698,7 @@ def descargar_reporte_venta_total(page):
             page.get_by_text("Excel", exact=False).first.click(timeout=120_000)
 
         # Espera fija para que el navegador termine la descarga
-        espera_segundos = 100
+        espera_segundos = 120
         print(
             f"⏳ Esperando {espera_segundos}s para que termine la descarga de Venta Total...",
             flush=True,

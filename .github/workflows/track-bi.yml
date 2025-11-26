@@ -92,12 +92,6 @@ jobs:
           MSG="chore: auto-update track BI $(date -u +'%Y-%m-%d %H:%M UTC')"
           git commit -m "$MSG"
 
-          echo "📥 Haciendo stash de cambios locales (logs, etc.) antes del pull..."
-          git stash --include-untracked || true
-
-          echo "📥 Haciendo pull --rebase de origin/main antes del push..."
-          git pull --rebase origin main
-
           echo "🚀 Haciendo push a main..."
           git push origin main
 
