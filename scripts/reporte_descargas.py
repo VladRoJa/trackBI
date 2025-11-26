@@ -1,3 +1,4 @@
+
 import os
 import sys
 import logging
@@ -62,6 +63,32 @@ def validar_config():
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     logging.info(f"OUTPUT_DIR={OUTPUT_DIR}")
+
+def limpiar_excel_inplace(ruta: Path | str):
+    """
+    Lee un .xlsx y lo vuelve a guardar sin estilos/formatos, sólo datos.
+    Esto reduce muchísimo el tamaño del archivo.
+    Deja el archivo con el MISMO nombre en disco.
+    """
+    ruta = Path(ruta)  # por si viene como string
+    print(f"🧹 Limpiando Excel pesado: {ruta.name}...", flush=True)
+    logging.info(f"Limpiando Excel pesado: {ruta}")
+
+    # Leemos la primer hoja (es lo que trae el reporte de Gasca)
+    df = pd.read_excel(ruta)
+
+    # Guardamos en un archivo temporal
+    tmp_path = ruta.with_suffix(".tmp.xlsx")
+    df.to_excel(tmp_path, index=False)
+
+    # Reemplazamos el original por el limpio
+    ruta.unlink()          # borrar original
+    tmp_path.rename(ruta)  # renombrar tmp -> original
+
+    print(f"✔ Excel limpio guardado: {ruta.name}", flush=True)
+    logging.info(f"Excel limpio guardado: {ruta}")
+    return ruta
+
 
 
 # ============================================================
@@ -534,13 +561,18 @@ def descargar_reporte_corte_caja(page):
     # 👉 Cambiar explícitamente al tab 'Membresía'
     click_tab_membresia(page)
 
-    # Descargar Excel (ya NO usamos usar_tab para evitar doble lógica)
-    return descargar_excel_desde_tabla(
+    # Descargar Excel
+    ruta = descargar_excel_desde_tabla(
         page,
         nombre_reporte="Reporte Corte De Caja (Membresia)",
         nombre_archivo="corte_caja.xlsx",
         usar_tab=None,   # ← importante
     )
+
+    # 🧹 Limpiar para que pese menos
+    limpiar_excel_inplace(ruta)
+    return ruta
+
 
 def descargar_reporte_venta_total(page):
     """
@@ -608,12 +640,18 @@ def descargar_reporte_venta_total(page):
     print("✔ Reporte Venta Total cargado. Exportando a Excel...", flush=True)
 
     # Exportar → Excel (usa el helper genérico)
-    return descargar_excel_desde_tabla(
+    ruta = descargar_excel_desde_tabla(
         page,
         nombre_reporte="Reporte Venta Total",
         nombre_archivo="venta_total.xlsx",
         usar_tab=None  # no hay tabs especiales aquí
     )
+
+    # 🧹 Limpiar para que pese menos
+    limpiar_excel_inplace(ruta)
+    return ruta
+
+    
 
 def descargar_reporte_cargos_recurrentes(page):
     """
@@ -775,3 +813,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
