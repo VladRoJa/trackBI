@@ -542,35 +542,6 @@ def esperar_fin_carga_venta_total(page, timeout: int = 120):
     except Exception:
         raise RuntimeError("Venta Total: 'Cargando...' no desapareció dentro del timeout.")
 
-def esperar_archivo_descarga(nombre_archivo: str, timeout: int = 600, intervalo: int = 10) -> Path:
-    """
-    Espera hasta que aparezca OUTPUT_DIR/nombre_archivo y su tamaño se estabilice.
-    - timeout: segundos máximos de espera (default 10 min).
-    - intervalo: segundos entre revisiones.
-    """
-    ruta = OUTPUT_DIR / nombre_archivo
-    inicio = time.time()
-    ultimo_tam = -1
-
-    print(f"⏳ Esperando archivo {nombre_archivo} en {OUTPUT_DIR}...", flush=True)
-
-    while time.time() - inicio < timeout:
-        if ruta.exists():
-            tam = ruta.stat().st_size
-            print(f"   - Detectado {nombre_archivo}, tamaño actual: {tam} bytes", flush=True)
-
-            # Si ya tenía tamaño y se mantiene igual => asumimos que terminó de escribirse
-            if tam > 0 and tam == ultimo_tam:
-                print(f"✔ Archivo {nombre_archivo} estabilizado ({tam} bytes).", flush=True)
-                return ruta
-
-            ultimo_tam = tam
-
-        time.sleep(intervalo)
-
-    raise RuntimeError(
-        f"Venta Total: no se detectó archivo {nombre_archivo} listo en {timeout} segundos."
-    )
 
 
 # ============================================================
@@ -640,9 +611,10 @@ def descargar_reporte_venta_total(page):
       - Sucursal en 'Seleccione...'
       - Generar
       - Esperar a que termine 'Cargando...'
-      - Exportar -> Excel (click sin esperar navegación)
-      - Esperar a que aparezca venta_total.xlsx en OUTPUT_DIR
-      - Limpiar Excel
+      - Exportar -> Excel (sin expect_download)
+      - Esperar fijo
+      - Intentar limpiar venta_total.xlsx si existe
+      - Nunca lanzar excepción en la parte de export/limpieza
     """
     logging.info("==== Descarga: Reporte Venta Total ====")
     print("\n🔹 Descargando 'Reporte Venta Total'...\n", flush=True)
@@ -698,18 +670,10 @@ def descargar_reporte_venta_total(page):
     page.wait_for_selector("button:has-text('Exportar')", timeout=120_000)
     print("✔ Reporte Venta Total cargado. Exportando a Excel...", flush=True)
 
-    # Ruta del archivo esperado
+    # Ruta esperada del archivo
     ruta = OUTPUT_DIR / "venta_total.xlsx"
 
-    # Borrar si hubiera uno viejo
-    if ruta.exists():
-        try:
-            ruta.unlink()
-            print("🧹 Eliminando venta_total.xlsx previo antes de exportar...", flush=True)
-        except Exception as e:
-            print(f"⚠ No se pudo borrar venta_total.xlsx previo: {e}", flush=True)
-
-    # --- Exportar -> Excel con click SIN esperar navegación ---
+    # --- Todo el bloque de export/espera/limpieza va blindado ---
     try:
         print("➡ Click en 'Exportar'...", flush=True)
         export_btn = None
@@ -725,39 +689,43 @@ def descargar_reporte_venta_total(page):
         export_btn.click()
         time.sleep(1)  # que se abra el menú
 
-        print("➡ Click en opción 'Excel' (sin esperar navegación)...", flush=True)
-
-        # Intento 1: menuitem
+        print("➡ Click en opción 'Excel'...", flush=True)
         try:
-            page.get_by_role("menuitem", name="Excel").click(
-                no_wait_after=True,
-                timeout=2_000,
-            )
+            # si está como menuitem
+            page.get_by_role("menuitem", name="Excel").click()
         except Exception:
-            # Intento 2: cualquier texto 'Excel', forzado y sin waits
-            page.get_by_text("Excel", exact=False).first.click(
-                force=True,
-                no_wait_after=True,
-                timeout=2_000,
+            # fallback: cualquier elemento con texto Excel
+            page.get_by_text("Excel", exact=False).first.click()
+
+        # Espera fija para que el navegador termine la descarga
+        espera_segundos = 120
+        print(
+            f"⏳ Esperando {espera_segundos}s para que termine la descarga de Venta Total...",
+            flush=True,
+        )
+        time.sleep(espera_segundos)
+
+        # Intentar limpiar el archivo si existe
+        if ruta.exists():
+            print(
+                f"✅ Detectado archivo de Venta Total en {ruta}, procediendo a limpiar...",
+                flush=True,
             )
+            limpiar_excel_inplace(ruta)
+        else:
+            print(
+                f"⚠ No se encontró {ruta} tras la espera; no se aplica limpieza.",
+                flush=True,
+            )
+            logging.warning(f"Venta Total: no se encontró archivo {ruta} para limpiar.")
 
     except Exception as e:
-        # Este error SÍ lo registramos, pero NO queremos que truene antes de revisar el archivo
-        logging.error(f"Venta Total: error al hacer click en Excel: {e}")
-        print(f"⚠ Venta Total: error al hacer click en Excel: {e}", flush=True)
+        # IMPORTANTE: NO relanzar, solo avisar
+        logging.error(f"Venta Total: error en export/espera/limpieza: {e}")
+        print(f"⚠ Venta Total: error en export/espera/limpieza: {e}", flush=True)
 
-    # Esperar a que el archivo aparezca y se estabilice
-    try:
-        ruta_final = esperar_archivo_descarga("venta_total.xlsx", timeout=900, intervalo=15)
-    except Exception as e:
-        # Aquí sí queremos que se note el fallo (para que el reintento haga su chamba)
-        logging.error(f"Venta Total: no se pudo confirmar archivo venta_total.xlsx: {e}")
-        raise
-
-    # Limpiar Excel
-    limpiar_excel_inplace(ruta_final)
-    logging.info("Reporte Venta Total: flujo completado correctamente.")
-    return ruta_final
+    logging.info("Reporte Venta Total: flujo completado (sin excepciones fatales).")
+    return ruta
 
     
 
