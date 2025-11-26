@@ -692,10 +692,10 @@ def descargar_reporte_venta_total(page):
         print("➡ Click en opción 'Excel'...", flush=True)
         try:
             # si está como menuitem
-            page.get_by_role("menuitem", name="Excel").click()
+            page.get_by_role("menuitem", name="Excel").click(timeout=120_000)
         except Exception:
             # fallback: cualquier elemento con texto Excel
-            page.get_by_text("Excel", exact=False).first.click()
+            page.get_by_text("Excel", exact=False).first.click(timeout=120_000)
 
         # Espera fija para que el navegador termine la descarga
         espera_segundos = 100
@@ -841,10 +841,15 @@ def main():
 
     try:
         with sync_playwright() as p:
-            # en Actions siempre va headless porque SHOW_BROWSER=0 en el .env
             browser = p.chromium.launch(headless=not SHOW_BROWSER)
             context = browser.new_context(accept_downloads=True)
             page = context.new_page()
+
+            # 🔧 Aumentar timeouts por defecto a 120s
+            page.set_default_timeout(120_000)               # para clicks, waits, etc.
+            page.set_default_navigation_timeout(120_000)    # para goto / navegaciones
+
+            
 
             # 1) Login
             print("➡ [1/4] Haciendo login en Gasca...", flush=True)
