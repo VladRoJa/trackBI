@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     # 1) Todos los días a las 7:00 am (Mexicali = UTC-8) -> 15:00 UTC
-    - cron: "0 15 * * *"
+    - cron: "50 14 * * *"
     # 2) Último día del mes a las 11:00 pm (Mexicali)
     #    Se programa a las 07:00 UTC del día 1 siguiente
     - cron: "15 7 1 * *"
