@@ -611,10 +611,8 @@ def descargar_reporte_venta_total(page):
       - Sucursal en 'Seleccione...'
       - Generar
       - Esperar a que termine 'Cargando...'
-      - Exportar -> Excel (sin expect_download)
-      - Esperar fijo
-      - Intentar limpiar venta_total.xlsx si existe
-      - Nunca lanzar excepción en la parte de export/limpieza
+      - Exportar -> Excel (con expect_download)
+      - Limpiar venta_total.xlsx
     """
     logging.info("==== Descarga: Reporte Venta Total ====")
     print("\n🔹 Descargando 'Reporte Venta Total'...\n", flush=True)
@@ -670,62 +668,26 @@ def descargar_reporte_venta_total(page):
     page.wait_for_selector("button:has-text('Exportar')", timeout=120_000)
     print("✔ Reporte Venta Total cargado. Exportando a Excel...", flush=True)
 
-    # Ruta esperada del archivo
-    ruta = OUTPUT_DIR / "venta_total.xlsx"
+    ruta_final = OUTPUT_DIR / "venta_total.xlsx"
 
-    # --- Todo el bloque de export/espera/limpieza va blindado ---
     try:
-        print("➡ Click en 'Exportar'...", flush=True)
-        export_btn = None
-        try:
-            export_btn = page.get_by_role("button", name="Exportar")
-        except Exception:
-            pass
-
-        if not export_btn:
-            export_btn = page.locator("button:has-text('Exportar')").first
-
-        export_btn.scroll_into_view_if_needed()
-        export_btn.click()
-        time.sleep(1)  # que se abra el menú
-
-        print("➡ Click en opción 'Excel'...", flush=True)
-        try:
-            # si está como menuitem
-            page.get_by_role("menuitem", name="Excel").click(timeout=120_000)
-        except Exception:
-            # fallback: cualquier elemento con texto Excel
-            page.get_by_text("Excel", exact=False).first.click(timeout=120_000)
-
-        # Espera fija para que el navegador termine la descarga
-        espera_segundos = 120
-        print(
-            f"⏳ Esperando {espera_segundos}s para que termine la descarga de Venta Total...",
-            flush=True,
+        # 👉 Usamos el mismo helper que en corte de caja y cargos
+        ruta_descarga = descargar_excel_desde_tabla(
+            page,
+            nombre_reporte="Reporte Venta Total",
+            nombre_archivo="venta_total.xlsx",
+            usar_tab=None  # no hay tabs en este reporte
         )
-        time.sleep(espera_segundos)
 
-        # Intentar limpiar el archivo si existe
-        if ruta.exists():
-            print(
-                f"✅ Detectado archivo de Venta Total en {ruta}, procediendo a limpiar...",
-                flush=True,
-            )
-            limpiar_excel_inplace(ruta)
-        else:
-            print(
-                f"⚠ No se encontró {ruta} tras la espera; no se aplica limpieza.",
-                flush=True,
-            )
-            logging.warning(f"Venta Total: no se encontró archivo {ruta} para limpiar.")
+        # 🧹 Limpiar para que pese menos
+        limpiar_excel_inplace(ruta_descarga)
 
     except Exception as e:
-        # IMPORTANTE: NO relanzar, solo avisar
-        logging.error(f"Venta Total: error en export/espera/limpieza: {e}")
-        print(f"⚠ Venta Total: error en export/espera/limpieza: {e}", flush=True)
+        logging.error(f"Venta Total: error en export/limpieza: {e}")
+        print(f"⚠ Venta Total: error en export/limpieza: {e}", flush=True)
 
     logging.info("Reporte Venta Total: flujo completado (sin excepciones fatales).")
-    return ruta
+    return ruta_final
 
     
 
