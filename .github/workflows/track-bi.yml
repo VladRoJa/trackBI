@@ -75,12 +75,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Agregar los Excel generados
-          git add \
-            data/direccion_ingresos/*.xlsx \
-            data/kpi_desempeno/*.xlsx \
-            data/kpi_ventas_nuevos_socios/*.xlsx \
-            data/descargas/*.xlsx || echo "Nada que agregar"
+          # Agregar cambios NUEVOS + MODIFICADOS + ELIMINADOS en la carpeta data
+          git add -A data || echo "Nada que agregar"
 
           # Si no hay nada staged, salir sin error
           if git diff --cached --quiet; then
@@ -88,7 +84,6 @@ jobs:
             exit 0
           fi
 
-          # Commit
           MSG="chore: auto-update track BI $(date -u +'%Y-%m-%d %H:%M UTC')"
           git commit -m "$MSG"
 
