@@ -104,21 +104,21 @@ def validar_config():
     
     
 def borrar_snapshots_del_dia(directorio: Path, prefijo: str, dia: date):
-    """
-    Elimina todos los archivos en 'directorio' cuyo nombre siga el patrón:
-      {prefijo}_YYYY-MM-DD_HH-MM.xlsx
-    para la fecha 'dia'.
-    Se usa en el cierre de mes para evitar duplicados del mismo día.
-    """
     patron = f"{prefijo}_{dia:%Y-%m-%d}_*.xlsx"
-    for f in directorio.glob(patron):
+    print(f"🔎 Buscando archivos con patrón: {patron} en {directorio}")
+    logging.info(f"Buscando archivos con patrón: {patron} en {directorio}")
+
+    files = list(directorio.glob(patron))
+    print(f"🔍 Archivos encontrados: {[f.name for f in files]}")
+    logging.info(f"Archivos encontrados: {[f.name for f in files]}")
+
+    for f in files:
         try:
-            print(f"🗑 Borrando snapshot previo de hoy en {directorio.name}: {f.name}")
+            print(f"🗑 Borrando {f.name}")
             logging.info(f"Borrando snapshot previo de hoy: {f}")
             f.unlink()
         except Exception as e:
             logging.warning(f"No se pudo borrar snapshot {f}: {e}")
-
 
 
 # ============== utilidades de tablas ============== #
