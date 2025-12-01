@@ -4,8 +4,9 @@ import logging
 import time
 from datetime import datetime
 from pathlib import Path
-from io import StringIO  # para evitar FutureWarning de read_html
-
+from io import StringIO  
+from datetime import date
+from calendar import monthrange
 from dotenv import load_dotenv
 from playwright.sync_api import (
     sync_playwright,
@@ -100,6 +101,24 @@ def validar_config():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     KPI_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     KPI_VENTAS_NS_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    
+    
+def borrar_snapshots_del_dia(directorio: Path, prefijo: str, dia: date):
+    """
+    Elimina todos los archivos en 'directorio' cuyo nombre siga el patrón:
+      {prefijo}_YYYY-MM-DD_HH-MM.xlsx
+    para la fecha 'dia'.
+    Se usa en el cierre de mes para evitar duplicados del mismo día.
+    """
+    patron = f"{prefijo}_{dia:%Y-%m-%d}_*.xlsx"
+    for f in directorio.glob(patron):
+        try:
+            print(f"🗑 Borrando snapshot previo de hoy en {directorio.name}: {f.name}")
+            logging.info(f"Borrando snapshot previo de hoy: {f}")
+            f.unlink()
+        except Exception as e:
+            logging.warning(f"No se pudo borrar snapshot {f}: {e}")
+
 
 
 # ============== utilidades de tablas ============== #
@@ -476,6 +495,20 @@ def main():
     validar_config()
     logging.info("==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====")
 
+    # Fecha local (Tijuana) para manejar cierre de mes
+    hoy = datetime.now(TZ).date()
+    ultimo_dia_mes = monthrange(hoy.year, hoy.month)[1]
+
+    # Si ES el último día del mes, borramos snapshots previos de hoy
+    if hoy.day == ultimo_dia_mes:
+        print("🧹 Último día del mes: limpiando snapshots previos de hoy...")
+        logging.info("Último día del mes: limpiando snapshots previos del día.")
+
+        borrar_snapshots_del_dia(OUTPUT_DIR, "ingresos", hoy)
+        borrar_snapshots_del_dia(KPI_OUTPUT_DIR, "kpi_desempeno", hoy)
+        borrar_snapshots_del_dia(KPI_VENTAS_NS_OUTPUT_DIR, "kpi_ventas_nuevos_socios", hoy)
+
+    # Timestamp (incluye hora) para el nombre del archivo nuevo
     timestamp = datetime.now(TZ).strftime("%Y-%m-%d_%H-%M")
 
     try:
