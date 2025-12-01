@@ -3,13 +3,16 @@ import os
 import sys
 import logging
 import time
-from datetime import datetime
+from datetime import datetime, date
+from calendar import monthrange 
 from pathlib import Path
 from io import StringIO
+import shutil 
 import pandas as pd
 from dotenv import load_dotenv
 from playwright.sync_api import sync_playwright
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
+import pytz 
 
 # ============================================================
 # CONFIGURACIÓN GENERAL
@@ -40,6 +43,12 @@ OUTPUT_DIR = BASE_DIR / "data" / "descargas"
 SHOW_BROWSER = os.getenv("SHOW_BROWSER", "0") == "1"
 
 MAX_RETRIES = 3
+
+# 👇 Zona horaria y flags de cierre de mes (igual que en reporte_direccion_ingresos)
+TZ = pytz.timezone("America/Tijuana")
+HOY_LOCAL: date = datetime.now(TZ).date()
+ULTIMO_DIA_MES = monthrange(HOY_LOCAL.year, HOY_LOCAL.month)[1]
+ES_CIERRE_MES = (HOY_LOCAL.day == ULTIMO_DIA_MES)
 
 
 # ============================================================
@@ -117,6 +126,29 @@ def limpiar_excel_inplace(ruta: Path | str):
     return ruta
 
 
+def guardar_snapshot_mensual_si_corresponde(ruta: Path | str, prefijo: str):
+    """
+    Si hoy es cierre de mes (según HOY_LOCAL / ES_CIERRE_MES),
+    hace una copia del archivo en el mismo directorio con nombre:
+      {prefijo}_YYYY-MM.xlsx
+
+    Ejemplo:
+      corte_caja.xlsx -> corte_caja_2025-11.xlsx
+    """
+    if not ES_CIERRE_MES:
+        return
+
+    ruta = Path(ruta)
+    snap_name = f"{prefijo}_{HOY_LOCAL:%Y-%m}.xlsx"
+    snap_path = ruta.with_name(snap_name)
+
+    try:
+        shutil.copy2(ruta, snap_path)
+        print(f"📁 Snapshot mensual guardado: {snap_path.name}", flush=True)
+        logging.info(f"Snapshot mensual guardado: {snap_path}")
+    except Exception as e:
+        print(f"⚠ No se pudo guardar snapshot mensual {snap_path.name}: {e}", flush=True)
+        logging.warning(f"No se pudo guardar snapshot mensual {snap_path}: {e}")
 
 
 # ============================================================
@@ -588,7 +620,7 @@ def descargar_reporte_corte_caja(page):
 
     # 👉 Cambiar explícitamente al tab 'Membresía'
     click_tab_membresia(page)
-
+ 
     # Descargar Excel
     ruta = descargar_excel_desde_tabla(
         page,
@@ -598,8 +630,13 @@ def descargar_reporte_corte_caja(page):
     )
 
     # 🧹 Limpiar para que pese menos
-    limpiar_excel_inplace(ruta)
+    ruta = limpiar_excel_inplace(ruta)
+
+    # 📁 Snapshot mensual al cierre (corte_caja_YYYY-MM.xlsx)
+    guardar_snapshot_mensual_si_corresponde(ruta, "corte_caja")
+
     return ruta
+
 
 
 def descargar_reporte_venta_total(page):
@@ -613,6 +650,7 @@ def descargar_reporte_venta_total(page):
       - Esperar a que termine 'Cargando...'
       - Exportar -> Excel (con expect_download)
       - Limpiar venta_total.xlsx
+      - En cierre de mes, guardar snapshot venta_total_YYYY-MM.xlsx
     """
     logging.info("==== Descarga: Reporte Venta Total ====")
     print("\n🔹 Descargando 'Reporte Venta Total'...\n", flush=True)
@@ -671,7 +709,6 @@ def descargar_reporte_venta_total(page):
     ruta_final = OUTPUT_DIR / "venta_total.xlsx"
 
     try:
-        # 👉 Usamos el mismo helper que en corte de caja y cargos
         ruta_descarga = descargar_excel_desde_tabla(
             page,
             nombre_reporte="Reporte Venta Total",
@@ -680,7 +717,10 @@ def descargar_reporte_venta_total(page):
         )
 
         # 🧹 Limpiar para que pese menos
-        limpiar_excel_inplace(ruta_descarga)
+        ruta_descarga = limpiar_excel_inplace(ruta_descarga)
+
+        # 📁 Snapshot mensual al cierre (venta_total_YYYY-MM.xlsx)
+        guardar_snapshot_mensual_si_corresponde(ruta_descarga, "venta_total")
 
     except Exception as e:
         logging.error(f"Venta Total: error en export/limpieza: {e}")
@@ -757,12 +797,21 @@ def descargar_reporte_cargos_recurrentes(page):
 
     # Click Exportar → Excel
     print("➡ Preparando descarga Excel...")
-    return descargar_excel_desde_tabla(
+    ruta = descargar_excel_desde_tabla(
         page,
         nombre_reporte="Reporte Cargos Recurrentes",
         nombre_archivo="cargos_recurrentes.xlsx",
         usar_tab=None  # no hay tabs en este reporte
     )
+
+    # (Opcional) limpiar también este para que pese menos
+    ruta = limpiar_excel_inplace(ruta)
+
+    # Snapshot mensual (cargos_recurrentes_YYYY-MM.xlsx)
+    guardar_snapshot_mensual_si_corresponde(ruta, "cargos_recurrentes")
+
+    return ruta
+
 
 
 
