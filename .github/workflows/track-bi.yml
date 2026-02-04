@@ -52,7 +52,9 @@ jobs:
           mkdir -p data/direccion_ingresos
           mkdir -p data/kpi_desempeno
           mkdir -p data/kpi_ventas_nuevos_socios
-          mkdir -p data/descargas
+          mkdir -p data/
+          mkdir -p data/asistencia
+
 
       # ---------- 1) Script de Dirección + KPIs ----------
       - name: Ejecutar reporte Dirección
@@ -65,6 +67,13 @@ jobs:
         working-directory: scripts
         run: |
           python reporte_descargas.py
+
+      # ---------- 3) Script de Asistencia ----------
+      - name: Ejecutar reporte asistencia (estadísticas de asistencias)
+        working-directory: scripts
+        run: |
+          python reporte_asistencia.py
+    
 
       - name: Commit & push updated Excel files
         run: |
@@ -80,7 +89,9 @@ jobs:
             data/direccion_ingresos/*.xlsx \
             data/kpi_desempeno/*.xlsx \
             data/kpi_ventas_nuevos_socios/*.xlsx \
-            data/descargas/*.xlsx || echo "Nada que agregar"
+            data/descargas/*.xlsx \
+            data/asistencia/*.xlsx || echo "Nada que agregar"
+
 
           # Si no hay nada staged, salir sin error
           if git diff --cached --quiet; then
