@@ -2,10 +2,9 @@ import os
 import sys
 import logging
 import time
-from datetime import datetime
+from datetime import datetime, date, timedelta
 from pathlib import Path
 from io import StringIO  
-from datetime import date
 from calendar import monthrange
 from dotenv import load_dotenv
 from playwright.sync_api import (
@@ -412,26 +411,74 @@ def seleccionar_tipo_reporte(page, texto_opcion: str):
         f"después de {timeout_s}s. Último resultado: {ultimo_result}"
     )
 
+def setear_fecha_kpi(page, fecha_objetivo: date):
+    """
+    Setea la fecha del KPI usando interacción real de Playwright,
+    porque el datepicker no acepta asignación directa por JS.
+    """
+    # En la UI se ve formato MM/DD/YYYY (02/09/2026 = Feb 9)
+    fecha_str = fecha_objetivo.strftime("%m/%d/%Y")
+
+    logging.info(f"Seteando fecha KPI a: {fecha_str}")
+    print(f"📅 Seteando fecha KPI a: {fecha_str}")
+
+    # input dentro del contenedor del datepicker
+    input_locator = page.locator("#txtFechaIn input.form-control").first
+
+    # Esperar a que exista y sea interactuable
+    input_locator.wait_for(state="visible", timeout=15_000)
+
+    # Simular usuario: click, seleccionar todo y escribir
+    input_locator.click()
+    input_locator.fill("")  # limpia
+    input_locator.type(fecha_str, delay=20)  # tecleo "humano" para que el plugin lo acepte
+
+    # disparar blur para que el plugin valide
+    input_locator.press("Tab")
+
+    # Esperar a que el valor quede "fijo" (algunos datepickers reescriben el input)
+    deadline = time.time() + 3  # hasta 3s
+    while time.time() < deadline:
+        v = input_locator.input_value().strip()
+        if v == fecha_str:
+            break
+        time.sleep(0.1)
+
+    # Validación final: leer valor final del input
+    valor_final = input_locator.input_value().strip()
+    result = {
+        "status": "ok" if valor_final == fecha_str else "mismatch",
+        "method": "playwright-type",
+        "expected": fecha_str,
+        "value": valor_final
+    }
+
+    print(f"   setear_fecha_kpi => {result}")
+    logging.info(f"setear_fecha_kpi result: {result}")
+
+    if result["status"] != "ok":
+        raise RuntimeError(f"No se pudo setear la fecha KPI correctamente. Result: {result}")
+
+    page.wait_for_timeout(500)
+
+
+
 
 def descargar_kpi_desempeno(page):
-    """
-    Asume que ya estás logueado.
-    Va a la página de KPIs, selecciona 'Desempeño', genera y devuelve el DataFrame.
-    """
     logging.info(f"Navegando a KPI_URL: {KPI_URL}")
     print("➡ Entrando a KPIs (Desempeño)...")
     page.goto(KPI_URL, timeout=120_000)
     page.wait_for_load_state("networkidle")
 
-    # Seleccionar tipo de reporte: Desempeño
     seleccionar_tipo_reporte(page, "Desempeño")
 
-    # Clic en Generar
+    # ✅ NUEVO: forzar fecha a AYER (Tijuana) antes de generar
+    ayer = datetime.now(TZ).date() - timedelta(days=1)
+    setear_fecha_kpi(page, ayer)
+
     click_boton_generar(page)
 
-    # Esperar tabla con 'Sucursal'
     df_kpi = obtener_tabla_con_sucursal(page, "KPI Desempeño")
-
     logging.info(
         f"KPI Desempeño: tabla extraída con {len(df_kpi)} filas y {len(df_kpi.columns)} columnas."
     )
@@ -440,29 +487,26 @@ def descargar_kpi_desempeno(page):
 
 
 def descargar_kpi_ventas_nuevos_socios(page):
-    """
-    Asume que ya estás logueado.
-    Va a la página de KPIs, selecciona 'Ventas Nuevas Socios', genera y devuelve el DataFrame.
-    """
     logging.info(f"Navegando a KPI_URL (Ventas Nuevos Socios): {KPI_URL}")
     print("➡ Entrando a KPIs (Ventas Nuevos Socios)...")
     page.goto(KPI_URL, timeout=120_000)
     page.wait_for_load_state("networkidle")
 
-    # Seleccionar tipo de reporte: Ventas Nuevas Socios
     seleccionar_tipo_reporte(page, "Ventas Nuevas Socios")
 
-    # Clic en Generar
+    # ✅ NUEVO: forzar fecha a AYER (Tijuana) antes de generar
+    ayer = datetime.now(TZ).date() - timedelta(days=1)
+    setear_fecha_kpi(page, ayer)
+
     click_boton_generar(page)
 
-    # Esperar tabla con 'Sucursal'
     df_kpi = obtener_tabla_con_sucursal(page, "KPI Ventas Nuevos Socios")
-
     logging.info(
         f"KPI Ventas Nuevos Socios: tabla extraída con {len(df_kpi)} filas y {len(df_kpi.columns)} columnas."
     )
     print("✔ KPI Ventas Nuevos Socios descargado.")
     return df_kpi
+
 
 
 # ============== Helper de reintentos por reporte ============== #
@@ -508,8 +552,11 @@ def main():
         borrar_snapshots_del_dia(KPI_OUTPUT_DIR, "kpi_desempeno", hoy)
         borrar_snapshots_del_dia(KPI_VENTAS_NS_OUTPUT_DIR, "kpi_ventas_nuevos_socios", hoy)
 
-    # Timestamp (incluye hora) para el nombre del archivo nuevo
-    timestamp = datetime.now(TZ).strftime("%Y-%m-%d_%H-%M")
+    # Timestamp basado en AYER (fecha de reporte), con hora actual para evitar colisiones
+    fecha_reporte = datetime.now(TZ).date() - timedelta(days=1)
+    hora_ejecucion = datetime.now(TZ).strftime("%H-%M")
+    timestamp = f"{fecha_reporte:%Y-%m-%d}_{hora_ejecucion}"
+
 
     try:
         with sync_playwright() as p:

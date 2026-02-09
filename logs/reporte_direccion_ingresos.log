@@ -804,3 +804,243 @@ playwright._impl._errors.TargetClosedError: Target page, context or browser has 
 2025-12-01 06:37:41,753 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2025-12-01_06-36.xlsx
 2025-12-01 06:37:41,782 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2025-12-01_06-36.xlsx
 2025-12-01 06:37:41,817 [INFO] Archivo KPI Ventas Nuevos Socios guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_ventas_nuevos_socios\kpi_ventas_nuevos_socios_2025-12-01_06-36.xlsx
+2026-02-09 12:23:26,466 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2026-02-09 12:23:48,899 [INFO] Iniciando login...
+2026-02-09 12:24:02,492 [INFO] Reporte Dirección: intento 1/3
+2026-02-09 12:24:02,492 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2026-02-09 12:25:23,772 [INFO] Esperando tabla hasta 120 segundos...
+2026-02-09 12:25:23,786 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2026-02-09 12:25:23,790 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2026-02-09 12:25:24,092 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2026-02-09 12:25:24,153 [INFO] Tabla 1 candidata: 29 filas x 18 cols (score=522)
+2026-02-09 12:25:24,153 [INFO] Tabla seleccionada: shape=(29, 18)
+2026-02-09 12:25:24,153 [INFO] Reporte Dirección: tabla extraída con 29 filas y 18 columnas.
+2026-02-09 12:25:24,153 [INFO] KPI Desempeño: intento 1/3
+2026-02-09 12:25:24,153 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:25:25,049 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:25:25,080 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:25:26,081 [INFO] Seteando fecha KPI a: 2026-02-08
+2026-02-09 12:25:26,604 [INFO] setear_fecha_kpi result: {'status': 'no-inputs'}
+2026-02-09 12:25:26,604 [WARNING] KPI Desempeño fallo en intento 1: No se pudo setear la fecha KPI. Result: {'status': 'no-inputs'}
+2026-02-09 12:25:31,607 [INFO] KPI Desempeño: intento 2/3
+2026-02-09 12:25:31,608 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:25:32,377 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:25:32,397 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:25:33,402 [INFO] Seteando fecha KPI a: 2026-02-08
+2026-02-09 12:25:33,918 [INFO] setear_fecha_kpi result: {'status': 'no-inputs'}
+2026-02-09 12:25:33,918 [WARNING] KPI Desempeño fallo en intento 2: No se pudo setear la fecha KPI. Result: {'status': 'no-inputs'}
+2026-02-09 12:25:38,919 [INFO] KPI Desempeño: intento 3/3
+2026-02-09 12:25:38,919 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:25:39,736 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:25:39,761 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:25:40,762 [INFO] Seteando fecha KPI a: 2026-02-08
+2026-02-09 12:25:41,276 [INFO] setear_fecha_kpi result: {'status': 'no-inputs'}
+2026-02-09 12:25:41,276 [WARNING] KPI Desempeño fallo en intento 3: No se pudo setear la fecha KPI. Result: {'status': 'no-inputs'}
+2026-02-09 12:25:41,605 [ERROR] \u274c Error general al obtener reportes: KPI Desempeño: falló después de 3 intentos. Último error: No se pudo setear la fecha KPI. Result: {'status': 'no-inputs'}
+2026-02-09 12:26:02,642 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2026-02-09 12:26:03,402 [INFO] Iniciando login...
+2026-02-09 12:26:09,375 [ERROR] Future exception was never retrieved
+future: <Future finished exception=TargetClosedError('Target page, context or browser has been closed')>
+playwright._impl._errors.TargetClosedError: Target page, context or browser has been closed
+2026-02-09 12:28:59,601 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2026-02-09 12:29:00,293 [INFO] Iniciando login...
+2026-02-09 12:29:11,425 [INFO] Reporte Dirección: intento 1/3
+2026-02-09 12:29:11,425 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2026-02-09 12:29:49,864 [INFO] Esperando tabla hasta 120 segundos...
+2026-02-09 12:29:49,880 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2026-02-09 12:29:49,887 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2026-02-09 12:29:49,937 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2026-02-09 12:29:49,963 [INFO] Tabla 1 candidata: 29 filas x 18 cols (score=522)
+2026-02-09 12:29:49,963 [INFO] Tabla seleccionada: shape=(29, 18)
+2026-02-09 12:29:49,963 [INFO] Reporte Dirección: tabla extraída con 29 filas y 18 columnas.
+2026-02-09 12:29:49,968 [INFO] KPI Desempeño: intento 1/3
+2026-02-09 12:29:49,968 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:29:50,876 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:29:50,906 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:29:51,907 [INFO] Seteando fecha KPI a: 2026-02-08
+2026-02-09 12:29:52,417 [INFO] setear_fecha_kpi result: {'status': 'no-inputs', 'inputs': [{'type': 'text', 'id': '', 'name': '', 'placeholder': '', 'className': 'form-control'}], 'buttons': [{'text': '×', 'id': '', 'className': 'close'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': 'Generar', 'id': 'btnGenerarKpiDesempeño', 'className': 'btn btn-success btn-rounded'}], 'dateLike': [{'tag': 'DIV', 'id': 'txtFechaIn', 'className': 'input-group date', 'text': ''}, {'tag': 'SPAN', 'id': '', 'className': 'glyphicon glyphicon-calendar', 'text': ''}]}
+2026-02-09 12:29:52,417 [WARNING] KPI Desempeño fallo en intento 1: No se pudo setear la fecha KPI. Result: {'status': 'no-inputs', 'inputs': [{'type': 'text', 'id': '', 'name': '', 'placeholder': '', 'className': 'form-control'}], 'buttons': [{'text': '×', 'id': '', 'className': 'close'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': 'Generar', 'id': 'btnGenerarKpiDesempeño', 'className': 'btn btn-success btn-rounded'}], 'dateLike': [{'tag': 'DIV', 'id': 'txtFechaIn', 'className': 'input-group date', 'text': ''}, {'tag': 'SPAN', 'id': '', 'className': 'glyphicon glyphicon-calendar', 'text': ''}]}
+2026-02-09 12:29:57,418 [INFO] KPI Desempeño: intento 2/3
+2026-02-09 12:29:57,418 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:29:58,301 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:29:58,323 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:29:59,324 [INFO] Seteando fecha KPI a: 2026-02-08
+2026-02-09 12:29:59,850 [INFO] setear_fecha_kpi result: {'status': 'no-inputs', 'inputs': [{'type': 'text', 'id': '', 'name': '', 'placeholder': '', 'className': 'form-control'}], 'buttons': [{'text': '×', 'id': '', 'className': 'close'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': 'Generar', 'id': 'btnGenerarKpiDesempeño', 'className': 'btn btn-success btn-rounded'}], 'dateLike': [{'tag': 'DIV', 'id': 'txtFechaIn', 'className': 'input-group date', 'text': ''}, {'tag': 'SPAN', 'id': '', 'className': 'glyphicon glyphicon-calendar', 'text': ''}]}
+2026-02-09 12:29:59,850 [WARNING] KPI Desempeño fallo en intento 2: No se pudo setear la fecha KPI. Result: {'status': 'no-inputs', 'inputs': [{'type': 'text', 'id': '', 'name': '', 'placeholder': '', 'className': 'form-control'}], 'buttons': [{'text': '×', 'id': '', 'className': 'close'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': 'Generar', 'id': 'btnGenerarKpiDesempeño', 'className': 'btn btn-success btn-rounded'}], 'dateLike': [{'tag': 'DIV', 'id': 'txtFechaIn', 'className': 'input-group date', 'text': ''}, {'tag': 'SPAN', 'id': '', 'className': 'glyphicon glyphicon-calendar', 'text': ''}]}
+2026-02-09 12:30:04,854 [INFO] KPI Desempeño: intento 3/3
+2026-02-09 12:30:04,854 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:30:05,684 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:30:05,712 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:30:06,713 [INFO] Seteando fecha KPI a: 2026-02-08
+2026-02-09 12:30:07,232 [INFO] setear_fecha_kpi result: {'status': 'no-inputs', 'inputs': [{'type': 'text', 'id': '', 'name': '', 'placeholder': '', 'className': 'form-control'}], 'buttons': [{'text': '×', 'id': '', 'className': 'close'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': 'Generar', 'id': 'btnGenerarKpiDesempeño', 'className': 'btn btn-success btn-rounded'}], 'dateLike': [{'tag': 'DIV', 'id': 'txtFechaIn', 'className': 'input-group date', 'text': ''}, {'tag': 'SPAN', 'id': '', 'className': 'glyphicon glyphicon-calendar', 'text': ''}]}
+2026-02-09 12:30:07,232 [WARNING] KPI Desempeño fallo en intento 3: No se pudo setear la fecha KPI. Result: {'status': 'no-inputs', 'inputs': [{'type': 'text', 'id': '', 'name': '', 'placeholder': '', 'className': 'form-control'}], 'buttons': [{'text': '×', 'id': '', 'className': 'close'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': 'Generar', 'id': 'btnGenerarKpiDesempeño', 'className': 'btn btn-success btn-rounded'}], 'dateLike': [{'tag': 'DIV', 'id': 'txtFechaIn', 'className': 'input-group date', 'text': ''}, {'tag': 'SPAN', 'id': '', 'className': 'glyphicon glyphicon-calendar', 'text': ''}]}
+2026-02-09 12:30:07,513 [ERROR] \u274c Error general al obtener reportes: KPI Desempeño: falló después de 3 intentos. Último error: No se pudo setear la fecha KPI. Result: {'status': 'no-inputs', 'inputs': [{'type': 'text', 'id': '', 'name': '', 'placeholder': '', 'className': 'form-control'}], 'buttons': [{'text': '×', 'id': '', 'className': 'close'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': '×', 'id': '', 'className': 'close'}, {'text': 'Cerrar', 'id': '', 'className': 'btn btn-secondary'}, {'text': 'Generar', 'id': 'btnGenerarKpiDesempeño', 'className': 'btn btn-success btn-rounded'}], 'dateLike': [{'tag': 'DIV', 'id': 'txtFechaIn', 'className': 'input-group date', 'text': ''}, {'tag': 'SPAN', 'id': '', 'className': 'glyphicon glyphicon-calendar', 'text': ''}]}
+2026-02-09 12:32:33,020 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2026-02-09 12:32:33,686 [INFO] Iniciando login...
+2026-02-09 12:32:44,648 [INFO] Reporte Dirección: intento 1/3
+2026-02-09 12:32:44,649 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2026-02-09 12:33:42,874 [INFO] Esperando tabla hasta 120 segundos...
+2026-02-09 12:33:42,885 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2026-02-09 12:33:42,895 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2026-02-09 12:33:42,937 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2026-02-09 12:33:42,960 [INFO] Tabla 1 candidata: 29 filas x 18 cols (score=522)
+2026-02-09 12:33:42,960 [INFO] Tabla seleccionada: shape=(29, 18)
+2026-02-09 12:33:42,960 [INFO] Reporte Dirección: tabla extraída con 29 filas y 18 columnas.
+2026-02-09 12:33:42,961 [INFO] KPI Desempeño: intento 1/3
+2026-02-09 12:33:42,961 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:33:43,841 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:33:43,868 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:33:44,869 [INFO] Seteando fecha KPI a: 08/02/2026
+2026-02-09 12:33:45,406 [INFO] setear_fecha_kpi result: {'status': 'ok', 'usedSelector': '#txtFechaIn input', 'value': '02/09/2026'}
+2026-02-09 12:33:45,911 [INFO] Haciendo clic en botón 'Generar'...
+2026-02-09 12:33:49,052 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 9 columnas.
+2026-02-09 12:33:49,052 [INFO] KPI Desempeño: tabla extraída con 28 filas y 9 columnas.
+2026-02-09 12:33:49,052 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2026-02-09 12:33:49,052 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:33:49,829 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2026-02-09 12:33:49,855 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:33:50,856 [INFO] Seteando fecha KPI a: 08/02/2026
+2026-02-09 12:33:51,384 [INFO] setear_fecha_kpi result: {'status': 'ok', 'usedSelector': '#txtFechaIn input', 'value': '02/09/2026'}
+2026-02-09 12:33:51,896 [INFO] Haciendo clic en botón 'Generar'...
+2026-02-09 12:33:52,972 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 9 columnas.
+2026-02-09 12:33:52,974 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 28 filas y 9 columnas.
+2026-02-09 12:33:53,525 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2026-02-08_12-32.xlsx
+2026-02-09 12:33:53,561 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2026-02-08_12-32.xlsx
+2026-02-09 12:33:53,596 [INFO] Archivo KPI Ventas Nuevos Socios guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_ventas_nuevos_socios\kpi_ventas_nuevos_socios_2026-02-08_12-32.xlsx
+2026-02-09 12:37:06,375 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2026-02-09 12:37:07,059 [INFO] Iniciando login...
+2026-02-09 12:37:17,919 [INFO] Reporte Dirección: intento 1/3
+2026-02-09 12:37:17,919 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2026-02-09 12:38:01,702 [INFO] Esperando tabla hasta 120 segundos...
+2026-02-09 12:38:01,715 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2026-02-09 12:38:01,723 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2026-02-09 12:38:01,769 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2026-02-09 12:38:01,785 [INFO] Tabla 1 candidata: 29 filas x 18 cols (score=522)
+2026-02-09 12:38:01,785 [INFO] Tabla seleccionada: shape=(29, 18)
+2026-02-09 12:38:01,785 [INFO] Reporte Dirección: tabla extraída con 29 filas y 18 columnas.
+2026-02-09 12:38:01,785 [INFO] KPI Desempeño: intento 1/3
+2026-02-09 12:38:01,791 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:38:02,600 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:38:02,634 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:38:03,635 [INFO] Seteando fecha KPI a: 08/02/2026
+2026-02-09 12:38:04,163 [INFO] setear_fecha_kpi result: {'status': 'ok', 'usedSelector': '#txtFechaIn input', 'value': '02/09/2026'}
+2026-02-09 12:38:04,673 [INFO] Haciendo clic en botón 'Generar'...
+2026-02-09 12:38:08,792 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 9 columnas.
+2026-02-09 12:38:08,792 [INFO] KPI Desempeño: tabla extraída con 28 filas y 9 columnas.
+2026-02-09 12:38:08,792 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2026-02-09 12:38:08,792 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:38:09,619 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2026-02-09 12:38:09,655 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:38:10,656 [INFO] Seteando fecha KPI a: 08/02/2026
+2026-02-09 12:38:11,195 [INFO] setear_fecha_kpi result: {'status': 'ok', 'usedSelector': '#txtFechaIn input', 'value': '02/09/2026'}
+2026-02-09 12:38:11,708 [INFO] Haciendo clic en botón 'Generar'...
+2026-02-09 12:38:12,783 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 9 columnas.
+2026-02-09 12:38:12,783 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 28 filas y 9 columnas.
+2026-02-09 12:38:13,292 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2026-02-08_12-37.xlsx
+2026-02-09 12:38:13,325 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2026-02-08_12-37.xlsx
+2026-02-09 12:38:13,354 [INFO] Archivo KPI Ventas Nuevos Socios guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_ventas_nuevos_socios\kpi_ventas_nuevos_socios_2026-02-08_12-37.xlsx
+2026-02-09 12:42:45,049 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2026-02-09 12:42:45,728 [INFO] Iniciando login...
+2026-02-09 12:42:56,791 [INFO] Reporte Dirección: intento 1/3
+2026-02-09 12:42:56,791 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2026-02-09 12:43:37,834 [INFO] Esperando tabla hasta 120 segundos...
+2026-02-09 12:43:37,844 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2026-02-09 12:43:37,854 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2026-02-09 12:43:37,898 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2026-02-09 12:43:37,925 [INFO] Tabla 1 candidata: 29 filas x 18 cols (score=522)
+2026-02-09 12:43:37,926 [INFO] Tabla seleccionada: shape=(29, 18)
+2026-02-09 12:43:37,926 [INFO] Reporte Dirección: tabla extraída con 29 filas y 18 columnas.
+2026-02-09 12:43:37,926 [INFO] KPI Desempeño: intento 1/3
+2026-02-09 12:43:37,926 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:43:38,695 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:43:38,720 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:43:39,725 [INFO] Seteando fecha KPI a: 08/02/2026
+2026-02-09 12:43:40,263 [INFO] setear_fecha_kpi result: {'status': 'mismatch', 'method': 'input-fallback', 'expected': '08/02/2026', 'value': '02/09/2026'}
+2026-02-09 12:43:40,263 [WARNING] KPI Desempeño fallo en intento 1: No se pudo setear la fecha KPI correctamente. Result: {'status': 'mismatch', 'method': 'input-fallback', 'expected': '08/02/2026', 'value': '02/09/2026'}
+2026-02-09 12:43:45,264 [INFO] KPI Desempeño: intento 2/3
+2026-02-09 12:43:45,264 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:43:46,020 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:43:46,049 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:43:47,050 [INFO] Seteando fecha KPI a: 08/02/2026
+2026-02-09 12:43:47,582 [INFO] setear_fecha_kpi result: {'status': 'mismatch', 'method': 'input-fallback', 'expected': '08/02/2026', 'value': '02/09/2026'}
+2026-02-09 12:43:47,582 [WARNING] KPI Desempeño fallo en intento 2: No se pudo setear la fecha KPI correctamente. Result: {'status': 'mismatch', 'method': 'input-fallback', 'expected': '08/02/2026', 'value': '02/09/2026'}
+2026-02-09 12:43:52,583 [INFO] KPI Desempeño: intento 3/3
+2026-02-09 12:43:52,583 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:43:53,410 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:43:53,440 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:43:54,441 [INFO] Seteando fecha KPI a: 08/02/2026
+2026-02-09 12:43:54,962 [INFO] setear_fecha_kpi result: {'status': 'mismatch', 'method': 'input-fallback', 'expected': '08/02/2026', 'value': '02/09/2026'}
+2026-02-09 12:43:54,963 [WARNING] KPI Desempeño fallo en intento 3: No se pudo setear la fecha KPI correctamente. Result: {'status': 'mismatch', 'method': 'input-fallback', 'expected': '08/02/2026', 'value': '02/09/2026'}
+2026-02-09 12:43:55,307 [ERROR] \u274c Error general al obtener reportes: KPI Desempeño: falló después de 3 intentos. Último error: No se pudo setear la fecha KPI correctamente. Result: {'status': 'mismatch', 'method': 'input-fallback', 'expected': '08/02/2026', 'value': '02/09/2026'}
+2026-02-09 12:46:00,092 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2026-02-09 12:46:00,766 [INFO] Iniciando login...
+2026-02-09 12:46:11,055 [INFO] KPI Desempeño: intento 1/3
+2026-02-09 12:46:11,055 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:46:11,837 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:46:11,880 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:46:12,881 [INFO] Seteando fecha KPI a: 02/08/2026
+2026-02-09 12:46:13,498 [INFO] setear_fecha_kpi result: {'status': 'ok', 'method': 'playwright-type', 'expected': '02/08/2026', 'value': '02/08/2026'}
+2026-02-09 12:46:13,498 [INFO] Haciendo clic en botón 'Generar'...
+2026-02-09 12:46:17,654 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 9 columnas.
+2026-02-09 12:46:17,654 [INFO] KPI Desempeño: tabla extraída con 28 filas y 9 columnas.
+2026-02-09 12:46:17,654 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2026-02-09 12:46:17,654 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:46:18,473 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2026-02-09 12:46:18,498 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:46:19,500 [INFO] Seteando fecha KPI a: 02/08/2026
+2026-02-09 12:46:20,240 [INFO] setear_fecha_kpi result: {'status': 'ok', 'method': 'playwright-type', 'expected': '02/08/2026', 'value': '02/08/2026'}
+2026-02-09 12:46:20,240 [INFO] Haciendo clic en botón 'Generar'...
+2026-02-09 12:46:21,317 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 9 columnas.
+2026-02-09 12:46:21,317 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 28 filas y 9 columnas.
+2026-02-09 12:47:10,158 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2026-02-09 12:47:10,835 [INFO] Iniciando login...
+2026-02-09 12:47:20,585 [INFO] KPI Desempeño: intento 1/3
+2026-02-09 12:47:20,585 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:47:21,417 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:47:21,458 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:47:22,458 [INFO] Seteando fecha KPI a: 02/08/2026
+2026-02-09 12:47:23,045 [INFO] setear_fecha_kpi result: {'status': 'ok', 'method': 'playwright-type', 'expected': '02/08/2026', 'value': '02/08/2026'}
+2026-02-09 12:47:23,045 [INFO] Haciendo clic en botón 'Generar'...
+2026-02-09 12:47:25,157 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 9 columnas.
+2026-02-09 12:47:25,157 [INFO] KPI Desempeño: tabla extraída con 28 filas y 9 columnas.
+2026-02-09 12:47:25,157 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2026-02-09 12:47:25,157 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:47:25,899 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2026-02-09 12:47:25,926 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:47:26,926 [INFO] Seteando fecha KPI a: 02/08/2026
+2026-02-09 12:47:27,473 [INFO] setear_fecha_kpi result: {'status': 'ok', 'method': 'playwright-type', 'expected': '02/08/2026', 'value': '02/08/2026'}
+2026-02-09 12:47:27,473 [INFO] Haciendo clic en botón 'Generar'...
+2026-02-09 12:47:28,556 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 9 columnas.
+2026-02-09 12:47:28,556 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 28 filas y 9 columnas.
+2026-02-09 12:53:02,889 [INFO] ==== Inicio de ejecución: Dirección + KPI Desempeño + KPI Ventas NS ====
+2026-02-09 12:53:03,579 [INFO] Iniciando login...
+2026-02-09 12:53:14,805 [INFO] Reporte Dirección: intento 1/3
+2026-02-09 12:53:14,805 [INFO] Navegando a REPORTE_URL: https://ultragimnasios.com/Inicio/ReporteDireccion
+2026-02-09 12:53:56,920 [INFO] Esperando tabla hasta 120 segundos...
+2026-02-09 12:53:56,938 [INFO] Se detectó al menos una tabla después de 0 segundos.
+2026-02-09 12:53:56,945 [INFO] Se encontraron 2 tablas en la página. Buscando la más grande...
+2026-02-09 12:53:56,989 [INFO] Tabla 0 candidata: 8 filas x 3 cols (score=24)
+2026-02-09 12:53:56,999 [INFO] Tabla 1 candidata: 29 filas x 18 cols (score=522)
+2026-02-09 12:53:56,999 [INFO] Tabla seleccionada: shape=(29, 18)
+2026-02-09 12:53:56,999 [INFO] Reporte Dirección: tabla extraída con 29 filas y 18 columnas.
+2026-02-09 12:53:57,010 [INFO] KPI Desempeño: intento 1/3
+2026-02-09 12:53:57,010 [INFO] Navegando a KPI_URL: https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:53:57,807 [INFO] Seleccionando 'Desempeño' en Tipo de Reporte mediante JS...
+2026-02-09 12:53:57,836 [INFO] 'Desempeño' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:53:58,836 [INFO] Seteando fecha KPI a: 02/08/2026
+2026-02-09 12:54:00,040 [INFO] setear_fecha_kpi result: {'status': 'ok', 'method': 'playwright-type', 'expected': '02/08/2026', 'value': '02/08/2026'}
+2026-02-09 12:54:00,550 [INFO] Haciendo clic en botón 'Generar'...
+2026-02-09 12:54:04,676 [INFO] KPI Desempeño: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 9 columnas.
+2026-02-09 12:54:04,676 [INFO] KPI Desempeño: tabla extraída con 28 filas y 9 columnas.
+2026-02-09 12:54:04,677 [INFO] KPI Ventas Nuevos Socios: intento 1/3
+2026-02-09 12:54:04,677 [INFO] Navegando a KPI_URL (Ventas Nuevos Socios): https://ultragimnasios.com/Modulo/Kpis/Index
+2026-02-09 12:54:05,430 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte mediante JS...
+2026-02-09 12:54:05,457 [INFO] 'Ventas Nuevas Socios' seleccionado correctamente en Tipo de Reporte.
+2026-02-09 12:54:06,457 [INFO] Seteando fecha KPI a: 02/08/2026
+2026-02-09 12:54:07,039 [INFO] setear_fecha_kpi result: {'status': 'ok', 'method': 'playwright-type', 'expected': '02/08/2026', 'value': '02/08/2026'}
+2026-02-09 12:54:07,554 [INFO] Haciendo clic en botón 'Generar'...
+2026-02-09 12:54:08,625 [INFO] KPI Ventas Nuevos Socios: tabla con 'Sucursal' encontrada (tabla 1) 28 filas x 9 columnas.
+2026-02-09 12:54:08,626 [INFO] KPI Ventas Nuevos Socios: tabla extraída con 28 filas y 9 columnas.
+2026-02-09 12:54:09,145 [INFO] Archivo Dirección guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\direccion_ingresos\ingresos_2026-02-08_12-53.xlsx
+2026-02-09 12:54:09,182 [INFO] Archivo KPI Desempeño guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_desempeno\kpi_desempeno_2026-02-08_12-53.xlsx
+2026-02-09 12:54:09,217 [INFO] Archivo KPI Ventas Nuevos Socios guardado en: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\kpi_ventas_nuevos_socios\kpi_ventas_nuevos_socios_2026-02-08_12-53.xlsx
