@@ -54,6 +54,8 @@ jobs:
           mkdir -p data/kpi_ventas_nuevos_socios
           mkdir -p data/
           mkdir -p data/asistencia
+          mkdir -p data/rutinas
+          mkdir -p data/rutinas/raw
 
 
       # ---------- 1) Script de Dirección + KPIs ----------
@@ -73,6 +75,13 @@ jobs:
         working-directory: scripts
         run: |
           python reporte_asistencia.py
+
+      # ---------- 4) Script Socios con y sin rutina ----------
+      - name: Ejecutar socios con y sin rutina (fase Gasca)
+        working-directory: scripts
+        run: |
+          python socios_con_y_sin_rutina.py
+          
     
 
       - name: Commit & push updated Excel files
@@ -90,7 +99,9 @@ jobs:
             data/kpi_desempeno/*.xlsx \
             data/kpi_ventas_nuevos_socios/*.xlsx \
             data/descargas/*.xlsx \
-            data/asistencia/*.xlsx || echo "Nada que agregar"
+            data/asistencia/*.xlsx 
+            data/rutinas/*.xlsx \
+            data/rutinas/raw/*.xlsx \ || echo "Nada que agregar"
 
 
           # Si no hay nada staged, salir sin error
