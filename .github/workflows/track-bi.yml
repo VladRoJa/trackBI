@@ -87,7 +87,7 @@ jobs:
       - name: Ejecutar socios con y sin rutina (fase Gasca)
         working-directory: scripts
         run: |
-          python socios_con_y_sin_rutina.py
+          python Socios_nuevos_gasca.py
 
       # ---------- 5) Script TG Rutinas/Pesajes ----------
       - name: Ejecutar TG workout export (rutinas y pesajes)
