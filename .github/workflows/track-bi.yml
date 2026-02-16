@@ -43,9 +43,16 @@ jobs:
           KPI_DESEMPENO_URL=${{ secrets.KPI_DESEMPENO_URL }}
           REPORTES_URL=${{ secrets.REPORTES_URL }}
 
+          TRAINING_LOGIN_URL=${{ secrets.TRAINING_LOGIN_URL }}
+          TRAINING_REPORT_WORKOUT_URL=${{ secrets.TRAINING_REPORT_WORKOUT_URL }}
+          TRAINING_CENTER_NAME=${{ secrets.TRAINING_CENTER_NAME }}
+          TRAINING_USER=${{ secrets.TRAINING_USER }}
+          TRAINING_PASS=${{ secrets.TRAINING_PASS }}
+
           # En Actions siempre headless
           SHOW_BROWSER=0
           EOF
+
 
       - name: Create output folders
         run: |
@@ -81,6 +88,13 @@ jobs:
         working-directory: scripts
         run: |
           python socios_con_y_sin_rutina.py
+
+      # ---------- 5) Script TG Rutinas/Pesajes ----------
+      - name: Ejecutar TG workout export (rutinas y pesajes)
+        working-directory: scripts
+        run: |
+          python tg_workout_export.py
+
           
     
 
@@ -89,31 +103,27 @@ jobs:
           echo "🔍 Estado antes de commit:"
           git status
 
-          # Config identidad del bot
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Agregar los Excel generados
           git add \
             data/direccion_ingresos/*.xlsx \
             data/kpi_desempeno/*.xlsx \
             data/kpi_ventas_nuevos_socios/*.xlsx \
             data/descargas/*.xlsx \
-            data/asistencia/*.xlsx 
+            data/asistencia/*.xlsx \
             data/rutinas/*.xlsx \
-            data/rutinas/raw/*.xlsx \ || echo "Nada que agregar"
+            data/rutinas/raw/*.xlsx || echo "Nada que agregar"
 
-
-          # Si no hay nada staged, salir sin error
           if git diff --cached --quiet; then
             echo "✅ No hay cambios nuevos en los Excel, no se hace commit."
             exit 0
           fi
 
-          # Commit
           MSG="chore: auto-update track BI $(date -u +'%Y-%m-%d %H:%M UTC')"
           git commit -m "$MSG"
 
           echo "🚀 Haciendo push a main..."
           git push origin main
+
 

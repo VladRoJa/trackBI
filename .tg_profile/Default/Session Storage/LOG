@@ -1,2 +1,9 @@
-2026/02/13-12:10:01.618 3938 Creating DB C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage since it was missing.
-2026/02/13-12:10:01.636 3938 Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/MANIFEST-000001
+2026/02/16-12:36:51.902 271c Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/MANIFEST-000001
+2026/02/16-12:36:51.904 271c Recovering log #145
+2026/02/16-12:36:51.906 271c Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/000145.log 
+2026/02/16-12:37:01.240 3a20 Level-0 table #149: started
+2026/02/16-12:37:01.244 3a20 Level-0 table #149: 51174 bytes OK
+2026/02/16-12:37:01.245 3a20 Delete type=0 #145
+2026/02/16-12:37:52.912 3a20 Level-0 table #151: started
+2026/02/16-12:37:52.917 3a20 Level-0 table #151: 25957 bytes OK
+2026/02/16-12:37:52.919 3a20 Delete type=0 #148

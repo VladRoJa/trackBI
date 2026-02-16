@@ -1,5 +1,0 @@
-2026/02/13-12:10:08.670 3fd4 Creating DB C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\EdgeCoupons/coupons_data.db since it was missing.
-2026/02/13-12:10:08.686 3fd4 Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
-2026/02/13-12:10:08.870 39fc Level-0 table #5: started
-2026/02/13-12:10:08.873 39fc Level-0 table #5: 681493 bytes OK
-2026/02/13-12:10:08.876 39fc Delete type=0 #3

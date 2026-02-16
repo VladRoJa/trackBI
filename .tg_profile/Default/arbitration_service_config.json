@@ -192,6 +192,6 @@
    },
    "SuppressedExperiences": [  ],
    "TimeDelta": 5000000,
-   "baseConfigVersion": "38.0.1",
-   "configVersion": "38.0.1"
+   "baseConfigVersion": "39.0.1",
+   "configVersion": "39.0.1"
 }
