@@ -303,6 +303,56 @@ def tg_login_auto(page):
         print(f"ℹ️ [TG] Centro no requerido / no pude seleccionarlo: {e}")
 
     print("✔ [TG] Login OK")
+    
+    
+def tg_ensure_logged_in(page):
+    """
+    En Actions NO hay perfil persistente confiable, así que validamos login.
+    Si detectamos /auth o pantalla de login, hacemos login y luego seguimos.
+    """
+    # si ya estamos en auth o vemos inputs típicos, logueamos
+    def _looks_like_login():
+        try:
+            if "/auth" in (page.url or ""):
+                return True
+            if page.locator("input[type='password']").count() > 0:
+                return True
+            if page.get_by_role("button", name="ACCEDER").count() > 0:
+                return True
+        except Exception:
+            pass
+        return False
+
+    if _looks_like_login():
+        tg_login_auto(page)
+        return
+
+    # si estamos en alguna página pero NO hay sidebar/app normal,
+    # intentamos ir a /auth para forzar sesión
+    try:
+        # heurística: si no existe el logo/side menu, tal vez no hay sesión
+        if page.get_by_text("trainingym", exact=False).count() == 0 and page.get_by_role("button", name="ACCEDER").count() > 0:
+            tg_login_auto(page)
+            return
+    except Exception:
+        pass
+
+    # Validación extra: ir al reporte y si te redirige a auth, loguear
+    try:
+        page.goto(TRAINING_REPORT_WORKOUT_URL, timeout=90_000)
+        page.wait_for_load_state("domcontentloaded", timeout=90_000)
+        page.wait_for_timeout(800)
+        tg_close_annoying_modals(page)
+
+        if "/auth" in (page.url or "") or page.locator("input[type='password']").count() > 0:
+            tg_login_auto(page)
+    except Exception:
+        # si por cualquier razón falla, fuerza login
+        page.goto(TRAINING_LOGIN_URL, timeout=90_000)
+        page.wait_for_load_state("domcontentloaded", timeout=90_000)
+        tg_login_auto(page)
+
+
 
 # ================= TG Report =================
 def tg_goto_workout(page):
@@ -833,6 +883,9 @@ def main():
             args=[
                 "--disable-blink-features=AutomationControlled",
                 "--disable-features=msEdgeTranslate",
+                # 👇 AQUÍ agregas:
+                "--disable-gpu",
+                "--enable-unsafe-swiftshader",
             ],
         )
         _stealth(context)
@@ -845,9 +898,17 @@ def main():
 
         tg_goto_workout(page)
 
-        if "/auth" in page.url:
-            tg_login_auto(page)
-            tg_goto_workout(page)
+        # ✅ En Actions: siempre asegurar sesión antes de tocar el reporte
+        page.goto(TRAINING_LOGIN_URL, timeout=90_000)
+        page.wait_for_load_state("domcontentloaded", timeout=90_000)
+        page.wait_for_timeout(800)
+        tg_close_annoying_modals(page)
+
+        tg_ensure_logged_in(page)
+
+        # Ahora sí, ir al reporte (ya logueado)
+        tg_goto_workout(page)
+
 
         # fechas (JS dentro del frame)
         tg_set_dates_inputs_js(page, start_d, end_d)

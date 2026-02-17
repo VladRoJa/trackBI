@@ -1,18 +1,9 @@
-2026/02/16-12:33:49.826 185c Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/MANIFEST-000001
-2026/02/16-12:33:49.829 185c Recovering log #139
-2026/02/16-12:33:49.832 185c Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/000139.log 
-2026/02/16-12:34:00.140 4120 Level-0 table #143: started
-2026/02/16-12:34:00.144 4120 Level-0 table #143: 121408 bytes OK
-2026/02/16-12:34:00.146 4120 Delete type=0 #139
-2026/02/16-12:34:00.147 185c Compacting 4@0 + 1@1 files
-2026/02/16-12:34:00.152 185c Generated table #144@0: 15 keys, 120878 bytes
-2026/02/16-12:34:00.152 185c Compacted 4@0 + 1@1 files => 120878 bytes
-2026/02/16-12:34:00.153 185c compacted to: files[ 0 1 0 0 0 0 0 ]
-2026/02/16-12:34:00.154 185c Delete type=2 #133
-2026/02/16-12:34:00.154 185c Delete type=2 #135
-2026/02/16-12:34:00.154 185c Delete type=2 #138
-2026/02/16-12:34:00.154 185c Delete type=2 #140
-2026/02/16-12:34:00.154 185c Delete type=2 #143
-2026/02/16-12:35:01.372 4120 Level-0 table #146: started
-2026/02/16-12:35:01.381 4120 Level-0 table #146: 26231 bytes OK
-2026/02/16-12:35:01.384 4120 Delete type=0 #142
+2026/02/16-12:36:51.902 271c Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/MANIFEST-000001
+2026/02/16-12:36:51.904 271c Recovering log #145
+2026/02/16-12:36:51.906 271c Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/000145.log 
+2026/02/16-12:37:01.240 3a20 Level-0 table #149: started
+2026/02/16-12:37:01.244 3a20 Level-0 table #149: 51174 bytes OK
+2026/02/16-12:37:01.245 3a20 Delete type=0 #145
+2026/02/16-12:37:52.912 3a20 Level-0 table #151: started
+2026/02/16-12:37:52.917 3a20 Level-0 table #151: 25957 bytes OK
+2026/02/16-12:37:52.919 3a20 Delete type=0 #148

@@ -68,22 +68,22 @@ jobs:
 
 
       # ---------- 1) Script de Dirección + KPIs ----------
-      - name: Ejecutar reporte Dirección
-        working-directory: scripts
-        run: |
-          python reporte_direccion_ingresos.py
+#      - name: Ejecutar reporte Dirección
+#        working-directory: scripts
+#        run: |
+#          python reporte_direccion_ingresos.py
 
       # ---------- 2) Script de descargas ----------
-      - name: Ejecutar descargas (corte caja, venta total, cargos recurrentes)
-        working-directory: scripts
-        run: |
-          python reporte_descargas.py
+#      - name: Ejecutar descargas (corte caja, venta total, cargos recurrentes)
+#        working-directory: scripts
+#        run: |
+#          python reporte_descargas.py
 
       # ---------- 3) Script de Asistencia ----------
-      - name: Ejecutar reporte asistencia (estadísticas de asistencias)
-        working-directory: scripts
-        run: |
-          python reporte_asistencia.py
+#      - name: Ejecutar reporte asistencia (estadísticas de asistencias)
+#        working-directory: scripts
+#        run: |
+#          python reporte_asistencia.py
 
       # ---------- 4) Script Socios con y sin rutina ----------
       - name: Ejecutar socios con y sin rutina (fase Gasca)
