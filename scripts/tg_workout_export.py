@@ -1,3 +1,18 @@
+"""
+tg_workout_export.py
+--------------------
+Exporta el reporte Workout (PowerBI embebido) desde TrainingGym (tgmanager),
+forzando "Datos con diseño actual" y guardando el archivo en:
+  data/rutinas/raw/  (nombre con fecha/hora)
+  data/rutinas/tg_workout.xlsx (latest)
+
+Diseñado para correr:
+- Local (SHOW_BROWSER=1): usa perfil persistente (.tg_profile) en Edge.
+- GitHub Actions (SHOW_BROWSER=0): usa browser/context normal (sin perfil) para menos flakiness.
+
+Artifacts de debug siempre en: scripts/artifacts/
+"""
+
 import os
 import time
 import logging
@@ -8,6 +23,7 @@ import pytz
 from dotenv import load_dotenv
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
+
 # ================= TZ / Paths =================
 TZ = pytz.timezone("America/Tijuana")
 
@@ -15,6 +31,9 @@ BASE_DIR = Path(__file__).resolve().parents[1]  # TRACK BI
 ENV_PATH = BASE_DIR / ".env"
 LOGS_DIR = BASE_DIR / "logs"
 LOGS_DIR.mkdir(exist_ok=True)
+
+ARTIFACTS_DIR = (BASE_DIR / "scripts" / "artifacts").resolve()
+ARTIFACTS_DIR.mkdir(parents=True, exist_ok=True)
 
 logging.basicConfig(
     filename=LOGS_DIR / "tg_workout_export.log",
@@ -26,14 +45,17 @@ load_dotenv(ENV_PATH)
 
 # ================= ENV =================
 SHOW_BROWSER = os.getenv("SHOW_BROWSER", "0") == "1"
+DEBUG = os.getenv("DEBUG", "0") == "1"
 
 TRAINING_LOGIN_URL = os.getenv("TRAINING_LOGIN_URL", "https://app.tgmanager.com/auth")
-TRAINING_REPORT_WORKOUT_URL = os.getenv("TRAINING_REPORT_WORKOUT_URL", "https://app.tgmanager.com/reports/workout")
+TRAINING_REPORT_WORKOUT_URL = os.getenv(
+    "TRAINING_REPORT_WORKOUT_URL", "https://app.tgmanager.com/reports/workout"
+)
 TRAINING_CENTER_NAME = os.getenv("TRAINING_CENTER_NAME", "UltraGym & Fitness - Azahares")
 TRAINING_USER = os.getenv("TRAINING_USER")
 TRAINING_PASS = os.getenv("TRAINING_PASS")
 
-# Perfil persistente (Edge) + outputs
+# Perfil persistente (solo para local)
 TG_PROFILE_DIR = str((BASE_DIR / ".tg_profile").resolve())
 
 OUT_DIR = (BASE_DIR / "data" / "rutinas").resolve()
@@ -43,23 +65,29 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 
 DOWNLOAD_TIMEOUT_MS = 240_000  # PBI tarda
 
+
 # ================= Utils =================
 def _now_date_tj() -> date:
     return datetime.now(TZ).date()
 
+
 def _yesterday_tj() -> date:
     return _now_date_tj() - timedelta(days=1)
+
 
 def _first_of_month(d: date) -> date:
     return d.replace(day=1)
 
+
 def _fmt_ddmmyyyy(d: date) -> str:
     return d.strftime("%d/%m/%Y")
+
 
 def _stealth(context):
     context.add_init_script(
         "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});"
     )
+
 
 def _maybe_click_by_text(page, texts, timeout_ms=600):
     for t in texts:
@@ -74,97 +102,19 @@ def _maybe_click_by_text(page, texts, timeout_ms=600):
     page.wait_for_timeout(timeout_ms)
     return False
 
-def _first_visible(*locators):
-    for loc in locators:
-        try:
-            if loc and loc.count() > 0 and loc.first.is_visible():
-                return loc.first
-        except Exception:
-            pass
-    return None
-
-def tg_wait_export_modal_anywhere(page, timeout_ms=60_000):
-    """
-    El modal de exportación a veces aparece en TOP (page) y a veces dentro del frame PBI.
-    Lo buscamos en TODOS los frames.
-    """
-    titles = [
-        "¿Qué datos quiere exportar?",
-        "What data do you want to export?",
-    ]
-
-    deadline = time.time() + timeout_ms / 1000
-    last_seen = None
-
-    while time.time() < deadline:
-        for fr in page.frames:
-            for t in titles:
-                try:
-                    title_loc = fr.get_by_text(t, exact=False)
-                    if title_loc.count() and title_loc.first.is_visible():
-                        last_seen = (fr, t)
-                        # intenta agarrar el dialog root
-                        dialog = fr.locator("div[role='dialog']").filter(has=title_loc.first).first
-                        if dialog.count():
-                            return fr, dialog
-                        return fr, None
-                except Exception:
-                    continue
-
-        page.wait_for_timeout(250)
-
-    raise PlaywrightTimeoutError(f"No apareció el modal de exportación. last_seen={last_seen}")
-
-
-def tg_click_export_datos_from_pbi_menu(page, fr, timeout_ms=20_000):
-    """
-    Click robusto al item 'Exportar datos' dentro del menú de PowerBI (role=menu).
-    """
-    deadline = time.time() + timeout_ms / 1000
-    last = None
-
-    while time.time() < deadline:
-        try:
-            # menú PowerBI suele ser role=menu
-            menu = fr.locator("[role='menu']").last
-            if menu.count() and menu.is_visible():
-                item = menu.locator("[role='menuitem'], [role='menuitemcheckbox'], [role='presentation']").filter(
-                    has=fr.get_by_text("Exportar datos", exact=False)
-                ).first
-
-                if item.count() and item.is_visible():
-                    item.click(force=True)
-                    page.wait_for_timeout(250)
-                    return True
-
-                # fallback: click directo por texto, pero dentro del menú
-                txt = menu.get_by_text("Exportar datos", exact=False).first
-                if txt.count() and txt.is_visible():
-                    txt.click(force=True)
-                    page.wait_for_timeout(250)
-                    return True
-        except Exception as e:
-            last = e
-
-        page.wait_for_timeout(200)
-
-    raise PlaywrightTimeoutError(f"No pude clickear 'Exportar datos' desde el menú PBI. last={last}")
 
 def tg_dump_debug(page, tag="debug"):
     try:
-        Path("artifacts").mkdir(exist_ok=True)
-        page.screenshot(path=f"artifacts/{tag}.png", full_page=True)
+        page.screenshot(path=str(ARTIFACTS_DIR / f"{tag}.png"), full_page=True)
     except Exception:
         pass
     try:
-        Path("artifacts").mkdir(exist_ok=True)
         html = page.content()
-        Path(f"artifacts/{tag}.html").write_text(html, encoding="utf-8")
+        (ARTIFACTS_DIR / f"{tag}.html").write_text(html, encoding="utf-8")
     except Exception:
         pass
 
 
-# ================= Modals / blockers =================
 def tg_close_annoying_modals(page):
     # cookies
     _maybe_click_by_text(page, ["Aceptar", "Accept"], timeout_ms=200)
@@ -199,88 +149,67 @@ def tg_close_annoying_modals(page):
         if not closed:
             break
 
-# ================= Frames =================
-from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 
+def tg_detect_turnstile_block(page) -> bool:
+    patterns = ["turnstile", "600010", "cloudflare", "challenge"]
+    try:
+        txt = page.content().lower()
+    except Exception:
+        return False
+    return any(p in txt for p in patterns)
+
+
+# ================= Frames (PowerBI) =================
 def tg_get_pbi_frame(page, timeout_ms=240_000):
     """
-    Encuentra el iframe donde vive PowerBI embebido.
-    En CI/headless muchas veces el frame todavía no existe o está en about:blank,
-    así que primero esperamos el <iframe> por selector y luego usamos content_frame().
+    Espera el iframe embed de PowerBI.
+    En Actions a veces primero es about:blank y luego navega a app.powerbi.com/reportEmbed.
     """
     deadline = time.time() + timeout_ms / 1000
     last_iframes = []
-
-    iframe_selectors = [
-        "iframe[src*='app.powerbi.com']",
-        "iframe[src*='reportEmbed']",
-        "iframe[title*='Power BI' i]",
-        "iframe[name*='reportEmbed' i]",
-    ]
+    last_frames = []
 
     while time.time() < deadline:
-        # 1) Intento DOM-first: localizar el iframe y agarrar su content_frame
-        for sel in iframe_selectors:
-            try:
-                loc = page.locator(sel).first
-                if loc.count():
-                    # aunque exista, puede estar hidden al inicio, no pasa nada
-                    fr = loc.content_frame()
-                    if fr:
-                        u = (fr.url or "").lower()
-                        # a veces todavía es about:blank, pero ya es el frame correcto
-                        # validamos por señales dentro del frame (slicers o algo de PBI)
-                        try:
-                            if ("powerbi" in u) or ("reportembed" in u):
-                                return fr
-                            if fr.locator("input.date-slicer-input").count() >= 1:
-                                return fr
-                        except Exception:
-                            pass
-            except Exception:
-                pass
+        # 1) Buscar por page.frames
+        last_frames = []
+        for fr in page.frames:
+            u = (fr.url or "").lower()
+            last_frames.append(u[:180])
+            if "app.powerbi.com" in u and ("reportembed" in u):
+                return fr
 
-        # 2) Fallback: frame por URL en page.frames (tu método previo)
+        # 2) Buscar iframe DOM y tomar content_frame navegada
+        last_iframes = []
         try:
-            for fr in page.frames:
-                u = (fr.url or "").lower()
-                if "app.powerbi.com" in u and "reportembed" in u:
-                    return fr
-                # señal alternativa
-                try:
-                    if fr.locator("input.date-slicer-input").count() >= 1:
-                        return fr
-                except Exception:
-                    pass
+            iframes = page.locator("iframe").all()
+            for i in range(min(len(iframes), 25)):
+                el = iframes[i]
+                src = (el.get_attribute("src") or "").lower()
+                title = el.get_attribute("title") or ""
+                name = el.get_attribute("name") or ""
+                last_iframes.append(f"{src[:160]} | title={title[:40]} | name={name[:40]}")
+
+                if "powerbi" in src or "reportembed" in src:
+                    cf = el.content_frame()
+                    if cf:
+                        u2 = (cf.url or "").lower()
+                        if "app.powerbi.com" in u2 and "reportembed" in u2:
+                            return cf
         except Exception:
             pass
 
-        # 3) Debug de iframes presentes
-        try:
-            last_iframes = page.eval_on_selector_all(
-                "iframe",
-                "els => els.slice(0,15).map(i => ({src:i.src||'', title:i.title||'', name:i.name||''}))"
-            )
-        except Exception:
-            last_iframes = []
-
-        page.wait_for_timeout(800)
+        page.wait_for_timeout(1000)
 
     print("❌ No encontré el frame de PowerBI por selector ni por page.frames.")
-    if last_iframes:
-        print("Iframes vistos (primeros 15):")
-        for it in last_iframes:
-            print("  -", (it.get("src") or "")[:180], "| title=", it.get("title"), "| name=", it.get("name"))
-
-    # también imprimimos algunos frames por URL
-    try:
-        print("Frames vistos por page.frames (primeros 15):")
-        for fr in page.frames[:15]:
-            print("  -", (fr.url or "")[:180])
-    except Exception:
-        pass
+    print("Iframes vistos (primeros 15):")
+    for s in last_iframes[:15]:
+        print("  -", s)
+    print("Frames vistos por page.frames (primeros 15):")
+    for s in last_frames[:15]:
+        print("  -", s)
 
     raise RuntimeError("No se encontró iframe reportEmbed (PowerBI).")
+
 
 def tg_wait_for_slicers(fr, timeout_ms=180_000):
     deadline = time.time() + timeout_ms / 1000
@@ -292,6 +221,44 @@ def tg_wait_for_slicers(fr, timeout_ms=180_000):
             pass
         time.sleep(0.35)
     raise PlaywrightTimeoutError("Timeout esperando date-slicer-input (>=2) en frame PBI.")
+
+
+def tg_wait_for_pbi_loaded(page, timeout_ms=120_000) -> bool:
+    """Señal: existe iframe con src de powerbi o frames con app.powerbi.com/reportEmbed."""
+    deadline = time.time() + timeout_ms / 1000
+    while time.time() < deadline:
+        try:
+            if page.locator("iframe[src*='powerbi' i], iframe[src*='reportEmbed' i]").count() > 0:
+                return True
+        except Exception:
+            pass
+
+        for fr in page.frames:
+            u = (fr.url or "").lower()
+            if "app.powerbi.com" in u and "reportembed" in u:
+                return True
+
+        page.wait_for_timeout(1000)
+
+    return False
+
+
+def tg_find_frame_with_pbi(page, timeout_ms=180_000):
+    """Devuelve el frame donde vive PowerBI embebido."""
+    deadline = time.time() + timeout_ms / 1000
+    while time.time() < deadline:
+        for fr in page.frames:
+            try:
+                u = (fr.url or "").lower()
+                if "app.powerbi.com" in u and "reportembed" in u:
+                    return fr
+                if fr.locator("input.date-slicer-input").count() >= 1:
+                    return fr
+            except Exception:
+                pass
+        page.wait_for_timeout(400)
+    return page.main_frame
+
 
 # ================= TG Login =================
 def tg_login_auto(page):
@@ -339,6 +306,15 @@ def tg_login_auto(page):
 
     print("➡ [TG] Click ACCEDER (login)...")
     btn.click()
+
+    page.wait_for_timeout(1500)
+    if tg_detect_turnstile_block(page):
+        try:
+            page.screenshot(path=str(ARTIFACTS_DIR / "tg_turnstile.png"), full_page=True)
+        except Exception:
+            pass
+        raise RuntimeError("[TG] Cloudflare Turnstile bloqueó el login en Actions (600010).")
+
     page.wait_for_load_state("domcontentloaded", timeout=90_000)
     page.wait_for_timeout(1200)
     tg_close_annoying_modals(page)
@@ -346,7 +322,9 @@ def tg_login_auto(page):
     # Selección de centro (si aparece)
     try:
         print("➡ [TG] Seleccionando centro...")
-        select_box = page.locator("div[role='combobox'], .ant-select, nz-select, div.ant-select-selector").first
+        select_box = page.locator(
+            "div[role='combobox'], .ant-select, nz-select, div.ant-select-selector"
+        ).first
         if select_box.count() > 0:
             select_box.wait_for(state="visible", timeout=20_000)
             select_box.click(force=True)
@@ -377,15 +355,11 @@ def tg_login_auto(page):
         print(f"ℹ️ [TG] Centro no requerido / no pude seleccionarlo: {e}")
 
     print("✔ [TG] Login OK")
-    
-    
+
+
 def tg_ensure_logged_in(page):
-    """
-    En Actions NO hay perfil persistente confiable, así que validamos login.
-    Si detectamos /auth o pantalla de login, hacemos login y luego seguimos.
-    """
-    # si ya estamos en auth o vemos inputs típicos, logueamos
-    def _looks_like_login():
+    """Valida login y loguea si hace falta."""
+    def looks_like_login() -> bool:
         try:
             if "/auth" in (page.url or ""):
                 return True
@@ -397,21 +371,11 @@ def tg_ensure_logged_in(page):
             pass
         return False
 
-    if _looks_like_login():
+    if looks_like_login():
         tg_login_auto(page)
         return
 
-    # si estamos en alguna página pero NO hay sidebar/app normal,
-    # intentamos ir a /auth para forzar sesión
-    try:
-        # heurística: si no existe el logo/side menu, tal vez no hay sesión
-        if page.get_by_text("trainingym", exact=False).count() == 0 and page.get_by_role("button", name="ACCEDER").count() > 0:
-            tg_login_auto(page)
-            return
-    except Exception:
-        pass
-
-    # Validación extra: ir al reporte y si te redirige a auth, loguear
+    # Validación extra: ir al reporte; si te manda a auth, loguear
     try:
         page.goto(TRAINING_REPORT_WORKOUT_URL, timeout=90_000)
         page.wait_for_load_state("domcontentloaded", timeout=90_000)
@@ -421,11 +385,9 @@ def tg_ensure_logged_in(page):
         if "/auth" in (page.url or "") or page.locator("input[type='password']").count() > 0:
             tg_login_auto(page)
     except Exception:
-        # si por cualquier razón falla, fuerza login
         page.goto(TRAINING_LOGIN_URL, timeout=90_000)
         page.wait_for_load_state("domcontentloaded", timeout=90_000)
         tg_login_auto(page)
-
 
 
 # ================= TG Report =================
@@ -436,6 +398,7 @@ def tg_goto_workout(page):
     page.wait_for_timeout(1200)
     tg_close_annoying_modals(page)
     print(f"✔ [TG] URL actual: {page.url}")
+
 
 # ================= Dates (JS en frame PBI) =================
 def tg_set_dates_inputs_js(page, start_date: date, end_date: date):
@@ -449,12 +412,12 @@ def tg_set_dates_inputs_js(page, start_date: date, end_date: date):
         fr = tg_get_pbi_frame(page, timeout_ms=240_000)
     except Exception as e:
         print(f"⚠ [TG] No vi el iframe PBI aún. Reload y reintento... {e}")
-    try:
+        try:
             page.reload(wait_until="domcontentloaded", timeout=90_000)
             page.wait_for_timeout(2500)
-    except Exception:
+        except Exception:
             pass
-    fr = tg_get_pbi_frame(page, timeout_ms=240_000)
+        fr = tg_get_pbi_frame(page, timeout_ms=240_000)
 
     tg_wait_for_slicers(fr, timeout_ms=180_000)
 
@@ -494,6 +457,7 @@ def tg_set_dates_inputs_js(page, start_date: date, end_date: date):
 
     page.wait_for_timeout(600)
 
+
 # ================= Refresh: esperar tabla =================
 TABLE_HEADER_HINTS = [
     "NombreApellidos",
@@ -502,11 +466,13 @@ TABLE_HEADER_HINTS = [
     "N°Rutinas",
     "N°Pesajes",
     "Total Rutinas",
+    "Valoración",
 ]
 
-def tg_wait_refresh_until_table(page, timeout_ms=180_000):
+
+def tg_wait_refresh_until_table(page, timeout_ms=240_000):
     print("⏳ [TG] Esperando a que la tabla se refresque...")
-    fr = tg_get_pbi_frame(page)
+    fr = tg_get_pbi_frame(page, timeout_ms=240_000)
 
     deadline = time.time() + timeout_ms / 1000
     while time.time() < deadline:
@@ -522,242 +488,112 @@ def tg_wait_refresh_until_table(page, timeout_ms=180_000):
 
     raise PlaywrightTimeoutError("Timeout esperando que la tabla aparezca (headers).")
 
-# ================= Scroll correcto (contenido, no menú) =================
-def tg_get_content_container(page):
-    candidates = [
-        "div.ant-layout-content",
-        "div.ant-layout",
-        "main",
-        "body",
-    ]
-    for css in candidates:
-        try:
-            loc = page.locator(css).first
-            if loc.count() and loc.is_visible():
-                box = loc.bounding_box()
-                if box and box["height"] > 300:
-                    return loc
-        except Exception:
-            pass
-    return page.locator("body")
-
-def tg_scroll_to_table(page, timeout_ms=120_000):
-    print("🧭 [TG] Scroll al área de tabla (contenido, no menú)...")
-    tg_close_annoying_modals(page)
-
-    fr = tg_get_pbi_frame(page)
-    container = tg_get_content_container(page)
-
-    deadline = time.time() + timeout_ms / 1000
-    while time.time() < deadline:
-        # ¿ya vemos algún header de tabla?
-        try:
-            for t in TABLE_HEADER_HINTS:
-                loc = fr.get_by_text(t, exact=False)
-                if loc.count() > 0 and loc.first.is_visible():
-                    print("✅ [TG] Tabla detectada/visible.")
-                    return True
-        except Exception:
-            pass
-
-        # scroll sobre CONTENIDO
-        try:
-            container.hover()
-        except Exception:
-            pass
-
-        page.mouse.wheel(0, 1600)
-        page.wait_for_timeout(600)
-
-    raise PlaywrightTimeoutError("[TG] No logré llegar a la tabla (timeout).")
-
-def tg_find_frame_with_pbi(page, timeout_ms=180_000):
-    """
-    Devuelve el frame donde vive el PowerBI embebido.
-    Señales: input.date-slicer-input o reportEmbed/powerbi en URL.
-    """
-    deadline = time.time() + timeout_ms / 1000
-    while time.time() < deadline:
-        for fr in page.frames:
-            try:
-                u = (fr.url or "").lower()
-                if "powerbi" in u or "reportembed" in u:
-                    return fr
-                if fr.locator("input.date-slicer-input").count() >= 1:
-                    return fr
-            except Exception:
-                pass
-        page.wait_for_timeout(400)
-
-    # fallback
-    return page.main_frame
-
 
 # ================= Export (PowerBI) =================
 def tg_export_table(page, end_date: date):
     tg_close_annoying_modals(page)
-
     fr = tg_find_frame_with_pbi(page, timeout_ms=180_000)
 
     def _find_export_modal_anywhere(timeout_ms=20_000):
-        """
-        Devuelve (modal_frame, modal_root, export_btn) si el modal ya está abierto.
-        modal_root puede ser None si solo se encuentra el botón.
-        """
         deadline = time.time() + timeout_ms / 1000
-        last = None
 
         while time.time() < deadline:
             for f in page.frames:
                 try:
-                    # botón Exportar del modal (es el más confiable)
-                    btn = f.locator("button[data-testid='export-btn'], button[aria-label='Exportar'], button:has-text('Exportar')").first
+                    btn = f.locator(
+                        "button[data-testid='export-btn'], button[aria-label='Exportar'], button:has-text('Exportar')"
+                    ).first
                     if btn.count():
-                        # OJO: no uses is_visible/is_enabled aquí (te puede timeoutear)
                         try:
                             btn.wait_for(state="attached", timeout=1000)
-                            # modal root (dialog) si existe
                             dlg = btn.locator("xpath=ancestor::div[@role='dialog'][1]").first
                             if dlg.count():
                                 return f, dlg, btn
                             return f, None, btn
-                        except Exception as e:
-                            last = e
+                        except Exception:
+                            pass
 
-                    # fallback por título del modal (a veces tarda el botón)
                     title = f.get_by_text("¿Qué datos quiere exportar?", exact=False).first
                     if title.count():
                         try:
                             title.wait_for(state="attached", timeout=1000)
                             dlg = f.locator("div[role='dialog']").filter(has=title).first
                             if dlg.count():
-                                # busca botón dentro de ese dialog
-                                btn2 = dlg.locator("button[data-testid='export-btn'], button[aria-label='Exportar'], button:has-text('Exportar')").first
+                                btn2 = dlg.locator(
+                                    "button[data-testid='export-btn'], button[aria-label='Exportar'], button:has-text('Exportar')"
+                                ).first
                                 if btn2.count():
                                     return f, dlg, btn2
                                 return f, dlg, None
                             return f, None, None
-                        except Exception as e:
-                            last = e
+                        except Exception:
+                            pass
 
-                except Exception as e:
-                    last = e
+                except Exception:
                     continue
 
             page.wait_for_timeout(200)
 
-        return None, None, None  # no está abierto
-
-    def _ensure_design_actual_selected(modal_frame, modal_root):
-        """
-        Fuerza que la opción seleccionada sea 'Datos con diseño actual' (NO resumidos).
-        Lo hace leyendo el estado del radio y clickeando el radio correcto.
-        """
-        root = modal_root if (modal_root is not None) else modal_frame
-
-        def _selected_label():
-            # intenta inferir la tarjeta seleccionada buscando un radio marcado cerca del texto
-            # (en PBI normalmente hay un input/radio con aria-checked=true o checked)
-            try:
-                # primero: radio/elemento marcado dentro de la tarjeta que contiene el texto
-                design = root.locator(
-                    "xpath=//*[contains(normalize-space(.),'Datos con diseño actual')]/ancestor::*[1]"
-                ).first
-                resum = root.locator(
-                    "xpath=//*[contains(normalize-space(.),'Datos resumidos')]/ancestor::*[1]"
-                ).first
-
-                # Busca radios marcados dentro de cada tarjeta
-                # (varía: role=radio, input[type=radio], mat-radio, etc.)
-                def has_checked(card):
-                    if card.count() == 0:
-                        return False
-                    return card.locator(
-                        "[role='radio'][aria-checked='true'], input[type='radio']:checked, .mat-radio-checked"
-                    ).count() > 0
-
-                if has_checked(design):
-                    return "design"
-                if has_checked(resum):
-                    return "resumen"
-            except Exception:
-                pass
-
-            # fallback: mira si el “puntito” verde está dentro de la tarjeta (a veces es un svg/circle)
-            try:
-                if root.locator("xpath=//*[contains(.,'Datos con diseño actual')]/ancestor::*[self::div or self::section][1]//*[contains(@class,'selected') or @aria-selected='true']").count():
-                    return "design"
-            except Exception:
-                pass
-
-            return None
-
-        # 1) Si ya está design, no hagas nada
-        if _selected_label() == "design":
-            return True
-
-        # 2) Click MUY específico: el radio/círculo dentro de la tarjeta "Datos con diseño actual"
-        # Intentamos varios selectores porque PBI cambia DOM según versión.
-        radio_candidates = [
-            # role radio dentro de la tarjeta
-            "xpath=//*[contains(normalize-space(.),'Datos con diseño actual')]/ancestor::*[self::div or self::section][1]//*[@role='radio']",
-            # input radio dentro de la tarjeta
-            "xpath=//*[contains(normalize-space(.),'Datos con diseño actual')]/ancestor::*[self::div or self::section][1]//input[@type='radio']",
-            # círculo típico (a veces es un span antes del texto)
-            "xpath=//*[contains(normalize-space(.),'Datos con diseño actual')]/ancestor::*[self::div or self::section][1]//span[contains(@class,'radio') or contains(@class,'mat-radio')]",
-            # fallback: click al texto pero usando doble click para evitar “toggle” raro
-            "xpath=//*[contains(normalize-space(.),'Datos con diseño actual')]",
-        ]
-
-        clicked = False
-        for sel in radio_candidates:
-            try:
-                loc = root.locator(sel).first
-                if loc.count():
-                    loc.click(force=True, timeout=3000)
-                    page.wait_for_timeout(200)
-                    clicked = True
-                    break
-            except Exception:
-                pass
-
-        if not clicked:
-            return False
-
-        # 3) Confirma que quedó seleccionado. Si no, reintenta una vez más.
-        page.wait_for_timeout(300)
-        if _selected_label() == "design":
-            return True
-
-        # segundo intento: click al texto/tarjeta completa
-        try:
-            root.get_by_text("Datos con diseño actual", exact=False).first.click(force=True, timeout=3000)
-            page.wait_for_timeout(300)
-        except Exception:
-            pass
-
-        return _selected_label() == "design"
+        return None, None, None
 
     def _btn_disabled_fast(btn) -> bool:
-        """
-        Chequeo rápido sin is_enabled() (que te da timeout).
-        """
         try:
-            return btn.evaluate("""
+            return btn.evaluate(
+                """
                 (b) => {
                   const d = b.getAttribute('disabled');
                   const ad = b.getAttribute('aria-disabled');
                   const cls = (b.className || '').toString();
                   return !!d || ad === 'true' || cls.includes('disabled');
                 }
-            """)
+                """
+            )
         except Exception:
             return False
 
+    def _ensure_design_actual_selected(modal_frame, modal_root):
+        root = modal_root if modal_root is not None else modal_frame
+
+        def _selected_is_design():
+            try:
+                design_card = root.locator(
+                    "xpath=//*[contains(normalize-space(.),'Datos con diseño actual')]/ancestor::*[self::div or self::section][1]"
+                ).first
+                if design_card.count():
+                    if design_card.locator(
+                        "[role='radio'][aria-checked='true'], input[type='radio']:checked, .mat-radio-checked"
+                    ).count() > 0:
+                        return True
+            except Exception:
+                pass
+            return False
+
+        if _selected_is_design():
+            return True
+
+        radio_candidates = [
+            "xpath=//*[contains(normalize-space(.),'Datos con diseño actual')]/ancestor::*[self::div or self::section][1]//*[@role='radio']",
+            "xpath=//*[contains(normalize-space(.),'Datos con diseño actual')]/ancestor::*[self::div or self::section][1]//input[@type='radio']",
+            "xpath=//*[contains(normalize-space(.),'Datos con diseño actual')]",
+        ]
+
+        for sel in radio_candidates:
+            try:
+                loc = root.locator(sel).first
+                if loc.count():
+                    loc.click(force=True, timeout=3000)
+                    page.wait_for_timeout(300)
+                    if _selected_is_design():
+                        return True
+            except Exception:
+                pass
+
+        return _selected_is_design()
+
+    # 0) asegurar que estamos en tabla/visual
     print("🧭 [TG] Asegurando tabla visible...")
-    anchors = ["NombreApellidos", "Email", "Técnico", "N°Rutinas", "N°Pesajes", "Valoración"]
     anchor = None
-    for t in anchors:
+    for t in TABLE_HEADER_HINTS:
         loc = fr.get_by_text(t, exact=False)
         if loc.count():
             anchor = loc.first
@@ -768,19 +604,20 @@ def tg_export_table(page, end_date: date):
     anchor.scroll_into_view_if_needed()
     page.wait_for_timeout(400)
 
+    # 1) localizar contenedor del visual
     print("➡ [TG] Localizando contenedor del visual (PowerBI)...")
     visual = anchor.locator("xpath=ancestor-or-self::*[@data-visual-id][1]")
     if visual.count() == 0:
         visual = anchor.locator("xpath=ancestor-or-self::div[contains(@class,'visualContainer')][1]")
     if visual.count() == 0:
-        raise RuntimeError("[TG] No pude resolver el contenedor del visual para encontrar los 3 puntos.")
+        raise RuntimeError("[TG] No pude resolver el contenedor del visual.")
 
-    # 1) Si el modal YA está abierto, no intentes reabrir menú
+    # 2) si modal ya está abierto, no abras menú
     modal_frame, modal_root, export_btn = _find_export_modal_anywhere(timeout_ms=1500)
     if modal_frame:
         print("✅ [TG] Modal ya estaba visible; salto abrir menú.")
     else:
-        # Activar toolbar del visual
+        # activar toolbar
         try:
             visual.hover(timeout=5000)
         except Exception:
@@ -801,7 +638,6 @@ def tg_export_table(page, end_date: date):
 
         more.wait_for(state="visible", timeout=30_000)
 
-        # 2) Abrir menú y click Exportar datos con reintentos
         for attempt in range(1, 6):
             print(f"➡ [TG] Intento {attempt}/5 abrir menú + Exportar datos...")
 
@@ -822,7 +658,6 @@ def tg_export_table(page, end_date: date):
 
             page.wait_for_timeout(220)
 
-            # Click item "Exportar datos" (tu hallazgo: <span>Exportar datos</span>)
             export_menu_item = fr.locator("span:has-text('Exportar datos')").first
             if export_menu_item.count() == 0:
                 export_menu_item = fr.get_by_text("Exportar datos", exact=False).first
@@ -839,8 +674,7 @@ def tg_export_table(page, end_date: date):
                 page.wait_for_timeout(450)
                 continue
 
-            # Esperar modal real
-            print("➡ [TG] Esperando modal exportación (export-btn/título) ...")
+            print("➡ [TG] Esperando modal exportación ...")
             modal_frame, modal_root, export_btn = _find_export_modal_anywhere(timeout_ms=20_000)
             if modal_frame:
                 print("✅ [TG] Modal exportación detectado.")
@@ -851,39 +685,36 @@ def tg_export_table(page, end_date: date):
         else:
             raise RuntimeError("No logré abrir el modal de exportación tras 5 intentos.")
 
-    # 3) Con modal detectado: garantizar root/btn
-    if export_btn is None:
-        # si encontramos dialog pero no botón, vuelve a buscar botón dentro del dialog
+    # 3) asegurar export_btn
+    if export_btn is None or export_btn.count() == 0:
         if modal_root is not None:
             export_btn = modal_root.locator(
-                "button[data-testid='export-btn'], button.exportButton, button[aria-label='Exportar'], button:has-text('Exportar')"
+                "button[data-testid='export-btn'], button[aria-label='Exportar'], button:has-text('Exportar')"
             ).first
         else:
             export_btn = modal_frame.locator(
-                "button[data-testid='export-btn'], button.exportButton, button[aria-label='Exportar'], button:has-text('Exportar')"
+                "button[data-testid='export-btn'], button[aria-label='Exportar'], button:has-text('Exportar')"
             ).first
 
     if export_btn is None or export_btn.count() == 0:
         raise RuntimeError("[TG] Detecté el modal pero no pude resolver el botón Exportar.")
 
-    # Asegura que el botón exista en DOM
     export_btn.wait_for(state="attached", timeout=60_000)
 
-    # 4) Forzar “Datos con diseño actual”
+    # 4) forzar "Datos con diseño actual"
     try:
         _ensure_design_actual_selected(modal_frame, modal_root)
     except Exception:
         pass
 
-    # 5) Esperar a que el botón NO esté disabled (sin is_enabled)
-    # (a veces tarda por render/material)
+    # 5) esperar que el botón no esté disabled (sin is_enabled)
     end_wait = time.time() + 25
     while time.time() < end_wait:
         if not _btn_disabled_fast(export_btn):
             break
         page.wait_for_timeout(250)
 
-    # 6) Click Exportar + esperar descarga (reintentos)
+    # 6) click export + esperar descarga
     print("⬇️ [TG] Click Exportar + esperando descarga...")
     download = None
     last_err = None
@@ -893,12 +724,10 @@ def tg_export_table(page, end_date: date):
             print(f"➡ [TG] Click Exportar intento {attempt}/5...")
 
             with page.expect_download(timeout=DOWNLOAD_TIMEOUT_MS) as dlinfo:
-                # click normal
                 try:
                     export_btn.click(timeout=3000, force=True)
                 except Exception:
                     pass
-                # JS click extra (material/iframe)
                 try:
                     export_btn.evaluate("b => b.click()")
                 except Exception:
@@ -912,16 +741,6 @@ def tg_export_table(page, end_date: date):
             last_err = e
             print(f"⚠ [TG] No cayó download en intento {attempt}: {e}")
             page.wait_for_timeout(1200)
-
-            # si el modal se cerró, esperamos un poco por si el download tarda
-            try:
-                if modal_root is not None:
-                    # no uses is_visible (puede timeoutear); solo espera un poco
-                    pass
-            except Exception:
-                pass
-
-            # re-seleccionar diseño actual por si cambió a resumidos
             try:
                 _ensure_design_actual_selected(modal_frame, modal_root)
             except Exception:
@@ -949,6 +768,7 @@ def tg_export_table(page, end_date: date):
 
     return True
 
+
 # ================= MAIN =================
 def main():
     if not TRAINING_USER or not TRAINING_PASS:
@@ -958,29 +778,54 @@ def main():
     end_d = _yesterday_tj()
     start_d = _first_of_month(end_d)
 
-    with sync_playwright() as p:
-        context = p.chromium.launch_persistent_context(
-            user_data_dir=TG_PROFILE_DIR,
-            channel="msedge",
-            headless=not SHOW_BROWSER,
-            accept_downloads=True,
-            args=[
-                "--disable-blink-features=AutomationControlled",
-                "--disable-features=msEdgeTranslate",
-                "--enable-unsafe-swiftshader",  # útil en runners cuando WebGL molesta
-            ],
-        )
-        _stealth(context)
+    browser = None
+    context = None
 
-        page = context.new_page()
+    with sync_playwright() as p:
+        if SHOW_BROWSER:
+            # Local: perfil persistente (Edge)
+            context = p.chromium.launch_persistent_context(
+                user_data_dir=TG_PROFILE_DIR,
+                channel="msedge",
+                headless=False,
+                accept_downloads=True,
+                args=[
+                    "--disable-blink-features=AutomationControlled",
+                    "--disable-features=msEdgeTranslate",
+                ],
+            )
+            _stealth(context)
+            page = context.new_page()
+        else:
+            # Actions: SIN perfil persistente (menos flakiness)
+            browser = p.chromium.launch(
+                channel="msedge",
+                headless=True,
+                args=[
+                    "--disable-blink-features=AutomationControlled",
+                    "--disable-features=msEdgeTranslate",
+                    "--enable-unsafe-swiftshader",
+                ],
+            )
+            context = browser.new_context(accept_downloads=True)
+            _stealth(context)
+            page = context.new_page()
+
+        page.set_default_timeout(30_000)
+        page.set_default_navigation_timeout(90_000)
         page.on("console", lambda m: print(f"🧾 [console] {m.type}: {m.text}"))
 
         try:
             tg_goto_workout(page)
+            tg_ensure_logged_in(page)
+            tg_goto_workout(page)
 
-            if "/auth" in page.url:
-                tg_login_auto(page)
-                tg_goto_workout(page)
+            if not tg_wait_for_pbi_loaded(page, timeout_ms=90_000):
+                try:
+                    page.screenshot(path=str(ARTIFACTS_DIR / "tg_no_pbi.png"), full_page=True)
+                except Exception:
+                    pass
+                raise RuntimeError("[TG] No cargó el embed de PowerBI (posible bloqueo Turnstile/Cloudflare).")
 
             tg_set_dates_inputs_js(page, start_d, end_d)
             tg_wait_refresh_until_table(page, timeout_ms=240_000)
@@ -991,7 +836,16 @@ def main():
             tg_dump_debug(page, tag="tg_fail")
             raise
         finally:
-            context.close()
+            try:
+                if context:
+                    context.close()
+            except Exception:
+                pass
+            try:
+                if browser:
+                    browser.close()
+            except Exception:
+                pass
 
 
 if __name__ == "__main__":
