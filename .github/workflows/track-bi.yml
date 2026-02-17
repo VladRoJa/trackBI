@@ -35,7 +35,7 @@ jobs:
 
       - name: Create .env file for scripts
         run: |
-          cat << 'EOF' > .env
+          cat << EOF > .env
           DIRECCION_USER=${{ secrets.DIRECCION_USER }}
           DIRECCION_PASS=${{ secrets.DIRECCION_PASS }}
           DIRECCION_LOGIN_URL=${{ secrets.DIRECCION_LOGIN_URL }}
@@ -49,9 +49,9 @@ jobs:
           TRAINING_USER=${{ secrets.TRAINING_USER }}
           TRAINING_PASS=${{ secrets.TRAINING_PASS }}
 
-          # En Actions siempre headless
           SHOW_BROWSER=0
           EOF
+
 
 
       - name: Create output folders
@@ -64,6 +64,7 @@ jobs:
           mkdir -p data/rutinas
           mkdir -p data/rutinas/raw
           mkdir -p data/rutinas/sucursales
+          mkdir -p scripts/artifacts
 
 
 
@@ -95,7 +96,11 @@ jobs:
       - name: Ejecutar TG workout export (rutinas y pesajes)
         working-directory: scripts
         run: |
-          python tg_workout_export.py
+          set -x
+          python -u tg_workout_export.py
+        env:
+          DEBUG: "1"
+
   
       # ---------- 6) Cruce rutinas + split sucursal ----------
       - name: Cruce TG vs Gasca + dividir por sucursal
@@ -136,3 +141,9 @@ jobs:
           git push origin main
 
 
+      - name: Upload debug artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tg-debug
+          path: scripts/artifacts/*

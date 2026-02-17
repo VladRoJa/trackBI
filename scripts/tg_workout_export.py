@@ -150,6 +150,19 @@ def tg_click_export_datos_from_pbi_menu(page, fr, timeout_ms=20_000):
 
     raise PlaywrightTimeoutError(f"No pude clickear 'Exportar datos' desde el menú PBI. last={last}")
 
+def tg_dump_debug(page, tag="debug"):
+    try:
+        Path("artifacts").mkdir(exist_ok=True)
+        page.screenshot(path=f"artifacts/{tag}.png", full_page=True)
+    except Exception:
+        pass
+    try:
+        Path("artifacts").mkdir(exist_ok=True)
+        html = page.content()
+        Path(f"artifacts/{tag}.html").write_text(html, encoding="utf-8")
+    except Exception:
+        pass
+
 
 # ================= Modals / blockers =================
 def tg_close_annoying_modals(page):
@@ -954,44 +967,32 @@ def main():
             args=[
                 "--disable-blink-features=AutomationControlled",
                 "--disable-features=msEdgeTranslate",
-                # 👇 AQUÍ agregas:
-                "--disable-gpu",
-                "--enable-unsafe-swiftshader",
+                "--enable-unsafe-swiftshader",  # útil en runners cuando WebGL molesta
             ],
         )
         _stealth(context)
 
         page = context.new_page()
-
         page.on("console", lambda m: print(f"🧾 [console] {m.type}: {m.text}"))
-        page.on("crash", lambda: print("💥 [TG] La página crasheó"))
-        page.on("close", lambda: print("🔥 [TG] La página se cerró sola"))
 
-        tg_goto_workout(page)
+        try:
+            tg_goto_workout(page)
 
-        # ✅ En Actions: siempre asegurar sesión antes de tocar el reporte
-        page.goto(TRAINING_LOGIN_URL, timeout=90_000)
-        page.wait_for_load_state("domcontentloaded", timeout=90_000)
-        page.wait_for_timeout(800)
-        tg_close_annoying_modals(page)
+            if "/auth" in page.url:
+                tg_login_auto(page)
+                tg_goto_workout(page)
 
-        tg_ensure_logged_in(page)
+            tg_set_dates_inputs_js(page, start_d, end_d)
+            tg_wait_refresh_until_table(page, timeout_ms=240_000)
+            tg_export_table(page, end_d)
 
-        # Ahora sí, ir al reporte (ya logueado)
-        tg_goto_workout(page)
+        except Exception as e:
+            print("💥 [TG] ERROR:", repr(e))
+            tg_dump_debug(page, tag="tg_fail")
+            raise
+        finally:
+            context.close()
 
-
-        # fechas (JS dentro del frame)
-        tg_set_dates_inputs_js(page, start_d, end_d)
-
-        # esperar tabla
-        tg_wait_refresh_until_table(page, timeout_ms=180_000)
-
-        # exportar
-        tg_export_table(page, end_d)
-
-
-        context.close()
 
 if __name__ == "__main__":
     main()
