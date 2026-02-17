@@ -63,6 +63,8 @@ jobs:
           mkdir -p data/asistencia
           mkdir -p data/rutinas
           mkdir -p data/rutinas/raw
+          mkdir -p data/rutinas/sucursales
+
 
 
       # ---------- 1) Script de Dirección + KPIs ----------
@@ -94,6 +96,11 @@ jobs:
         working-directory: scripts
         run: |
           python tg_workout_export.py
+  
+      # ---------- 6) Cruce rutinas + split sucursal ----------
+      - name: Cruce TG vs Gasca + dividir por sucursal
+        run: |
+          python scripts/cruzar_rutinas_y_dividir_sucursales.py
 
           
     
@@ -113,7 +120,9 @@ jobs:
             data/descargas/*.xlsx \
             data/asistencia/*.xlsx \
             data/rutinas/*.xlsx \
-            data/rutinas/raw/*.xlsx || echo "Nada que agregar"
+            data/rutinas/raw/*.xlsx \
+            data/rutinas/sucursales/*.xlsx || echo "Nada que agregar"
+
 
           if git diff --cached --quiet; then
             echo "✅ No hay cambios nuevos en los Excel, no se hace commit."
