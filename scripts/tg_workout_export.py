@@ -187,25 +187,86 @@ def tg_close_annoying_modals(page):
             break
 
 # ================= Frames =================
-def tg_get_pbi_frame(page, timeout_ms=180_000):
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
+
+def tg_get_pbi_frame(page, timeout_ms=240_000):
     """
-    Encuentra el iframe donde vive PowerBI: reportEmbed / app.powerbi.com
+    Encuentra el iframe donde vive PowerBI embebido.
+    En CI/headless muchas veces el frame todavía no existe o está en about:blank,
+    así que primero esperamos el <iframe> por selector y luego usamos content_frame().
     """
     deadline = time.time() + timeout_ms / 1000
-    last = []
+    last_iframes = []
+
+    iframe_selectors = [
+        "iframe[src*='app.powerbi.com']",
+        "iframe[src*='reportEmbed']",
+        "iframe[title*='Power BI' i]",
+        "iframe[name*='reportEmbed' i]",
+    ]
 
     while time.time() < deadline:
-        last = []
-        for fr in page.frames:
-            u = (fr.url or "").lower()
-            last.append(u[:140])
-            if "app.powerbi.com" in u and "reportembed" in u:
-                return fr
-        page.wait_for_timeout(500)
+        # 1) Intento DOM-first: localizar el iframe y agarrar su content_frame
+        for sel in iframe_selectors:
+            try:
+                loc = page.locator(sel).first
+                if loc.count():
+                    # aunque exista, puede estar hidden al inicio, no pasa nada
+                    fr = loc.content_frame()
+                    if fr:
+                        u = (fr.url or "").lower()
+                        # a veces todavía es about:blank, pero ya es el frame correcto
+                        # validamos por señales dentro del frame (slicers o algo de PBI)
+                        try:
+                            if ("powerbi" in u) or ("reportembed" in u):
+                                return fr
+                            if fr.locator("input.date-slicer-input").count() >= 1:
+                                return fr
+                        except Exception:
+                            pass
+            except Exception:
+                pass
 
-    print("❌ No encontré el frame de PowerBI. Frames vistos:")
-    for u in last[:15]:
-        print("  -", u)
+        # 2) Fallback: frame por URL en page.frames (tu método previo)
+        try:
+            for fr in page.frames:
+                u = (fr.url or "").lower()
+                if "app.powerbi.com" in u and "reportembed" in u:
+                    return fr
+                # señal alternativa
+                try:
+                    if fr.locator("input.date-slicer-input").count() >= 1:
+                        return fr
+                except Exception:
+                    pass
+        except Exception:
+            pass
+
+        # 3) Debug de iframes presentes
+        try:
+            last_iframes = page.eval_on_selector_all(
+                "iframe",
+                "els => els.slice(0,15).map(i => ({src:i.src||'', title:i.title||'', name:i.name||''}))"
+            )
+        except Exception:
+            last_iframes = []
+
+        page.wait_for_timeout(800)
+
+    print("❌ No encontré el frame de PowerBI por selector ni por page.frames.")
+    if last_iframes:
+        print("Iframes vistos (primeros 15):")
+        for it in last_iframes:
+            print("  -", (it.get("src") or "")[:180], "| title=", it.get("title"), "| name=", it.get("name"))
+
+    # también imprimimos algunos frames por URL
+    try:
+        print("Frames vistos por page.frames (primeros 15):")
+        for fr in page.frames[:15]:
+            print("  -", (fr.url or "")[:180])
+    except Exception:
+        pass
+
     raise RuntimeError("No se encontró iframe reportEmbed (PowerBI).")
 
 def tg_wait_for_slicers(fr, timeout_ms=180_000):
@@ -371,7 +432,17 @@ def tg_set_dates_inputs_js(page, start_date: date, end_date: date):
 
     tg_close_annoying_modals(page)
 
-    fr = tg_get_pbi_frame(page)
+    try:
+        fr = tg_get_pbi_frame(page, timeout_ms=240_000)
+    except Exception as e:
+        print(f"⚠ [TG] No vi el iframe PBI aún. Reload y reintento... {e}")
+    try:
+            page.reload(wait_until="domcontentloaded", timeout=90_000)
+            page.wait_for_timeout(2500)
+    except Exception:
+            pass
+    fr = tg_get_pbi_frame(page, timeout_ms=240_000)
+
     tg_wait_for_slicers(fr, timeout_ms=180_000)
 
     cnt = fr.locator("input.date-slicer-input").count()
