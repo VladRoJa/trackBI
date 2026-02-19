@@ -1,9 +1,3 @@
-2026/02/18-08:10:56.185 3434 Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/MANIFEST-000001
-2026/02/18-08:10:56.187 3434 Recovering log #164
-2026/02/18-08:10:56.190 3434 Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/000164.log 
-2026/02/18-08:11:12.161 6b8 Level-0 table #169: started
-2026/02/18-08:11:12.165 6b8 Level-0 table #169: 37626 bytes OK
-2026/02/18-08:11:12.167 6b8 Delete type=0 #164
-2026/02/18-08:12:56.313 6b8 Level-0 table #171: started
-2026/02/18-08:12:56.317 6b8 Level-0 table #171: 15048 bytes OK
-2026/02/18-08:12:56.319 6b8 Delete type=0 #168
+2026/02/19-08:17:56.722 30fc Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/MANIFEST-000001
+2026/02/19-08:17:56.723 30fc Recovering log #170
+2026/02/19-08:17:56.724 30fc Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/000170.log 
