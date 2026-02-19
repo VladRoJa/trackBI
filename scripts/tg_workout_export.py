@@ -151,12 +151,43 @@ def tg_close_annoying_modals(page):
 
 
 def tg_detect_turnstile_block(page) -> bool:
-    patterns = ["turnstile", "600010", "cloudflare", "challenge"]
+    """Detecta bloqueo REAL de Cloudflare/Turnstile (no solo que exista la palabra)."""
     try:
-        txt = page.content().lower()
+        url = (page.url or "").lower()
+
+        # Si te mandó a un challenge explícito
+        if "cdn-cgi/challenge" in url or "challenge" in url and "cdn-cgi" in url:
+            return True
+
+        # Si existe el widget de turnstile visible (señal fuerte)
+        if page.locator("iframe[src*='turnstile' i]").count() > 0:
+            # OJO: a veces el iframe existe sin bloquear; confirmamos con body/texto típico
+            body = (page.inner_text("body") or "").lower()
+            if "verify" in body or "verifica" in body or "checking your browser" in body:
+                return True
+
+        # Señales típicas en el DOM cuando te bloquearon
+        html = (page.content() or "").lower()
+        strong_signals = [
+            "checking your browser",
+            "verifying you are human",
+            "attention required",
+            "cf-challenge",
+            "cf-turnstile-response",
+            "captcha",
+            "ray id",
+        ]
+        if any(s in html for s in strong_signals):
+            return True
+
+        # Error específico que tú viste (600010) → SOLO si aparece tal cual
+        if "600010" in html:
+            return True
+
     except Exception:
         return False
-    return any(p in txt for p in patterns)
+
+    return False
 
 
 # ================= Frames (PowerBI) =================
@@ -308,12 +339,17 @@ def tg_login_auto(page):
     btn.click()
 
     page.wait_for_timeout(1500)
+
     if tg_detect_turnstile_block(page):
-        try:
-            page.screenshot(path=str(ARTIFACTS_DIR / "tg_turnstile.png"), full_page=True)
-        except Exception:
-            pass
-        raise RuntimeError("[TG] Cloudflare Turnstile bloqueó el login en Actions (600010).")
+        page.screenshot(path=str(ARTIFACTS_DIR / "tg_turnstile.png"), full_page=True)
+
+        # Si estás en headless (o sea SHOW_BROWSER=0), ahí sí aborta:
+        if not SHOW_BROWSER:
+            raise RuntimeError("[TG] Cloudflare/Turnstile bloqueó el login (headless).")
+
+        # Si estás en local con browser visible, solo avisa:
+        print("⚠ [TG] Se detectó posible challenge/turnstile, pero como estás en modo visible continuaré.")
+
 
     page.wait_for_load_state("domcontentloaded", timeout=90_000)
     page.wait_for_timeout(1200)
