@@ -8,3 +8,19 @@
 2026-02-19 08:45:56,991 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte...
 2026-02-19 08:45:58,034 [INFO] Seteando Fecha Corte a: 02/18/2026
 2026-02-19 08:46:05,083 [INFO] [GASCA] Raw guardado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\rutinas\raw\gasca_ventas_nuevas_socios_2026-02-18_08-46_KpiUnoSociosNuevosDetallado20260219084604.xlsx
+2026-02-21 15:10:24,840 [INFO] ==== Inicio: GASCA Ventas Nuevas Socios (Excel) ====
+2026-02-21 15:10:25,497 [INFO] Iniciando login GASCA...
+2026-02-21 15:10:36,736 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte...
+2026-02-21 15:10:37,774 [INFO] Seteando Fecha Corte a: 02/20/2026
+2026-02-21 15:10:45,717 [INFO] [GASCA] Raw guardado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\rutinas\raw\gasca_ventas_nuevas_socios_2026-02-20_15-10_KpiUnoSociosNuevosDetallado20260221151043.xlsx
+2026-02-23 07:26:53,320 [INFO] ==== Inicio: GASCA Ventas Nuevas Socios (Excel) ====
+2026-02-23 07:27:11,674 [INFO] Iniciando login GASCA...
+2026-02-23 07:27:23,374 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte...
+2026-02-23 07:27:24,412 [INFO] Seteando Fecha Corte a: 02/22/2026
+2026-02-23 07:29:25,419 [WARNING] GASCA - Ventas Nuevas Socios (Excel) falló en intento 1: Timeout 120000ms exceeded while waiting for event "download"
+=========================== logs ===========================
+waiting for event "download"
+============================================================
+2026-02-23 07:29:31,633 [INFO] Seleccionando 'Ventas Nuevas Socios' en Tipo de Reporte...
+2026-02-23 07:29:32,661 [INFO] Seteando Fecha Corte a: 02/22/2026
+2026-02-23 07:29:39,902 [INFO] [GASCA] Raw guardado: C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\data\rutinas\raw\gasca_ventas_nuevas_socios_2026-02-22_07-29_KpiUnoSociosNuevosDetallado20260223072940.xlsx
