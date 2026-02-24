@@ -1,6 +1,6 @@
-2026/02/21-15:08:33.801 4a0 Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Local Storage\leveldb/MANIFEST-000001
-2026/02/21-15:08:33.807 4a0 Recovering log #18
-2026/02/21-15:08:33.810 4a0 Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Local Storage\leveldb/000018.log 
-2026/02/21-15:09:33.821 1e38 Level-0 table #23: started
-2026/02/21-15:09:33.825 1e38 Level-0 table #23: 17119 bytes OK
-2026/02/21-15:09:33.827 1e38 Delete type=0 #18
+2026/02/23-07:23:40.892 20d0 Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Local Storage\leveldb/MANIFEST-000001
+2026/02/23-07:23:40.895 20d0 Recovering log #22
+2026/02/23-07:23:40.897 20d0 Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Local Storage\leveldb/000022.log 
+2026/02/23-07:24:40.907 3730 Level-0 table #26: started
+2026/02/23-07:24:40.911 3730 Level-0 table #26: 14871 bytes OK
+2026/02/23-07:24:40.913 3730 Delete type=0 #22

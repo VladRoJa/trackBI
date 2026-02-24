@@ -1,3 +1,3 @@
-2026/02/21-15:08:50.732 5428 Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\WebStorage\5\IndexedDB\indexeddb.leveldb/MANIFEST-000001
-2026/02/21-15:08:50.732 5428 Recovering log #3
-2026/02/21-15:08:50.733 5428 Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\WebStorage\5\IndexedDB\indexeddb.leveldb/000003.log 
+2026/02/23-07:24:32.044 cdc Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\WebStorage\5\IndexedDB\indexeddb.leveldb/MANIFEST-000001
+2026/02/23-07:24:32.045 cdc Recovering log #3
+2026/02/23-07:24:32.046 cdc Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\WebStorage\5\IndexedDB\indexeddb.leveldb/000003.log 
