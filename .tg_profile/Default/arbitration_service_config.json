@@ -1,11 +1,14 @@
 {
    "ArbitrationSignal": "notification_nsat_upper_ci-0.7",
-   "CopilotModeBypass": [ "cd4688a9-e888-48ea-ad81-76193d56b1be.IsVideoPage.Bubble", "cd4688a9-e888-48ea-ad81-76193d56b1be.IsKnowledgeCardQuery.Bubble", "PerformanceDetectorFeatureNotification", "AUTOFILL_PASSWORD_NON_FUNCTIONAL_FLYOUTS" ],
+   "CopilotModeBypass": [ "cd4688a9-e888-48ea-ad81-76193d56b1be.IsVideoPage.Bubble", "cd4688a9-e888-48ea-ad81-76193d56b1be.IsKnowledgeCardQuery.Bubble", "PerformanceDetectorFeatureNotification", "AUTOFILL_PASSWORD_NON_FUNCTIONAL_FLYOUTS", "SHOPPING_AUTO_SHOW_LOWER_PRICE_FOUND", "SHOPPING_AUTO_SHOW_REBATES", "SHOPPING_AUTO_SHOW_REBATES_CONFIRMATION", "SHOPPING_AUTO_SHOW_REBATES_ORGANIC", "SHOPPING_AUTO_SHOW_REBATES_ORGANIC_NEW" ],
    "CustomSuppressionPolicies": {
       "8682d0fa-50b3-4ece-aa5b-e0b33f9919e2.f5b8c725-cb2e-4c12-accd-73e500d88d47.AutoOpen": {
          "notification_max_quick_dismiss_count": 3
       },
       "bc25fcef-8964-4e72-8287-23e2b496c128.68b8a884-6e08-46e6-8a3b-7e06ffe48ecf.AutoOpen": {
+         "notification_max_quick_dismiss_count": 3
+      },
+      "cd4688a9-e888-48ea-ad81-76193d56b1be.a7c3d8e2-5f19-4b6a-8e91-2c4f7d0a3b5e.AutoOpen": {
          "notification_max_quick_dismiss_count": 3
       },
       "cd4688a9-e888-48ea-ad81-76193d56b1be.e06e75c1-a59a-4ab6-8361-e8b038e00a8c.AutoOpen": {
@@ -167,6 +170,7 @@
          "cd4688a9-e888-48ea-ad81-76193d56b1be.IsTwitchNonStreamPage.Bubble": 1,
          "cd4688a9-e888-48ea-ad81-76193d56b1be.IsTwitchSubPage.Bubble": 1,
          "cd4688a9-e888-48ea-ad81-76193d56b1be.IsVideoPage.Bubble": 1,
+         "cd4688a9-e888-48ea-ad81-76193d56b1be.a7c3d8e2-5f19-4b6a-8e91-2c4f7d0a3b5e.AutoOpen": 1,
          "cd4688a9-e888-48ea-ad81-76193d56b1be.e06e75c1-a59a-4ab6-8361-e8b038e00a8c.AutoOpen": 1,
          "e6723537-66ff-4f4e-ab56-a4cbaddf4e0f.MM2UpSellPopup.Bubble": 1
       }
@@ -192,6 +196,6 @@
    },
    "SuppressedExperiences": [  ],
    "TimeDelta": 5000000,
-   "baseConfigVersion": "39.0.1",
-   "configVersion": "39.0.1"
+   "baseConfigVersion": "39.0.2",
+   "configVersion": "39.0.2"
 }
