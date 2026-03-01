@@ -1,15 +1,5 @@
-2026/02/27-09:25:47.229 1540 Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Local Storage\leveldb/MANIFEST-000001
-2026/02/27-09:25:47.234 1540 Recovering log #28
-2026/02/27-09:25:47.236 1540 Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Local Storage\leveldb/000028.log 
-2026/02/27-09:26:47.254 1460 Level-0 table #32: started
-2026/02/27-09:26:47.258 1460 Level-0 table #32: 14832 bytes OK
-2026/02/27-09:26:47.260 1460 Delete type=0 #28
-2026/02/27-09:26:47.260 1460 Compacting 4@0 + 1@1 files
-2026/02/27-09:26:47.267 1460 Generated table #33@0: 101 keys, 192600 bytes
-2026/02/27-09:26:47.267 1460 Compacted 4@0 + 1@1 files => 192600 bytes
-2026/02/27-09:26:47.268 1460 compacted to: files[ 0 1 1 0 0 0 0 ]
-2026/02/27-09:26:47.269 1460 Delete type=2 #20
-2026/02/27-09:26:47.269 1460 Delete type=2 #23
-2026/02/27-09:26:47.269 1460 Delete type=2 #26
-2026/02/27-09:26:47.269 1460 Delete type=2 #29
-2026/02/27-09:26:47.269 1460 Delete type=2 #32
+2026/02/28-09:32:21.921 73bc Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Local Storage\leveldb/MANIFEST-000001
+2026/02/28-09:32:21.927 73bc Recovering log #31
+2026/02/28-09:32:21.929 73bc Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Local Storage\leveldb/000031.log 
+2026/02/28-09:35:19.570 73bc Level-0 table #36: started
+2026/02/28-09:35:20.502 73bc Level-0 table #36: 14732 bytes OK
