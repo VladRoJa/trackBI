@@ -1,3 +1,15 @@
-2026/03/03-09:36:37.642 31c8 Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/MANIFEST-000001
-2026/03/03-09:36:37.643 31c8 Recovering log #203
-2026/03/03-09:36:37.645 31c8 Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/000203.log 
+2026/03/05-08:15:39.276 81c Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/MANIFEST-000001
+2026/03/05-08:15:39.278 81c Recovering log #208
+2026/03/05-08:15:39.280 81c Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/000208.log 
+2026/03/05-08:16:35.826 5ed8 Level-0 table #212: started
+2026/03/05-08:16:35.830 5ed8 Level-0 table #212: 51849 bytes OK
+2026/03/05-08:16:35.832 5ed8 Delete type=0 #208
+2026/03/05-08:16:35.832 5ed8 Compacting 4@0 + 1@1 files
+2026/03/05-08:16:35.840 5ed8 Generated table #213@0: 16 keys, 48496 bytes
+2026/03/05-08:16:35.840 5ed8 Compacted 4@0 + 1@1 files => 48496 bytes
+2026/03/05-08:16:35.841 5ed8 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/03/05-08:16:35.843 5ed8 Delete type=2 #202
+2026/03/05-08:16:35.843 5ed8 Delete type=2 #204
+2026/03/05-08:16:35.843 5ed8 Delete type=2 #207
+2026/03/05-08:16:35.843 5ed8 Delete type=2 #209
+2026/03/05-08:16:35.843 5ed8 Delete type=2 #212
