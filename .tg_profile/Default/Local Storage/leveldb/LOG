@@ -1,3 +1,15 @@
-2026/03/06-07:21:23.103 6bac Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Local Storage\leveldb/MANIFEST-000001
-2026/03/06-07:21:23.107 6bac Recovering log #40
-2026/03/06-07:21:23.108 6bac Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Local Storage\leveldb/000040.log 
+2026/03/09-09:59:30.572 3f54 Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Local Storage\leveldb/MANIFEST-000001
+2026/03/09-09:59:30.576 3f54 Recovering log #40
+2026/03/09-09:59:30.578 3f54 Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Local Storage\leveldb/000040.log 
+2026/03/09-10:00:30.591 55e4 Level-0 table #44: started
+2026/03/09-10:00:30.594 55e4 Level-0 table #44: 15245 bytes OK
+2026/03/09-10:00:30.595 55e4 Delete type=0 #40
+2026/03/09-10:00:30.596 3f54 Compacting 4@0 + 1@1 files
+2026/03/09-10:00:30.602 3f54 Generated table #45@0: 108 keys, 192786 bytes
+2026/03/09-10:00:30.602 3f54 Compacted 4@0 + 1@1 files => 192786 bytes
+2026/03/09-10:00:30.603 3f54 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/03/09-10:00:30.604 3f54 Delete type=2 #33
+2026/03/09-10:00:30.604 3f54 Delete type=2 #35
+2026/03/09-10:00:30.604 3f54 Delete type=2 #38
+2026/03/09-10:00:30.604 3f54 Delete type=2 #41
+2026/03/09-10:00:30.604 3f54 Delete type=2 #44
