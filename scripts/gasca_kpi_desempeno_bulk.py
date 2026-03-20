@@ -278,8 +278,8 @@ def main():
 
     # RANGO: 01/01 al 08/03 (ajusta el año aquí)
     year = 2026  # <-- CAMBIA AQUÍ si lo quieres para otro año
-    start = date(year, 1, 1)
-    end = date(year, 3, 8)
+    start = date(year, 3, 1)
+    end = date(year, 3, 10)
 
     print("======================================")
     print(" GASCA KPI DESEMPEÑO - DESCARGA RANGO ")

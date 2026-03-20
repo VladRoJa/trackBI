@@ -1,0 +1,131 @@
+0:00:06 Tab2 StartNav17 #renderer-script #auto_subframe
+0:00:06 Tab2 FinishNav17
+0:00:06 Tab2 PageLoad
+0:00:06 Tab2 PageLoad
+0:00:06 Microsoft.Autofill.Password.SignIn.NoAutofillSuggestions
+0:00:06 Tab2 PageLoad
+0:00:07 Microsoft.Autofill.Password.SignIn.NoAutofillSuggestions
+0:00:07 Tab2 StartNav18 #typed
+0:00:07 Tab2 FinishNav18
+0:00:07 Tab2 StartNav19 #renderer-script #link
+0:00:07 Tab2 FinishNav19
+0:00:07 Tab2 StartNav20 #renderer-script #auto_subframe
+0:00:07 Tab2 StartNav21 #renderer-script #auto_subframe
+0:00:07 Tab2 StartNav22 #renderer-script #auto_subframe
+0:00:07 Tab2 FinishNav22
+0:00:07 Tab2 PageLoad
+0:00:07 Tab2 StartNav23 #renderer-script #auto_subframe
+0:00:07 Tab2 FinishNav23 ERR_ABORTED
+0:00:07 Tab2 FinishNav20
+0:00:07 Tab2 PageLoad
+0:00:07 Tab2 StartNav24 #renderer-script #auto_subframe
+0:00:07 Tab2 FinishNav24
+0:00:07 Tab2 FinishNav21
+0:00:07 Tab2 StartNav25 #renderer-script #auto_subframe
+0:00:08 Tab2 FinishNav25
+0:00:08 Tab2 PageLoad
+0:00:08 Tab2 PageLoad
+0:00:08 Microsoft.Autofill.Password.SignIn.NoAutofillSuggestions
+0:00:08 Tab2 PageLoad
+0:00:08 Microsoft.Autofill.Password.SignIn.NoAutofillSuggestions
+0:00:10 Tab2 StartNav26 #renderer-user #auto_subframe
+0:00:10 Tab2 FinishNav26
+0:00:10 Tab2 PageLoad
+0:00:10 Tab2 StartNav27 #renderer-script #auto_subframe
+0:00:10 Tab2 FinishNav27
+0:00:10 Tab2 PageLoad
+0:00:11 Tab2 StartNav28 #renderer-script #auto_subframe
+0:00:11 Tab2 FinishNav28
+0:00:11 Tab2 PageLoad
+0:00:11 Tab2 StartNav29 #renderer-script #auto_subframe
+0:00:11 Tab2 FinishNav29
+0:00:11 Tab2 PageLoad
+0:00:11 Tab2 StartNav30 #renderer-script #auto_subframe
+0:00:11 Tab2 FinishNav30
+0:00:11 Tab2 PageLoad
+0:00:11 Tab2 StartNav31 #renderer-script #auto_subframe
+0:00:11 Tab2 FinishNav31
+0:00:11 Tab2 PageLoad
+0:00:11 Tab2 StartNav32 #renderer-script #auto_subframe
+0:00:11 Tab2 FinishNav32
+0:00:11 Tab2 PageLoad
+0:00:11 Tab2 StartNav33 #renderer-script #auto_subframe
+0:00:11 Tab2 FinishNav33
+0:00:11 Tab2 PageLoad
+0:00:11 Tab2 StartNav34 #renderer-user #auto_subframe
+0:00:11 Tab2 FinishNav34
+0:00:11 Tab2 PageLoad #failure
+0:00:11 Tab2 StartNav35 #renderer-script #auto_subframe
+0:00:11 Tab2 FinishNav35
+0:00:11 Tab2 PageLoad
+0:00:11 Tab2 StartNav36 #renderer-script #auto_subframe
+0:00:11 Tab2 FinishNav36
+0:00:11 Tab2 PageLoad
+0:00:12 Tab2 StartNav37 #renderer-script #auto_subframe
+0:00:12 Tab2 FinishNav37
+0:00:12 Tab2 PageLoad
+0:00:12 Tab2 StartNav38 #renderer-script #auto_subframe
+0:00:12 Tab2 FinishNav38
+0:00:12 Tab2 PageLoad
+0:00:12 Tab2 StartNav39 #renderer-script #auto_subframe
+0:00:12 Tab2 FinishNav39
+0:00:12 Tab2 PageLoad
+0:00:12 Tab2 StartNav40 #renderer-script #auto_subframe
+0:00:12 Tab2 FinishNav40
+0:00:12 Tab2 PageLoad
+0:00:17 Tab2 StartNav41 #typed
+0:00:17 Tab2 RemoveInfobar73
+0:00:17 Tab2 AddInfobar73
+0:00:17 Tab2 FinishNav41
+0:00:18 Tab2 StartNav42 #renderer-script #auto_subframe
+0:00:18 Tab2 FinishNav42
+0:00:18 Tab2 PageLoad
+0:00:18 Tab2 StartNav43 #renderer-script #auto_subframe
+0:00:18 Tab2 FinishNav43 ERR_ABORTED
+0:00:18 Tab2 StartNav44 #renderer-script #auto_subframe
+0:00:18 Tab2 StartNav45 #renderer-script #auto_subframe
+0:00:18 Tab2 FinishNav44
+0:00:18 Tab2 PageLoad
+0:00:18 Tab2 StartNav46 #renderer-script #link
+0:00:18 Tab2 FinishNav46
+0:00:18 Tab2 StartNav47 #renderer-script #link
+0:00:18 Tab2 FinishNav45
+0:00:18 Tab2 StartNav48 #renderer-script #auto_subframe
+0:00:18 Tab2 FinishNav48
+0:00:18 Tab2 PageLoad
+0:00:18 Tab2 StartNav49 #renderer-script #auto_subframe
+0:00:18 Tab2 FinishNav49
+0:00:19 Tab2 PageLoad
+0:00:19 Tab2 PageLoad #failure
+0:00:19 Tab2 FinishNav47
+0:00:19 Tab2 StartNav50 #renderer-script #auto_subframe
+0:00:19 Tab2 StartNav51 #renderer-script #auto_subframe
+0:00:19 Tab2 FinishNav50
+0:00:19 Tab2 PageLoad
+0:00:19 Tab2 StartNav52 #renderer-script #auto_subframe
+0:00:19 Tab2 FinishNav52
+0:00:19 Tab2 PageLoad
+0:00:19 Tab2 StartNav53 #renderer-script #auto_subframe
+0:00:19 Tab2 FinishNav53 ERR_ABORTED
+0:00:19 Tab2 StartNav54 #renderer-script #link
+0:00:19 Tab2 FinishNav54
+0:00:19 Tab2 FinishNav51
+0:00:19 Tab2 StartNav55 #renderer-script #auto_subframe
+0:00:19 Tab2 FinishNav55
+0:00:19 Tab2 PageLoad
+0:00:19 Tab2 StartNav56 #renderer-script #auto_subframe
+0:00:19 Tab2 FinishNav56
+0:00:19 Tab2 PageLoad
+0:00:20 Tab2 StartNav57 #renderer-user #auto_subframe
+0:00:20 Tab2 FinishNav57
+0:00:21 Tab2 StartNav58 #renderer-script #auto_subframe
+0:00:21 Tab2 FinishNav58
+0:00:21 Tab2 PageLoad
+0:00:21 Tab2 StartNav59 #renderer-script #auto_subframe
+0:00:21 Tab2 FinishNav59 ERR_ABORTED
+0:00:21 Tab2 PageLoad
+0:00:21 Tab2 PageLoad
+0:00:22 Tab2 StartNav60 #renderer-user #auto_subframe
+0:00:22 Tab2 FinishNav60
+0:00:23 Tab2 PageLoad
+0:01:25 Microsoft.Shutdown.ExitIgnoreUnloadHandlers

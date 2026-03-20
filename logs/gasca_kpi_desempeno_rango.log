@@ -1,0 +1,4 @@
+2026-03-11 08:31:53,554 [WARNING] 2026-03-10 fallo intento 1: Locator.wait_for: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator("button:has-text('Exportar')").first to be visible
+
