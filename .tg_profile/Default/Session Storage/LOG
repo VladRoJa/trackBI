@@ -1,9 +1,21 @@
-2026/03/20-07:14:57.602 5058 Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/MANIFEST-000001
-2026/03/20-07:14:57.603 5058 Recovering log #251
-2026/03/20-07:14:57.606 5058 Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/000251.log 
-2026/03/20-07:15:24.931 68bc Level-0 table #255: started
-2026/03/20-07:15:24.935 68bc Level-0 table #255: 22464 bytes OK
-2026/03/20-07:15:24.938 68bc Delete type=0 #251
-2026/03/20-07:16:17.707 5058 Level-0 table #257: started
-2026/03/20-07:16:17.712 5058 Level-0 table #257: 27636 bytes OK
-2026/03/20-07:16:17.714 5058 Delete type=0 #254
+2026/03/31-08:09:29.891 4364 Reusing MANIFEST C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/MANIFEST-000001
+2026/03/31-08:09:29.893 4364 Recovering log #281
+2026/03/31-08:09:29.897 4364 Reusing old log C:\Users\Vladimir\Documents\Reportes\track\TRACK BI\.tg_profile\Default\Session Storage/000281.log 
+2026/03/31-08:10:34.486 78c Level-0 table #285: started
+2026/03/31-08:10:34.491 78c Level-0 table #285: 14217 bytes OK
+2026/03/31-08:10:34.493 78c Delete type=0 #281
+2026/03/31-08:10:34.494 78c Compacting 4@0 + 1@1 files
+2026/03/31-08:10:34.499 78c Generated table #286@0: 8 keys, 5805 bytes
+2026/03/31-08:10:34.499 78c Compacted 4@0 + 1@1 files => 5805 bytes
+2026/03/31-08:10:34.500 78c compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/03/31-08:10:34.501 78c Delete type=2 #274
+2026/03/31-08:10:34.501 78c Delete type=2 #277
+2026/03/31-08:10:34.501 78c Delete type=2 #279
+2026/03/31-08:10:34.501 78c Delete type=2 #282
+2026/03/31-08:10:34.501 78c Delete type=2 #285
+2026/03/31-08:11:34.490 78c Level-0 table #288: started
+2026/03/31-08:11:34.495 78c Level-0 table #288: 9805 bytes OK
+2026/03/31-08:11:34.498 78c Delete type=0 #284
+2026/03/31-08:12:24.460 78c Level-0 table #290: started
+2026/03/31-08:12:24.465 78c Level-0 table #290: 13404 bytes OK
+2026/03/31-08:12:24.467 78c Delete type=0 #287
